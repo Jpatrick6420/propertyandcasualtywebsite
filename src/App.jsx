@@ -26,7 +26,7 @@ function App() {
   };
 
   const openZillowAndGoogle = async (address) => {
-    openGoogleMaps(address);
+    // openGoogleMaps(address);
     openZillowDirect(address);
     await navigator.clipboard.writeText(currentAddress);
     setCurrentAddress("");
