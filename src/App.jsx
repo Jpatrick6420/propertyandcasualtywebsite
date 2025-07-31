@@ -26,14 +26,13 @@ function App() {
   };
 
   const openZillowAndGoogle = async (address) => {
-    // openGoogleMaps(address);
+    await navigator.clipboard.writeText(address);
+    openGoogleMaps(address);
     openZillowDirect(address);
-    await navigator.clipboard.writeText(currentAddress);
     setCurrentAddress("");
   };
 
   const [currentAddress, setCurrentAddress] = useState("");
-  const [currentZip, setCurrentZip] = useState("");
 
   const zipCodeInput = (address) => {
     const match = address.match(/\b\d{5}(?:-\d{4})?$/);
@@ -42,7 +41,7 @@ function App() {
 
   const handleAddressChange = () => {
     const zip = zipCodeInput(currentAddress);
-    setCurrentZip(zip);
+
     zip == "" ? console.log("") : console.log("ZipCode:", zip);
 
     if (saltLakeCountyZipCodes.includes(zip)) {
