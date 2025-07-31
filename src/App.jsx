@@ -25,10 +25,10 @@ function App() {
     window.open(url, "_blank");
   };
 
-  const openZillowAndGoogle = (address) => {
+  const openZillowAndGoogle = async (address) => {
     openGoogleMaps(address);
     openZillowDirect(address);
-    navigator.clipboard.write(currentAddress);
+    await navigator.clipboard.writeText(currentAddress);
     setCurrentAddress("");
   };
 
