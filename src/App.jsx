@@ -24,9 +24,6 @@ function App() {
     if (!win) {
       alert("Popup blocked! Please allow popups for this site.");
     }
-    // const query = encodeURIComponent(address);
-    // const url = `https://www.google.com/maps/search/?api=1&query=${query}`;
-    // window.open(url, "_blank");
   };
 
   const openZillowDirect = (address) => {
@@ -59,8 +56,6 @@ function App() {
 
   const handleAddressChange = () => {
     const zip = zipCodeInput(currentAddress);
-
-    zip == "" ? console.log("") : console.log("ZipCode:", zip);
 
     if (saltLakeCountyZipCodes.includes(zip)) {
       window.open("https://www.saltlakecounty.gov/assessor/", "_blank");
