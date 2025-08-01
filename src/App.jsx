@@ -15,9 +15,18 @@ import Popup from "./components/Popup.jsx";
 
 function App() {
   const openGoogleMaps = (address) => {
-    const query = encodeURIComponent(address);
-    const url = `https://www.google.com/maps/search/?api=1&query=${query}`;
-    window.open(url, "_blank");
+    const formatted = address.trim().replace(/\s+/g, "+");
+    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      formatted
+    )}`;
+    const win = window.open(url, "_blank");
+
+    if (!win) {
+      alert("Popup blocked! Please allow popups for this site.");
+    }
+    // const query = encodeURIComponent(address);
+    // const url = `https://www.google.com/maps/search/?api=1&query=${query}`;
+    // window.open(url, "_blank");
   };
 
   const openZillowDirect = (address) => {
