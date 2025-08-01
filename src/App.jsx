@@ -9,6 +9,7 @@ import {
   boxElderCountyZipCodes,
   tooeleCountyZipCodes,
   davisCountyZipCodes,
+  washingtonCountyZipCodes,
 } from "./data/zip_code_list.js";
 
 function App() {
@@ -25,8 +26,7 @@ function App() {
     window.open(url, "_blank");
   };
 
-  const openZillowAndGoogle = async (address) => {
-    await navigator.clipboard.writeText(address);
+  const openZillowAndGoogle = (address) => {
     openGoogleMaps(address);
     openZillowDirect(address);
     setCurrentAddress("");
@@ -67,6 +67,11 @@ function App() {
       openZillowAndGoogle(currentAddress);
     } else if (utahCountyZipCodes.includes(zip)) {
       window.open("https://maps.utahcounty.gov/ParcelMap/ParcelMap.html");
+      openZillowAndGoogle(currentAddress);
+    } else if (washingtonCountyZipCodes.includes(zip)) {
+      window.open(
+        "https://geoprodvm.washco.utah.gov/Html5Viewer/index.html?viewer=AssessorReport"
+      );
       openZillowAndGoogle(currentAddress);
     } else {
       console.log("none found");
