@@ -11,6 +11,7 @@ import {
   davisCountyZipCodes,
   washingtonCountyZipCodes,
 } from "./data/zip_code_list.js";
+import Popup from "./components/Popup.jsx";
 
 function App() {
   const openGoogleMaps = (address) => {
@@ -34,9 +35,17 @@ function App() {
 
   const [currentAddress, setCurrentAddress] = useState("");
 
+  const [isPopUp, setIsPopUp] = useState(false);
+
   const zipCodeInput = (address) => {
     const match = address.match(/\b\d{5}(?:-\d{4})?$/);
     return match ? match[0] : "";
+  };
+  const handleEnterPopUp = () => {
+    setIsPopUp(true);
+  };
+  const handleLeavePopUp = () => {
+    setIsPopUp(false);
   };
 
   const handleAddressChange = () => {
@@ -83,15 +92,18 @@ function App() {
       <Nav />
       <div className="flex justify-center">
         <form method="put" action="/" className="w-1/3">
-          <div className="my-2 grid grid-cols-5 ">
+          <div className="my-2 grid grid-cols-5 relative ">
             <label htmlFor="address_input">Address</label>
             <input
               type="text"
               id="address_input"
-              className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5"
+              className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5 relative"
               value={currentAddress}
               onChange={(e) => setCurrentAddress(e.target.value)}
+              onMouseEnter={handleEnterPopUp}
+              onMouseLeave={handleLeavePopUp}
             />
+            {isPopUp && <Popup text="* Must include zip code" />}
           </div>
           <div className="flex justify-center w-full">
             <button
