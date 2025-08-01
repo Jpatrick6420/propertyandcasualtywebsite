@@ -88,7 +88,7 @@ function App() {
             <input
               type="text"
               id="address_input"
-              className="border-1 border-gray-900 ml-2 col-span-4"
+              className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5"
               value={currentAddress}
               onChange={(e) => setCurrentAddress(e.target.value)}
             />
