@@ -87,7 +87,7 @@ function App() {
       );
       openZillowAndGoogle(currentAddress);
     } else {
-      console.log("none found");
+      openZillowAndGoogle(currentAddress);
     }
   };
 

@@ -113,7 +113,6 @@ export const saltLakeCountyZipCodes = [
   "84065",
   "84120",
   "84081",
-  "84010",
   "84118",
   "84121",
   "84088",
