@@ -10,6 +10,10 @@ import {
   tooeleCountyZipCodes,
   davisCountyZipCodes,
   washingtonCountyZipCodes,
+  carbonCountyZips,
+  adaZipCodes,
+  kootenaiZipCodes,
+  bonnerZipCodes,
 } from "./data/zip_code_list.js";
 import Popup from "./components/Popup.jsx";
 
@@ -85,6 +89,22 @@ function App() {
       window.open(
         "https://geoprodvm.washco.utah.gov/Html5Viewer/index.html?viewer=AssessorReport"
       );
+      openZillowAndGoogle(currentAddress);
+    } else if (carbonCountyZips.includes(zip)) {
+      window.open("https://www.carbon.utah.gov/service/property-search/");
+      openZillowAndGoogle(currentAddress);
+    } else if (adaZipCodes.includes(zip)) {
+      window.open(
+        "https://apps.adacounty.id.gov/PropertyLookup/SearchProperty"
+      );
+      openZillowAndGoogle(currentAddress);
+    } else if (kootenaiZipCodes.includes(zip)) {
+      window.open(
+        "https://id-kootenai.publicaccessnow.com/Assessor/PropertySearch.aspx?utm_source=chatgpt.com"
+      );
+      openZillowAndGoogle(currentAddress);
+    } else if (bonnerZipCodes.includes(zip)) {
+      window.open("https://cloudgisapps.bonnercountyid.gov/PropertySearch/");
       openZillowAndGoogle(currentAddress);
     } else {
       openZillowAndGoogle(currentAddress);
