@@ -112,16 +112,16 @@ function App() {
   };
 
   return (
-    <>
+    <body className="">
       <Nav />
-      <div className="flex justify-center">
-        <form method="put" action="/" className="w-1/3">
-          <div className="my-2 grid grid-cols-5 relative ">
+      <div className="flex justify-center mt-4">
+        <form method="put" action="/" className="min-w-44">
+          <div className="my-2 md:grid md:grid-cols-5  relative ">
             <label htmlFor="address_input">Address</label>
             <input
               type="text"
               id="address_input"
-              className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5 relative"
+              className="border-1 border-gray-900 ml-2 md:col-span-4 px-1 py-0.5 relative"
               value={currentAddress}
               onChange={(e) => setCurrentAddress(e.target.value)}
               onMouseEnter={handleEnterPopUp}
@@ -142,7 +142,7 @@ function App() {
           </div>
         </form>
       </div>
-    </>
+    </body>
   );
 }
 

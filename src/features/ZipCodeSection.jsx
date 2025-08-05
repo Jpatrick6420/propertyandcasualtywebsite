@@ -15,6 +15,10 @@ import Popup from "../components/Popup.jsx";
 import { useState } from "react";
 
 function ZipCodeSection() {
+  const [currentAddress, setCurrentAddress] = useState("");
+
+  const [isPopUp, setIsPopUp] = useState(false);
+
   const openGoogleMaps = (address) => {
     const formatted = address.trim().replace(/\s+/g, "+");
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -39,10 +43,6 @@ function ZipCodeSection() {
     openZillowDirect(address);
     setCurrentAddress("");
   };
-
-  const [currentAddress, setCurrentAddress] = useState("");
-
-  const [isPopUp, setIsPopUp] = useState(false);
 
   const zipCodeInput = (address) => {
     const match = address.match(/\b\d{5}(?:-\d{4})?$/);
@@ -117,7 +117,10 @@ function ZipCodeSection() {
             id="address_input"
             className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5 relative"
             value={currentAddress}
-            onChange={(e) => setCurrentAddress(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target.value);
+              setCurrentAddress(e.target.value);
+            }}
             onMouseEnter={handleEnterPopUp}
             onMouseLeave={handleLeavePopUp}
           />

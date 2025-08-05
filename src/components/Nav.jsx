@@ -1,6 +1,6 @@
 function Nav() {
   return (
-    <ul className="flex gap-4 px-2 bg-black">
+    <ul className="flex gap-4 px-2 bg-black xl:justify-center">
       <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
         Quote
       </li>
