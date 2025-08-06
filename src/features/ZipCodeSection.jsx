@@ -66,7 +66,7 @@ function ZipCodeSection() {
       openZillowAndGoogle(currentAddress);
     } else if (davisCountyZipCodes.includes(zip)) {
       window.open(
-        "https://webportal.daviscountyutah.gov/App/PropertySearch/esri/map?_gl=1*knbeo4*_ga*NTMyNTczMDU0LjE3NTM1NDgzNjk.*_ga_C4PN7RFDN6*czE3NTM1NDgzNjgkbzEkZzEkdDE3NTM1NDg1NjQkajYwJGwwJGgw"
+        "https://webportal.daviscountyutah.gov/App/PropertySearch/esri/map?_gl=1*1rf4rwm*_ga*MTEyMjk0NzY0MS4xNzU0NDQ4NjU2*_ga_C4PN7RFDN6*czE3NTQ0NDg2NTUkbzEkZzAkdDE3NTQ0NDg2NTUkajYwJGwwJGgw"
       );
       openZillowAndGoogle(currentAddress);
     } else if (boxElderCountyZipCodes.includes(zip)) {
@@ -80,7 +80,9 @@ function ZipCodeSection() {
       );
       openZillowAndGoogle(currentAddress);
     } else if (utahCountyZipCodes.includes(zip)) {
-      window.open("https://maps.utahcounty.gov/ParcelMap/ParcelMap.html");
+      window.open(
+        "https://www.utahcounty.gov/landrecords/AddressSearchForm.asp"
+      );
       openZillowAndGoogle(currentAddress);
     } else if (washingtonCountyZipCodes.includes(zip)) {
       window.open(
@@ -103,7 +105,20 @@ function ZipCodeSection() {
     } else if (bonnerZipCodes.includes(zip)) {
       window.open("https://cloudgisapps.bonnercountyid.gov/PropertySearch/");
       openZillowAndGoogle(currentAddress);
-    } else {
+    } else if (
+      !davisCountyZipCodes.includes(zip) &&
+      !saltLakeCountyZipCodes.includes(zip) &&
+      !weberCountyZipCodes.includes(zip) &&
+      !tooeleCountyZipCodes.includes(zip) &&
+      !weberCountyZipCodes &&
+      !utahCountyZipCodes.includes(zip) &&
+      !boxElderCountyZipCodes.includes(zip) &&
+      !washingtonCountyZipCodes.includes(zip) &&
+      !carbonCountyZips.includes(zip) &&
+      !adaZipCodes.includes(zip) &&
+      !kootenaiZipCodes.includes(zip) &&
+      !bonnerZipCodes.includes(zip)
+    ) {
       openZillowAndGoogle(currentAddress);
     }
   };
