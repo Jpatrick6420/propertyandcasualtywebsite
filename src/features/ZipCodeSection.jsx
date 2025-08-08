@@ -15,6 +15,19 @@ import Popup from "../components/Popup.jsx";
 import { useState } from "react";
 
 function ZipCodeSection() {
+  const allZips = [
+    ...weberCountyZipCodes,
+    ...utahCountyZipCodes,
+    ...saltLakeCountyZipCodes,
+    ...boxElderCountyZipCodes,
+    ...tooeleCountyZipCodes,
+    ...davisCountyZipCodes,
+    ...washingtonCountyZipCodes,
+    ...carbonCountyZips,
+    ...adaZipCodes,
+    ...kootenaiZipCodes,
+    ...bonnerZipCodes,
+  ];
   const [currentAddress, setCurrentAddress] = useState("");
 
   const [isPopUp, setIsPopUp] = useState(false);
@@ -105,20 +118,7 @@ function ZipCodeSection() {
     } else if (bonnerZipCodes.includes(zip)) {
       window.open("https://cloudgisapps.bonnercountyid.gov/PropertySearch/");
       openZillowAndGoogle(currentAddress);
-    } else if (
-      !davisCountyZipCodes.includes(zip) &&
-      !saltLakeCountyZipCodes.includes(zip) &&
-      !weberCountyZipCodes.includes(zip) &&
-      !tooeleCountyZipCodes.includes(zip) &&
-      !weberCountyZipCodes &&
-      !utahCountyZipCodes.includes(zip) &&
-      !boxElderCountyZipCodes.includes(zip) &&
-      !washingtonCountyZipCodes.includes(zip) &&
-      !carbonCountyZips.includes(zip) &&
-      !adaZipCodes.includes(zip) &&
-      !kootenaiZipCodes.includes(zip) &&
-      !bonnerZipCodes.includes(zip)
-    ) {
+    } else if (!allZips.includes(zip)) {
       openZillowAndGoogle(currentAddress);
     }
   };
