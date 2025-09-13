@@ -1,6 +1,5 @@
 import "./App.css";
 import Nav from "./components/Nav";
-
 import ZipCodeSection from "./features/ZipCodeSection.jsx";
 
 function App2() {

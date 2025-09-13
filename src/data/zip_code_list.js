@@ -68,6 +68,7 @@ export const utahCountyZipCodes = [
   "84628",
   "84603",
   "84605",
+  "84665",
 ];
 export const boxElderCountyZipCodes = [
   "84404",
