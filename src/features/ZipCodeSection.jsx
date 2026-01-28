@@ -35,7 +35,7 @@ function ZipCodeSection() {
   const openGoogleMaps = (address) => {
     const formatted = address.trim().replace(/\s+/g, "+");
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      formatted
+      formatted,
     )}`;
     const win = window.open(url, "_blank");
 
@@ -79,27 +79,27 @@ function ZipCodeSection() {
       openZillowAndGoogle(currentAddress);
     } else if (davisCountyZipCodes.includes(zip)) {
       window.open(
-        "https://webportal.daviscountyutah.gov/App/PropertySearch/esri/map?_gl=1*1rf4rwm*_ga*MTEyMjk0NzY0MS4xNzU0NDQ4NjU2*_ga_C4PN7RFDN6*czE3NTQ0NDg2NTUkbzEkZzAkdDE3NTQ0NDg2NTUkajYwJGwwJGgw"
+        "https://webportal.daviscountyutah.gov/App/PropertySearch/esri/map?_gl=1*1rf4rwm*_ga*MTEyMjk0NzY0MS4xNzU0NDQ4NjU2*_ga_C4PN7RFDN6*czE3NTQ0NDg2NTUkbzEkZzAkdDE3NTQ0NDg2NTUkajYwJGwwJGgw",
       );
       openZillowAndGoogle(currentAddress);
     } else if (boxElderCountyZipCodes.includes(zip)) {
       window.open(
-        "https://erecord.boxeldercountyut.gov/eaglesoftware/web/login.jsp"
+        "https://erecord.boxeldercountyut.gov/eaglesoftware/web/login.jsp",
       );
       openZillowAndGoogle(currentAddress);
     } else if (tooeleCountyZipCodes.includes(zip)) {
       window.open(
-        "https://erecording.tooeleco.gov/eaglesoftware/web/login.jsp"
+        "https://erecording.tooeleco.gov/eaglesoftware/web/login.jsp",
       );
       openZillowAndGoogle(currentAddress);
     } else if (utahCountyZipCodes.includes(zip)) {
       window.open(
-        "https://www.utahcounty.gov/landrecords/AddressSearchForm.asp"
+        "https://www.utahcounty.gov/landrecords/AddressSearchForm.asp",
       );
       openZillowAndGoogle(currentAddress);
     } else if (washingtonCountyZipCodes.includes(zip)) {
       window.open(
-        "https://geoprodvm.washco.utah.gov/Html5Viewer/index.html?viewer=AssessorReport"
+        "https://geoprodvm.washco.utah.gov/Html5Viewer/index.html?viewer=AssessorReport",
       );
       openZillowAndGoogle(currentAddress);
     } else if (carbonCountyZips.includes(zip)) {
@@ -107,12 +107,12 @@ function ZipCodeSection() {
       openZillowAndGoogle(currentAddress);
     } else if (adaZipCodes.includes(zip)) {
       window.open(
-        "https://apps.adacounty.id.gov/PropertyLookup/SearchProperty"
+        "https://apps.adacounty.id.gov/PropertyLookup/SearchProperty",
       );
       openZillowAndGoogle(currentAddress);
     } else if (kootenaiZipCodes.includes(zip)) {
       window.open(
-        "https://id-kootenai.publicaccessnow.com/Assessor/PropertySearch.aspx?utm_source=chatgpt.com"
+        "https://id-kootenai.publicaccessnow.com/Assessor/PropertySearch.aspx?utm_source=chatgpt.com",
       );
       openZillowAndGoogle(currentAddress);
     } else if (bonnerZipCodes.includes(zip)) {
@@ -123,7 +123,7 @@ function ZipCodeSection() {
     }
   };
   return (
-    <div className="flex justify-center">
+    <div className="lg:flex lg:justify-center ">
       <form method="put" action="/" className="w-1/3">
         <div className="my-2 grid grid-cols-5 relative ">
           <label htmlFor="address_input">Address</label>

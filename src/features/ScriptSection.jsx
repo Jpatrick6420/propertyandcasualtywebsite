@@ -2,7 +2,7 @@ import Dropdown from "../components/Dropdown";
 
 function ScriptSection({ handler, state }) {
   return (
-    <div>
+    <div className="px-4">
       <Dropdown
         handler={handler}
         options={[

@@ -32,7 +32,7 @@ function App2() {
       <Nav />
       <ZipCodeSection />
       <ScriptSection handler={dispatch} state={state.script} />
-      <ul>
+      <ul className="px-4 py-1">
         {state.script == "newlead" &&
           newLeads.map((item, i) => <List items={item} key={i} />)}
         {state.script == "requote" &&
