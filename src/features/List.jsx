@@ -1,11 +1,10 @@
-function TipsSection({ tips }) {
+function List({ items }) {
   return (
-    <ul>
-      {tips.map((item) => {
-        return <li>{item.tip}</li>;
-      })}
-    </ul>
+    <li>
+      <h2>Day: {items.day}</h2>
+      <p>{items.message}</p>
+    </li>
   );
 }
 
-export default TipsSection;
+export default List;
