@@ -25,7 +25,7 @@ const requoteTexts = [
   {
     day: 1,
     message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check to see if it makes sense to revist it now. No rush at all -- just let me know.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. We worked up a [home/auto] quote for you in the past, I wanted to check to see if it makes sense to revist it now. No rush at all -- just let me know.",
   },
   {
     day: 3,
