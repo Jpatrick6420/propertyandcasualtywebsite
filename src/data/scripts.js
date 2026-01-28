@@ -2,12 +2,12 @@ const newLeads = [
   {
     day: 1,
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. I received your request for a [home/auto] quote and started reviewing your info. No Rush --just let me know if you'd like me to finish or answer any questions.",
+      "Hi :contact:, this is Justin with Mason Crapo Insurance. I received your request for a [home/auto] quote and started reviewing your info. No Rush --just let me know if you'd like me to finish it or answer any questions.",
   },
   {
     day: 3,
     message:
-      "Quick note- I'm seeing a couple coverage options that might change the price depending on how youwnt things structured. Happy to explain if you want to take a look.",
+      "Quick note- I'm seeing a couple coverage options that might change the price depending on how you want things structured. Happy to explain if you want to take a look.",
   },
   {
     day: 6,
@@ -17,7 +17,7 @@ const newLeads = [
   {
     day: 9,
     message:
-      "I'll pause outreach for now so I dont bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in.",
+      "I'll pause outreach for now so I don't bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in.",
   },
 ];
 
@@ -25,7 +25,7 @@ const requoteTexts = [
   {
     day: 1,
     message:
-      "Hi :contact:, this i Justin with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check i to see if it makes sense to revist it now. No rush at all -- just let me know.",
+      "Hi :contact:, this is Justin with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check to see if it makes sense to revist it now. No rush at all -- just let me know.",
   },
   {
     day: 3,
@@ -83,13 +83,13 @@ const conditionalRequotes = [
     day: 1,
     topic: "options",
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things --no pressure at all.",
+      "Hi :contact:, this is (name) with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things --no pressure at all.",
   },
   {
     day: 1,
     topic: "structure",
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before.  Happy to walk through it if you want to revisit things.",
+      "Hi :contact:, this is (name) with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before. Happy to walk through it if you want to revisit things.",
   },
 ];
 const winbackScript = [
