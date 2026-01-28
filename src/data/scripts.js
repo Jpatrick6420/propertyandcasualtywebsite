@@ -17,7 +17,7 @@ const newLeads = [
   {
     day: 9,
     message:
-      "I'll pause outreach for now so I dont bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in",
+      "I'll pause outreach for now so I dont bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in.",
   },
 ];
 
@@ -25,7 +25,7 @@ const requoteTexts = [
   {
     day: 1,
     message:
-      "Hi :contact:, this i Justin with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check i to see if it makes sense to revit it now. No rush at all -- just let me know",
+      "Hi :contact:, this i Justin with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check i to see if it makes sense to revist it now. No rush at all -- just let me know.",
   },
   {
     day: 3,
@@ -57,7 +57,7 @@ const requoteNoContact = [
   {
     day: 6,
     message:
-      "If you do want to revisit it, would you prefer a quick call or for me to text you the basics",
+      "If you do want to revisit it, would you prefer a quick call or for me to text you the basics.",
   },
   {
     day: 9,
@@ -71,7 +71,7 @@ const conditionalRequotes = [
     day: 1,
     topic: "claims",
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance, and I'm reaching out because the claim timing we discussed may no longer be affecting your opitons. No rush --just wanted to know if you'd like me to take another look",
+      "Hi :contact:, this is Justin with Mason Crapo Insurance, and I'm reaching out because the claim timing we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
   },
   {
     day: 1,
