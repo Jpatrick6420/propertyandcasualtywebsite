@@ -2,7 +2,7 @@ const newLeads = [
   {
     day: 1,
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. I received your request for a [home/auto] quote and started reviewing your info. No Rush --just let me know if you'd like me to finish it or answer any questions.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. I received your request for a [home/auto] quote and started reviewing your info. No Rush --just let me know if you'd like me to finish it or answer any questions.",
   },
   {
     day: 3,
@@ -25,7 +25,7 @@ const requoteTexts = [
   {
     day: 1,
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check to see if it makes sense to revist it now. No rush at all -- just let me know.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. We worked up a [home/auto] for you in the past, I wanted to check to see if it makes sense to revist it now. No rush at all -- just let me know.",
   },
   {
     day: 3,
@@ -47,7 +47,7 @@ const requoteNoContact = [
   {
     day: 1,
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. I had your contact info from a prior quote request and I wanted to see if reviewing your [home/auto] insurance is still relevant. No rush -- just let me know.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. I had your contact info from a prior quote request and I wanted to see if reviewing your [home/auto] insurance is still relevant. No rush -- just let me know.",
   },
   {
     day: 3,
@@ -71,25 +71,25 @@ const conditionalRequotes = [
     day: 1,
     topic: "claims",
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance, and I'm reaching out because the claim timing we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance, and I'm reaching out because the claim timing we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
   },
   {
     day: 1,
     topic: "eligible",
     message:
-      "Hi :contact:, this is Justin with Mason Crapo Insurance. When we last talked, your home wasn't eligible with a few carriers due to underwriting issues. That may have changed.  Happy to revisit it if you'd like. --totally up to you.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. When we last talked, your home wasn't eligible with a few carriers due to underwriting issues. That may have changed.  Happy to revisit it if you'd like. --totally up to you.",
   },
   {
     day: 1,
     topic: "options",
     message:
-      "Hi :contact:, this is (name) with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things --no pressure at all.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things --no pressure at all.",
   },
   {
     day: 1,
     topic: "structure",
     message:
-      "Hi :contact:, this is (name) with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before. Happy to walk through it if you want to revisit things.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before. Happy to walk through it if you want to revisit things.",
   },
 ];
 const winbackScript = [
@@ -97,7 +97,7 @@ const winbackScript = [
     day: 1,
 
     message:
-      "Hi :Name:, this is Justin with Mason Crapo Insurance. We worked together in the past, and I wanted to check in to see if it makes sense to review your insurance again. No rush at all — just wanted to reach out.",
+      "Hi :Name:, this is :user: with Mason Crapo Insurance. We worked together in the past, and I wanted to check in to see if it makes sense to review your insurance again. No rush at all — just wanted to reach out.",
   },
   {
     day: 3,
