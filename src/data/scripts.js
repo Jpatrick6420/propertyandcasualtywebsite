@@ -62,7 +62,7 @@ const requoteNoContact = [
   {
     day: 9,
     message:
-      "I'll pause outreach for now so I don't bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in",
+      "I'll pause outreach for now so I don't bug you. If you want to revisit your insurance later, just reply 'quote' and I'll jump back in.",
   },
 ];
 
