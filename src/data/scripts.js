@@ -57,7 +57,7 @@ const requoteNoContact = [
   {
     day: 6,
     message:
-      "If you do want to revisit it, would you prefer a quick call or for me to text you the basics.",
+      "If you do want to revisit it, would you prefer a quick call or for me to text you the basics?",
   },
   {
     day: 9,
