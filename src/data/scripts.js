@@ -1,7 +1,7 @@
 const newLeads = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I'm working on your [home/auto] insurance quote and wanted to connect briefly to make sure all the discounts are applied. You can call me back at :phone: anytime. `,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I'm working on your [home/auto] insurance quote and wanted to connect briefly to make sure all the discounts are applied. You can call me anytime. `,
     topic: "",
     voicemail: `Hi [client name], this is [your name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote, and I’ve started reviewing your information. I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [number] at your convenience. Talk soon.`,
   },
@@ -19,7 +19,7 @@ const newLeads = [
   },
   {
     day: 9,
-    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your [home/auto] coverage later, just call or text me at :phone:.`,
+    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your [home/auto] coverage later, just call or text me anytime.`,
     topic: "",
     voicemail: `“Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time regarding the [home/auto] quote you had asked about. I don’t want to keep bothering you, so I’ll stop reaching out for now. If you’d like to revisit things or have questions down the road, feel free to call or text me at [number]. I’m always happy to help. Take care.`,
   },
