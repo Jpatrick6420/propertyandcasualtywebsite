@@ -21,7 +21,7 @@ const newLeads = [
     day: 9,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your [home/auto] coverage later, just reply QUOTE and I’ll jump back in.`,
     topic: "",
-    voicemail: `“Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time regarding the [home/auto] quote you had asked about. I don’t want to keep bothering you, so I’ll pause outreach for now. If you’d like to revisit things or have questions down the road, feel free to call or text me at [number]. I’m always happy to help. Take care.`,
+    voicemail: `“Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time regarding the [home/auto] quote you had asked about. I don’t want to keep bothering you, so I’ll stop reaching out for now. If you’d like to revisit things or have questions down the road, feel free to call or text me at [number]. I’m always happy to help. Take care.`,
   },
 ];
 
@@ -48,7 +48,7 @@ Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [hom
   {
     day: 9,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit things later, just reply RE-QUOTE and I’ll take another look.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. Just following up one last time on the re-quote we discussed previously. I’ll pause outreach for now, but if you want to take another look at your insurance down the road, feel free to call or text me at [number]. Happy to help.`,
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. Just following up one last time on the re-quote we discussed previously. I’ll stop reaching out for now, but if you want to take another look at your insurance down the road, feel free to call or text me at [number]. Happy to help.`,
     topic: "",
   },
 ];
@@ -74,7 +74,7 @@ const requoteNoContact = [
   {
     day: 9,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance later, just reply QUOTE and I’ll jump back in.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll pause outreach so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [number]. Take care.
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [number]. Take care.
 Goal: encourage engagement without pressure, preserve trust, and make future contact feel natural — not awkward.`,
     topic: "",
   },
@@ -142,7 +142,7 @@ convenient.`,
 
     message:
       "I’ll pause outreach for now so I don’t bug you -- If you ever want to compare options again, just reply 'quote' and I’ll jump back in.",
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll pause outreach so I
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I
 don’t bug you. If you ever want to compare options again down the road, feel free to call or text me at [number]. Take care.`,
     topic: "",
   },
