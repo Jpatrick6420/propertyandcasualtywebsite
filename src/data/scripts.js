@@ -28,7 +28,7 @@ const newLeads = [
 const requoteTexts = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. We looked at your [home/auto] insurance before, and I wanted to check whether it makes sense to review it again now. No urgency — I just wanted to reach out.`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. We looked at your [home/auto] insurance a while ago, and I wanted to see if it makes sense to review it again now that we have additional carriers and some rate changes. No urgency --just wanted to reach out.`,
     voicemail: `
 Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. Nothing urgent — just wanted to connect and see if you’d like an updated look. You can call or text me back at [number] whenever it’s convenient.`,
     topic: "",
