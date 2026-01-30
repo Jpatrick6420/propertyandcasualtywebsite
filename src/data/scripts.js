@@ -1,19 +1,19 @@
 const newLeads = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I'm working on your [home/auto] insurance quote and wanted to connect briefly to make sure all the discounts are applied. You can call me anytime. `,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just recieved your request for a [home and auto] quote. I was just calling to share the final price with you. You can call me anytime at [phone #]. `,
     topic: "",
     voicemail: `Hi [client name], this is [your name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote, and I’ve started reviewing your information. I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [number] at your convenience. Talk soon.`,
   },
   {
-    day: 3,
-    message: `Quick update -- there are a couple options that can change how this is structured. I want to make sure it's set up right for you. A quick call is generally the easiest way to finalize the quote.`,
+    day: 2,
+    message: `When you have a minute, I'm happy to help with the [home/auto] quote you requested or answer any questions.`,
     topic: "",
     voicemail: "",
   },
   {
     day: 6,
-    message: `If you want to revisit it, what’s easier — a quick call or a short walkthrough by text?`,
+    message: `Happy to help whenever it makes sense?`,
     topic: "",
     voicemail: "",
   },
@@ -28,26 +28,26 @@ const newLeads = [
 const requoteTexts = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. We looked at your [home/auto] insurance a while ago, and I wanted to see if it makes sense to review it again now that we have additional carriers and some rate changes. No urgency --just wanted to reach out.`,
+    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I just left you a quick voicemail — no rush at all. I wanted to see if it makes sense to revisit your insurance options since it’s been a while.`,
     voicemail: `
 Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. Nothing urgent — just wanted to connect and see if you’d like an updated look. You can call or text me back at [number] whenever it’s convenient.`,
     topic: "",
   },
   {
     day: 3,
-    message: `Quick check-in — has anything changed since we last talked, or should I review it again based on the same setup?`,
+    message: `No urgency here — just wanted to see if it makes sense to revisit your insurance since we've added new carriers. I just wanted to let you know that I'm here to help`,
     voicemail: "",
     topic: "",
   },
   {
     day: 6,
-    message: `Sometimes re-quotes come out very similar, and sometimes they look different depending on how coverage is structured. Happy to walk through it if you want.`,
+    message: `Sometimes re-quotes come out very similar, and sometimes they look different because of rate changes. Happy to walk through it if you want.`,
     voicemail: "",
     topic: "",
   },
   {
     day: 9,
-    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit things later, you can call or text :phone: and I’ll take another look.`,
+    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit things later, you can call or text me and we can take another look.`,
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. Just following up one last time on the re-quote we discussed previously. I’ll stop reaching out for now, but if you want to take another look at your insurance down the road, feel free to call or text me at [number]. Happy to help.`,
     topic: "",
   },
@@ -56,26 +56,25 @@ const requoteNoContact = [
   {
     day: 1,
     message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior quote request and wanted to see if reviewing your [home/auto] insurance is still relevant. No urgency — just checking in.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote attempt and wanted to see if it still makes sense to take a look at your [home/auto] insurance. Nothing urgent — you can call or text me back at [number] whenever it’s convenient.`,
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your [home/auto] insurance. Nothing urgent — you can call or text me back at [number] whenever it’s convenient.`,
     topic: "",
   },
   {
     day: 3,
-    message: `Sometimes these older quote requests still make sense to revisit, and sometimes they don’t — it really just depends on timing.`,
+    message: `With rate changes in the insurnace industry, it can be helpful to get updated rates and  sometimes it doesn't— it really just depends on timing.`,
     voicemail: "",
     topic: "",
   },
   {
     day: 6,
-    message: `If you do want to revisit it, would you prefer a quick call or a brief walkthrough by text?`,
+    message: `The reason why i reached out is because we've added new carriers since we last took a look so getting multiple rates at once can be beneficial. I'd love to help when it makes sence for you.`,
     voicemail: "",
     topic: "",
   },
   {
     day: 9,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance later, just text or call :phone: and I’ll get you fresh numbers.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [number]. Take care.
-Goal: encourage engagement without pressure, preserve trust, and make future contact feel natural — not awkward.`,
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [number]. Take care.`,
     topic: "",
   },
 ];
