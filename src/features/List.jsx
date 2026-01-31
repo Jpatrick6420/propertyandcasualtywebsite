@@ -1,4 +1,14 @@
-function List({ items }) {
+function List({ items, info }) {
+  const changeVoicemails = (scripts) => {
+    if (scripts.voicemail == "") return scripts;
+    const withName = scripts.voicemail.replace("[Name]", info.name);
+    const newInfo = withName.replace("[phoneNumber]", info.phoneNumber);
+
+    return { ...scripts, voicemail: newInfo };
+  };
+
+  const newInfo = changeVoicemails(items);
+
   return (
     <li className="py-2 px-4 my-2 space-y-2 border-2 border-gray-700 hover:translate-x-2 hover:bg-blue-200">
       <h2 className="sm:text-sm lg:text-lg font-bold">
@@ -12,7 +22,7 @@ function List({ items }) {
       {items.voicemail !== "" && (
         <p className="xs:text-sm lg:text-md">
           <b className="font-bold">Voicemail: </b>
-          {items.voicemail}
+          {newInfo.voicemail}
         </p>
       )}
     </li>

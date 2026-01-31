@@ -9,15 +9,14 @@ function Dropdown({ label, options, handler, state }) {
     return newSplit.join(" ");
   });
   return (
-    <div>
+    <div className="mx-4">
       <label>{label}</label>
       <select
         name="call_type"
         id="call_type"
         value={state}
-        onChange={(e) =>
-          handler({ type: "SET_CALL_TYPE", payload: e.target.value })
-        }
+        onChange={(e) => handler(e.target.value)}
+        className="border-2 border-black ml-2"
       >
         {newOptions.map((item, i) => {
           return (
