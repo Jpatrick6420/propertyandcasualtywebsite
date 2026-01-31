@@ -1,9 +1,9 @@
 const newLeads = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just recieved your request for a [home and auto] quote. I was just calling to share the final price with you. You can call me anytime at 801-683-3668. `,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just recieved your request for a [home / auto] quote. I was reviewing your information and I was calling to finalize the price with you. You can reach me at [number]. I hope you have a great day.`,
     topic: "",
-    voicemail: `Hi [client name], this is [your name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote, and I’ve started reviewing your information. I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at 801-683-3668 at your convenience. Talk soon.`,
+    voicemail: `Hi [client name], this is [your name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote. I’ve started reviewing your information and I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at 801-683-3668 at your convenience. Talk soon.`,
   },
   {
     day: 2,
@@ -21,14 +21,14 @@ const newLeads = [
     day: 9,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your [home/auto] coverage later, just call or text me anytime.`,
     topic: "",
-    voicemail: `“Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time regarding the [home/auto] quote you had asked about. I don’t want to keep bothering you, so I’ll stop reaching out for now. If you’d like to revisit things or have questions down the road, feel free to call or text me at 801-683-3668. I’m always happy to help. Take care.`,
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll pause outreach so I don’t bug you. If you ever want to revisit your insurance or compare options in the future, feel free to reach out. Take care.`,
   },
 ];
 
 const requoteTexts = [
   {
     day: 1,
-    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I just left you a quick voicemail — no rush at all. I wanted to see if it makes sense to revisit your insurance options since it’s been a while.`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. It's been awhile since we last looked at your auto and home insurance. Since our rates have changed, I just wanted to see if it makes sense to get you an updated quote. `,
     voicemail: `
 Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. Nothing urgent — just wanted to connect and see if you’d like an updated look. You can call or text me back at 801-683-3668 whenever it’s convenient.`,
     topic: "",
@@ -41,7 +41,7 @@ Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [hom
   },
   {
     day: 6,
-    message: `Sometimes re-quotes come out very similar, and sometimes they look different because of rate changes. Happy to walk through it if you want.`,
+    message: `Sometimes re-quotes come out very similar, and sometimes they look different because ages of drivers, vehicles and other factors. Happy to walk through it if you want.`,
     voicemail: "",
     topic: "",
   },
@@ -67,14 +67,14 @@ const requoteNoContact = [
   },
   {
     day: 6,
-    message: `The reason why i reached out is because we've added new carriers since we last took a look so getting multiple rates at once can be beneficial. I'd love to help when it makes sence for you.`,
+    message: `The reason why I reached out is because we've added new carriers since we last recieved your quote request. I can put together some comparisons if that is helpful to you.`,
     voicemail: "",
     topic: "",
   },
   {
     day: 9,
-    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance later, just text or call :phone: and I’ll get you fresh numbers.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at 801-683-3668. Take care.`,
+    message: `I’ll stop reaching out for now so I don’t bug you. If you want to check the insurance market at a later date then reach out and I’ll get you a comparison.`,
+    voicemail: `Hi [Name], this is [user] with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [number]. Take care.`,
     topic: "",
   },
 ];
@@ -84,7 +84,7 @@ const conditionalRequotes = [
     day: 1,
     topic: "claims",
     message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance, and I'm reaching out because the claim timing we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance, and I'm reaching out because the claim that we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
     voicemail: "",
   },
   {
@@ -124,7 +124,7 @@ convenient.`,
     day: 3,
 
     message:
-      "Sometimes people circle back after a year or two when pricing, coverage, or service needs change. If that’s the case for you, I’m happy to take another look.",
+      "We would love to have you back. After our latest rate changes, I’m happy to take another look.",
     voicemail: "",
     topic: "",
   },
@@ -132,7 +132,7 @@ convenient.`,
     day: 6,
 
     message:
-      "If you’d like to revisit things, would you prefer a quick call or for me to text you the basics?",
+      "Since you last been with us, we've added a lot of new options! There has never been a better time to see what your options are. I'm always happy to help you compare. ",
     voicemail: "",
     topic: "",
   },
@@ -140,7 +140,7 @@ convenient.`,
     day: 9,
 
     message:
-      "I’ll pause outreach for now so I don’t bug you -- If you ever want to compare options again, just reply 'quote' and I’ll jump back in.",
+      "I’ll pause outreach for now so I don’t bug you -- I just wanted to let you know that I'm always here to help you compare options when the time is right. ",
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I
 don’t bug you. If you ever want to compare options again down the road, feel free to call or text me at 801-683-3668. Take care.`,
     topic: "",
