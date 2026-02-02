@@ -1,7 +1,7 @@
 const newLeads = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just recieved your request for a [home / auto] quote. I was reviewing your information and I was calling to finalize the price with you. You can reach me at [phoneNumber]. I hope you have a great day.`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just received your request for a [home / auto] quote. I was reviewing your information and I was calling to finalize the price with you. You can reach me at [phoneNumber]. I hope you have a great day.`,
     topic: "",
     voicemail: `Hi [client name], this is [Name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote. I’ve started reviewing your information and I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [phoneNumber] at your convenience. Talk soon.`,
   },
