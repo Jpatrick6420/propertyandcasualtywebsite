@@ -10,6 +10,7 @@ function DataExtraction() {
     threeQuarterBaths: 0,
     halfBaths: 0,
     garageFootage: 0,
+    yearBuilt: 0,
   };
 
   const [textInput, setTextInput] = useState("");
@@ -32,6 +33,7 @@ function DataExtraction() {
       threeQuarterBaths: toNum(extractText("3/4 Baths", textInput)),
       halfBaths: toNum(extractText("Half Baths", textInput)),
       garageFootage: toNum(extractText("Attached Garage S. Area", textInput)),
+      yearBuilt: toNum(extractText("Year Built", textInput)),
     });
     setTextInput("");
   };
@@ -56,6 +58,7 @@ function DataExtraction() {
         </button>
       </form>
       <div className="px-4">
+        <p className="font-bold">Year Built {stats.yearBuilt}</p>
         <p className="font-bold">Above Ground: {Number(stats.squareFootage)}</p>
         <p className="font-bold">Basement Sqft: {Number(stats.basement)}</p>
         <p className="font-bold">Stories: {stats.stories}</p>
