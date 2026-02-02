@@ -1,19 +1,30 @@
-function Nav() {
+function Nav({ handler }) {
   return (
-    <ul className="flex gap-4 px-2 bg-black xl:justify-center">
-      <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
-        Quote
-      </li>
-      <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
-        About
-      </li>
-      <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
-        Contact
-      </li>
-      <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
-        Products
-      </li>
-    </ul>
+    <nav>
+      <ul className="flex gap-4 px-2 bg-black xl:justify-center">
+        <li
+          onClick={() => handler("callscript")}
+          className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300"
+        >
+          Script
+        </li>
+        <li
+          onClick={() => handler("hooks")}
+          className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300"
+        >
+          Hooks
+        </li>
+        <li
+          className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300"
+          onClick={() => handler("assessor")}
+        >
+          Assessor Data
+        </li>
+        <li className="text-stone-200 hover:text-green-300 cursor-pointer hover:border-b border-b-green-300">
+          Products
+        </li>
+      </ul>
+    </nav>
   );
 }
 
