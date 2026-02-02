@@ -1,25 +1,25 @@
 const newLeads = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I just received your request for a [home / auto] quote. I was reviewing your information and I was calling to finalize the price with you. You can reach me at 801-683-3668. I hope you have a great day.`,
+    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I started reviewing your [home/auto] request and noticed a few things that are often entered incorrectly on online forms that can affect the price quite a bit. When you have a minute, I’d love to quickly confirm a couple details so I can make sure you’re getting the most accurate numbers.`,
     topic: "",
     voicemail: `Hi [client name], this is [Name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote. I’ve started reviewing your information and I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [phoneNumber] at your convenience. Talk soon.`,
   },
   {
     day: 2,
-    message: `When you have a minute, I'm happy to help with the [home/auto] quote you requested or answer any questions.`,
+    message: `When online quotes are off, it’s usually because of square footage, roof age, or coverage differences from a current policy. That’s what I’m double-checking on yours. Happy to finish this up whenever it makes sense for you.`,
     topic: "",
     voicemail: "",
   },
   {
     day: 6,
-    message: `Happy to help whenever it makes sense?`,
+    message: `Just a quick note — I still have your quote paused here. No rush at all, but I didn’t want you to miss out if the numbers end up being better than expected.`,
     topic: "",
     voicemail: "",
   },
   {
     day: 9,
-    message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit your [home/auto] coverage later, just call or text me anytime.`,
+    message: `I’ll go ahead and close this out on my end for now. If you’d ever like a careful review of your coverage or pricing, just reach out.`,
     topic: "",
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll pause outreach so I don’t bug you. If you ever want to revisit your insurance or compare options in the future, feel free to reach out. Take care.`,
   },
