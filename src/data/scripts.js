@@ -3,7 +3,7 @@ const newLeads = [
     day: 1,
     message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I started reviewing your [home/auto] request and noticed a few things that are often entered incorrectly on online forms that can affect the price quite a bit. When you have a minute, I’d love to quickly confirm a couple details so I can make sure you’re getting the most accurate numbers.`,
     topic: "",
-    voicemail: `Hi [client name], this is [Name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote. I’ve started reviewing your information and I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [phoneNumber] at your convenience. Talk soon.`,
+    voicemail: `Hi [client name], this is [Name] with Mason Crapo Insurance. I’m calling because you recently requested a [home/auto] insurance quote. I’ve started reviewing your information and I just wanted to connect and make sure that all the discounts are applied. You can call or text me back at [phoneNumber]. Talk soon.`,
   },
   {
     day: 2,
@@ -30,7 +30,7 @@ const requoteTexts = [
     day: 1,
     message: `Hi :contact:, this is :user: with Mason Crapo Insurance. It's been awhile since we last looked at your auto and home insurance. Since our rates have changed, I just wanted to see if it makes sense to get you an updated quote. `,
     voicemail: `
-Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. I just wanted to connect and see if you’d like an updated look. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
+Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. I just wanted to connect and see if you’d like an updated look. You can call or text me back at [phoneNumber].`,
     topic: "",
   },
   {
@@ -56,7 +56,7 @@ const requoteNoContact = [
   {
     day: 1,
     message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior quote request and wanted to see if reviewing your [home/auto] insurance is still relevant.`,
-    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your [home/auto] insurance. Nothing urgent — you can call or text me back at [phoneNumber] whenever it’s convenient.`,
+    voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your [home/auto] insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
   {
