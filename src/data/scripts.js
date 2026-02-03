@@ -30,23 +30,23 @@ const requoteTexts = [
     day: 1,
     message: `Hi :contact:, this is :user: with Mason Crapo Insurance. It's been awhile since we last looked at your auto and home insurance. Since our rates have changed, I just wanted to see if it makes sense to get you an updated quote. `,
     voicemail: `
-Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. Nothing urgent — just wanted to connect and see if you’d like an updated look. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
+Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [home/auto] insurance in the past, and I’m reaching out to see if it makes sense to revisit it now. I just wanted to connect and see if you’d like an updated look. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
   {
-    day: 3,
-    message: `No urgency here — just wanted to see if it makes sense to revisit your insurance since we've added new carriers. I just wanted to let you know that I'm here to help`,
+    day: 2,
+    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I was getting ready to work on the updated comparison for you and wanted to check that youd still like me to run it. With how much rates have shifted lately, this one may be worth revisiting.`,
     voicemail: "",
     topic: "",
   },
   {
-    day: 6,
+    day: 5,
     message: `Sometimes re-quotes come out very similar, and sometimes they look different because ages of drivers, vehicles and other factors. Happy to walk through it if you want.`,
     voicemail: "",
     topic: "",
   },
   {
-    day: 9,
+    day: 7,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to revisit things later, you can call or text me and we can take another look.`,
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. Just following up one last time on the re-quote we discussed previously. I’ll stop reaching out for now, but if you want to take another look at your insurance down the road, feel free to call or text me at [phoneNumber]. Happy to help.`,
     topic: "",
@@ -55,24 +55,24 @@ Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [hom
 const requoteNoContact = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior quote request and wanted to see if reviewing your [home/auto] insurance is still relevant. No urgency — just checking in.`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior quote request and wanted to see if reviewing your [home/auto] insurance is still relevant.`,
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your [home/auto] insurance. Nothing urgent — you can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
   {
-    day: 3,
+    day: 2,
     message: `With rate changes in the insurnace industry, it can be helpful to get updated rates and  sometimes it doesn't— it really just depends on timing.`,
     voicemail: "",
     topic: "",
   },
   {
-    day: 6,
+    day: 5,
     message: `The reason why I reached out is because we've added new carriers since we last recieved your quote request. I can put together some comparisons if that is helpful to you.`,
     voicemail: "",
     topic: "",
   },
   {
-    day: 9,
+    day: 7,
     message: `I’ll stop reaching out for now so I don’t bug you. If you want to check the insurance market at a later date then reach out and I’ll get you a comparison.`,
     voicemail: `Hi [Name], this is [user] with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll stop reaching out for now so I don’t bug you. If you want to revisit your insurance down the road, feel free to call or text me at [phoneNumber]. Take care.`,
     topic: "",
@@ -91,14 +91,14 @@ const conditionalRequotes = [
     day: 1,
     topic: "eligible",
     message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance. When we last talked, your home wasn't eligible with a few carriers due to underwriting issues. That may have changed.  Happy to revisit it if you'd like. --totally up to you.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. When we last talked, your home wasn't eligible with a few carriers due to underwriting issues. That may have changed.  Happy to revisit it if you'd like. ",
     voicemail: "",
   },
   {
     day: 1,
     topic: "options",
     message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things --no pressure at all.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things.",
     voicemail: "",
   },
   {
@@ -114,10 +114,9 @@ const winbackScript = [
     day: 1,
 
     message:
-      "Hi :Name:, this is :user: with Mason Crapo Insurance. We worked together in the past, and I wanted to check in to see if it makes sense to review your insurance again. No rush at all — just wanted to reach out.",
+      "Hi :Name:, this is :user: with Mason Crapo Insurance. We worked together in the past, and I wanted to check in to see if it makes sense to review your insurance again.",
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. We worked together in the past, and I just wanted to check in and see if
-it makes sense to revisit your insurance now. Nothing urgent — you can call or text me back at [phoneNumber] whenever it’s
-convenient.`,
+it makes sense to revisit your insurance now.  You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
   {
