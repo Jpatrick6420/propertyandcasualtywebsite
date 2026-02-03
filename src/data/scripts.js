@@ -12,13 +12,13 @@ const newLeads = [
     voicemail: "",
   },
   {
-    day: 6,
-    message: `Just a quick note — I still have your quote paused here. No rush at all, but I didn’t want you to miss out if the numbers end up being better than expected.`,
+    day: 5,
+    message: `Just a quick note — I still have your quote paused here. I didn’t want you to miss out if the numbers end up being better than expected.`,
     topic: "",
     voicemail: "",
   },
   {
-    day: 9,
+    day: 7,
     message: `I’ll go ahead and close this out on my end for now. If you’d ever like a careful review of your coverage or pricing, just reach out.`,
     topic: "",
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I just wanted to follow up one last time and then I’ll pause outreach so I don’t bug you. If you ever want to revisit your insurance or compare options in the future, feel free to reach out. Take care.`,
