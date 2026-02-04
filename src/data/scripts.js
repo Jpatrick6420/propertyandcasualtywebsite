@@ -67,7 +67,7 @@ const requoteNoContact = [
   },
   {
     day: 5,
-    message: `The reason why I reached out is because we've added new carriers since we last recieved your quote request. I can put together some comparisons if that is helpful to you.`,
+    message: `The reason why I reached out is because we've added new carriers since we last received your quote request. I can put together some comparisons if that is helpful to you.`,
     voicemail: "",
     topic: "",
   },
