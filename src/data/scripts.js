@@ -35,7 +35,7 @@ Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [hom
   },
   {
     day: 2,
-    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I was getting ready to work on the updated comparison for you and wanted to check that youd still like me to run it. With how much rates have shifted lately, this one may be worth revisiting.`,
+    message: `Hi :contact:, this is Justin with Mason Crapo Insurance. I was getting ready to work on the updated comparison for you and wanted to check that you'd still like me to run it. With how much rates have shifted lately, this one may be worth revisiting.`,
     voicemail: "",
     topic: "",
   },
