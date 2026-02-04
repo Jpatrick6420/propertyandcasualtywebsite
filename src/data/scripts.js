@@ -61,7 +61,7 @@ const requoteNoContact = [
   },
   {
     day: 2,
-    message: `With the recent rate changes, it can be helpful to get updated rates and  sometimes it doesn't— it really just depends on timing. I can get you those figures if you are interested`,
+    message: `With the recent rate changes, it can be helpful to get updated quotes and  sometimes it doesn't— it really just depends on timing. I can get you those figures if you are interested`,
     voicemail: "",
     topic: "",
   },
