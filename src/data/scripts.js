@@ -55,13 +55,13 @@ Hi [Name], this is Justin with Mason Crapo Insurance. We had looked at your [hom
 const requoteNoContact = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior quote request and wanted to see if reviewing your [home/auto] insurance is still relevant.`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I had your info from a prior [home/auto] quote request and due to recent rate changes, I wanted to see if reviewing your [home/auto] insurance is still relevant.`,
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your [home/auto] insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
   {
     day: 2,
-    message: `With rate changes in the insurnace industry, it can be helpful to get updated rates and  sometimes it doesn't— it really just depends on timing.`,
+    message: `With the recent rate changes, it can be helpful to get updated rates and  sometimes it doesn't— it really just depends on timing. I can get you those figures if you are interested`,
     voicemail: "",
     topic: "",
   },
