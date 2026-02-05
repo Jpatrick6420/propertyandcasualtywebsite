@@ -61,7 +61,7 @@ const requoteNoContact = [
   },
   {
     day: 2,
-    message: `With the recent rate changes, it can be helpful to get updated quotes and  sometimes it doesn't— it really just depends on timing. I can get you those figures if you are interested`,
+    message: `With the recent rate changes, it can be helpful to get updated quotes and  sometimes it doesn't— it really just depends on timing. I can get you those figures if you are interested.`,
     voicemail: "",
     topic: "",
   },
@@ -114,7 +114,7 @@ const winbackScript = [
     day: 1,
 
     message:
-      "Hi :Name:, this is :user: with Mason Crapo Insurance. We worked together in the past, and I wanted to check in to see if it makes sense to review your insurance again.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance. We worked together in the past and after some recent rate changes, I wanted to check in to see if it makes sense to review your insurance again.",
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. We worked together in the past, and I just wanted to check in and see if
 it makes sense to revisit your insurance now.  You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
