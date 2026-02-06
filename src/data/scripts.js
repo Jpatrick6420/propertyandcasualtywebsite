@@ -112,6 +112,7 @@ const conditionalRequotes = [
     day: 1,
     topic: "rates",
     message: `Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, we've had some rate changes. I'd love to share our updated quote with you. Please give me a call before 5 at 801-683-3668`,
+    voicemail: "",
   },
 ];
 const winbackScript = [
