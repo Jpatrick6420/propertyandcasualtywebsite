@@ -7,7 +7,7 @@ const newLeads = [
   },
   {
     day: 2,
-    message: `When online quotes are off, it’s usually because of square footage, roof age, or coverage differences from a current policy. That’s what I’m double-checking on yours. Happy to finish this up whenever it makes sense for you.`,
+    message: `Online quotes are often just rough estimates and can vary based on square footage, roof and and coverage selections. I'm reviewing those details now so the numbers are accurate. I can finish everything up whenever it's convenient for you.`,
     topic: "",
     voicemail: "",
   },
@@ -107,6 +107,11 @@ const conditionalRequotes = [
     message:
       "Hi :contact:, this is :user: with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before. Happy to walk through it if you want to revisit things.",
     voicemail: "",
+  },
+  {
+    day: 1,
+    topic: "rates",
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, we've had some rate changes. I'd love to share our updated quote with you. Please give me a call before 5 at [phoneNumber]`,
   },
 ];
 const winbackScript = [
