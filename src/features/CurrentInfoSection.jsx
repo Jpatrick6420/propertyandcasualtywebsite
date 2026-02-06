@@ -15,7 +15,7 @@ function CurrentInfoSection({ currentInfo, setCurrentInfo }) {
           type="text"
           value={currentInfo.name}
           onChange={(e) => handleNameChange(e)}
-          className="border-2 border-black ml-2 col-span-2 "
+          className="border-2 border-black ml-2 col-span-2 px-2 sm:py-0.5 "
         />
 
         <label className="col-span-2 xs:col-start-1 xs:col-end-2">
@@ -25,7 +25,7 @@ function CurrentInfoSection({ currentInfo, setCurrentInfo }) {
           type="text"
           value={currentInfo.phoneNumber}
           onChange={(e) => handlePhoneNumberChange(e)}
-          className="border-2 border-black ml-2 col-span-2 "
+          className="border-2 border-black ml-2 col-span-2 px-2 sm:py-0.5"
         />
       </div>
     </section>
