@@ -13,7 +13,7 @@ const newLeads = [
   },
   {
     day: 5,
-    message: `Just a quick note — I still have your quote paused here. I didn’t want you to miss out if the numbers end up being better than expected.`,
+    message: `I still have your quote paused here. I didn’t want you to miss out if the numbers end up being better than expected.`,
     topic: "",
     voicemail: "",
   },
