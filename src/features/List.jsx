@@ -19,7 +19,7 @@ function List({ items, info }) {
 
   return (
     <li
-      className="py-2 px-4 my-2 space-y-2 border-2 border-gray-700 hover:translate-x-2 hover:bg-blue-200 "
+      className="py-2 px-4 my-2 space-y-2 border-2 border-gray-700 hover:translate-x-2 hover:bg-blue-200 hover:cursor-pointer"
       onClick={handleCopyTest}
     >
       <h2 className="sm:text-sm lg:text-lg font-bold">
