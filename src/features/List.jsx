@@ -10,7 +10,7 @@ function List({ items, info }) {
   const newInfo = changeVoicemails(items);
 
   return (
-    <li className="py-2 px-4 my-2 space-y-2 border-2 border-gray-700 hover:translate-x-2 hover:bg-blue-200">
+    <li className="py-2 px-4 my-2 space-y-2 border-2 border-gray-700 hover:translate-x-2 hover:bg-blue-200 ">
       <h2 className="sm:text-sm lg:text-lg font-bold">
         {" "}
         Day: {items.day} {items.topic !== "" && items.topic}
