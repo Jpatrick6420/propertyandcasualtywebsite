@@ -28,7 +28,7 @@ function List({ items, info }) {
       </h2>
       <p className="xs:text-sm lg:text-md">
         <b className="font-bold">Text: </b>
-        <em className="text-to-copy">{items.message}</em>
+        {items.message}
       </p>
       {items.voicemail !== "" && (
         <p className="xs:text-sm lg:text-md">
