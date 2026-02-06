@@ -1,6 +1,6 @@
 function List({ items, info }) {
   const changeVoicemails = (scripts) => {
-    if (!scripts.voicemail == "") return scripts;
+    if (scripts.voicemail == "") return scripts;
     const withName = scripts.voicemail.replace("[Name]", info.name);
     const newInfo = withName.replace("[phoneNumber]", info.phoneNumber);
 
