@@ -9,7 +9,7 @@ import {
 } from "../data/scripts";
 import List from "./List";
 
-function ScriptSection({ info }) {
+function ScriptSection({ info, campaign }) {
   const [script, setScript] = useState("newlead");
   return (
     <div className="px-4">
@@ -27,21 +27,23 @@ function ScriptSection({ info }) {
       />
       <ul className="px-4 py-1">
         {script == "newlead" &&
-          newLeads.map((item, i) => <List items={item} key={i} info={info} />)}
+          newLeads[campaign].map((item, i) => (
+            <List items={item} key={i} info={info} />
+          ))}
         {script == "requote" &&
-          requoteTexts.map((item, i) => (
+          requoteTexts[campaign].map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
         {script == "nocontact" &&
-          requoteNoContact.map((item, i) => (
+          requoteNoContact[campaign].map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
         {script == "conditionalrequotes" &&
-          conditionalRequotes.map((item, i) => (
+          conditionalRequotes[campaign].map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
         {script == "winback" &&
-          winbackScript.map((item, i) => (
+          winbackScript[campaign].map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
       </ul>
