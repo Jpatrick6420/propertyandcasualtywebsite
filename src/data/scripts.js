@@ -48,7 +48,7 @@ const requoteTexts = [
 const requoteNoContact = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I reached out a while back after a quote request came through and just wanted to see if you're still open to a comparison`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I reached out a while back about a home and auto quote request. Since we just had new rates released, I wanted to see if you're still open to a comparison`,
     voicemail: `Hi [Name], this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your home and auto insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
