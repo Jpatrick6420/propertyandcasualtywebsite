@@ -60,7 +60,7 @@ const requoteNoContact = [
   },
   {
     day: 5,
-    message: `Hey :contact:, just checking in one more time to see if you wanted a quick comparison. I'm happy to help whenever it makes sense.`,
+    message: `Hey :contact:, Ill stop reaching out after this, but I'm always here if rates change or you want a quick comparison down the road. Happy to help anytime. --:user:`,
     voicemail: "",
     topic: "",
   },
