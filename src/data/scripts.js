@@ -40,7 +40,7 @@ const requoteTexts = [
   },
   {
     day: 5,
-    message: `Hey :contact:, I'm working on quotes today and i can include yours as well if you'd still like me to take a look. Otherwise, I'm always here to help when you're ready.`,
+    message: `Hey :contact:, I'm working on quotes today and I can include yours as well if you'd still like me to take a look. Otherwise, I'm always here to help when you're ready.`,
     voicemail: "",
     topic: "",
   },
