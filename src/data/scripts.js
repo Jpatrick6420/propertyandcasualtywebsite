@@ -48,7 +48,7 @@ const requoteTexts = [
 const requoteNoContact = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I reached out a while back about a home and auto quote request. Since we just had new rates released, I wanted to see if you're still open to a comparison`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I reached out a while back about a home and auto quote request. Since we just had new rates released, I wanted to see if you're still open to a comparison.`,
     voicemail: `Hi :contact:, this is Justin with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your home and auto insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
   },
@@ -88,17 +88,11 @@ const conditionalRequotes = [
       "Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, I have a couple additional carrier options that werent available at the time. Let me know if you'd like me to re-run things.",
     voicemail: "",
   },
-  {
-    day: 1,
-    topic: "structure",
-    message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance. After our last conversation, I realized there are a few different ways to structure coverage that might affect the priceing we saw before. Happy to walk through it if you want to revisit things.",
-    voicemail: "",
-  },
+
   {
     day: 1,
     topic: "rates",
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, we've had some rate changes. I'd love to share our updated quote with you. Please give me a call before 5 at 801-683-3668`,
+    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. Since we last spoke, we've had some rate changes. I'd love to share our updated quote with you. Please give me a call before 5 at 801-683-3668.`,
     voicemail: "",
   },
 ];
