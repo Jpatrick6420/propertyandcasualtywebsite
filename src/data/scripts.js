@@ -40,7 +40,7 @@ const requoteTexts = [
   },
   {
     day: 5,
-    message: `Hey :contact:, I'm working on quotes today and I can include yours as well if you'd still like me to take a look. Otherwise, I'm always here to help when you're ready.`,
+    message: `Hey :contact:, I'll stop reaching out after this, but I'm always here if rates change or you want a quick comparison down the road. Happy to help anytime. --:user:`,
     voicemail: "",
     topic: "",
   },
@@ -71,7 +71,7 @@ const conditionalRequotes = [
     day: 1,
     topic: "claims",
     message:
-      "Hi :contact:, this is :user: with Mason Crapo Insurance, and I'm reaching out because the claim that we discussed may no longer be affecting your options. No rush --just wanted to know if you'd like me to take another look.",
+      "Hi :contact:, this is :user: with Mason Crapo Insurance, and I'm reaching out because the claim that we discussed may no longer be affecting your options. I'm happy to take another look if it's helpful for you.",
     voicemail: "",
   },
   {
