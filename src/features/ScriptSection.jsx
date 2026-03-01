@@ -5,6 +5,8 @@ import {
   newLeads,
   requoteNoContact,
   requoteTexts,
+  vladNewLeadScripts,
+  vladOldLeads,
   winbackScript,
 } from "../data/scripts";
 import List from "./List";
@@ -21,6 +23,8 @@ function ScriptSection({ info }) {
           "no contact",
           "conditional requotes",
           "win back",
+          "vlad new lead",
+          "vlad old lead",
         ]}
         label="Lead Type"
         state={script}
@@ -42,6 +46,14 @@ function ScriptSection({ info }) {
           ))}
         {script == "winback" &&
           winbackScript.map((item, i) => (
+            <List key={i} items={item} info={info} />
+          ))}
+        {script == "vladoldlead" &&
+          vladOldLeads.map((item, i) => (
+            <List key={i} items={item} info={info} />
+          ))}
+        {script == "vladnewlead" &&
+          vladNewLeadScripts.map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
       </ul>

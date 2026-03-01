@@ -122,10 +122,66 @@ it makes sense to revisit your insurance now.  You can call or text me back at [
     topic: "",
   },
 ];
+const vladNewLeadScripts = [
+  {
+    day: 1,
+    message: `Hi [Lead’s Name]! This is :user: from Mason Crapo Insurance. I hope you’re having a great day! I received your request for a [Car or Home] quote. What time can we connect today so I can go over your discounts and share the final quote with you?`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I just received a notification that you were looking to get a [Car or Home] insurance quote.
+I started working on your quote, and would love to connect over the phone to share how much it would cost to insure your [Car/Home] if you worked with us!
+Please give me a call back before 5pm so we can go over that. My number is [phoneNumber]. Talk to you soon!`,
+  },
+  {
+    day: 2,
+    message: `Hi [Lead’s Name]! This is :user: with Mason Crapo Insurance. I just called you and left a message. I’m curious, how much are you currently being charged for your insurance?`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
+  },
+  {
+    day: 3,
+    message: `Hi [Lead’s Name]! I’m sure you have a very busy schedule. When is a good time to connect over the phone so I can go over your quote?`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
+  },
+  {
+    day: 4,
+    message: `Hi [Lead’s Name]! This is :user: with Mason Crapo Insurance. I recently called you and left a voicemail. Just so you know, our rates have recently changed, so I wanted to connect with you and share how much your insurance would cost if you worked with our agency. When is a good time to connect so I can go over your insurance proposal that I’ve already started for you?`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
+  },
+  {
+    day: "5-9",
+    message: `Is this still [Lead’s Name] phone number?`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
+  },
+  {
+    day: 10,
+    message: `Hey :contact:, I'll stop reaching out after this, but I'm always here if rates change or you want a quick comparison down the road. Happy to help anytime. --:user:`,
+    topic: "",
+    voicemail: `Hi [Lead’s Name]. This is [Name] calling you from Mason Crapo Insurance. This is my last attempt to reach out to you, and help you save money on your [Car/Home] insurance for your [Home Address or Vehicles]. The quote that I have prepared for you will be recycled out of the system at the end of the day. If you’d like to save money on your [Car or Home] insurance, then please give me a call back before 5pm today at this number [phoneNumber].`,
+  },
+];
+const vladOldLeads = [
+  {
+    day: "1-5",
+    message: "",
+    topic: "",
+    voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. We gave you a [Car or Home] insurance quote a while back, and since our rates have recently changed I wanted to share how much it would be to insure your [Car or Home] with us. Please give me a call back before 5pm at [yourNumber]. Talk to you soon!`,
+  },
+  {
+    day: 6,
+    message: "",
+    topic: "",
+    voicemail: `Hi [Lead’s Name]. This is [Name] calling you from Mason Crapo Insurance. This is my last attempt to reach out to you, and help you save money on your [Car or Home] insurance for your [Home Address or Vehicles]. The quote that I have prepared for you will be recycled out of the system at the end of the day. If you’d like to save money on your [Car or Home] insurance, then please give me a call back before 5pm today at this number [phoneNumber].`,
+  },
+];
 export {
   conditionalRequotes,
   requoteNoContact,
   requoteTexts,
   newLeads,
   winbackScript,
+  vladOldLeads,
+  vladNewLeadScripts,
 };
