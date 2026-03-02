@@ -128,7 +128,7 @@ const vladNewLeadScripts = [
     message: `Hi [Lead’s Name]! This is :user: from Mason Crapo Insurance. I hope you’re having a great day! I received your request for a [Car or Home] quote. What time can we connect today so I can go over your discounts and share the final quote with you?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I just received a notification that you were looking to get a [Car or Home] insurance quote.
-I started working on your quote, and would love to connect over the phone to share how much it would cost to insure your [Car/Home] if you worked with us!
+I started working on your quote, and would love to connect over the phone to share how much it would cost to insure your [Car or Home] if you worked with us!
 Please give me a call back before 5pm so we can go over that. My number is [phoneNumber]. Talk to you soon!`,
   },
   {
@@ -159,7 +159,7 @@ Please give me a call back before 5pm so we can go over that. My number is [phon
     day: 10,
     message: `Hey :contact:, I'll stop reaching out after this, but I'm always here if rates change or you want a quick comparison down the road. Happy to help anytime. --:user:`,
     topic: "",
-    voicemail: `Hi [Lead’s Name]. This is [Name] calling you from Mason Crapo Insurance. This is my last attempt to reach out to you, and help you save money on your [Car/Home] insurance for your [Home Address or Vehicles]. The quote that I have prepared for you will be recycled out of the system at the end of the day. If you’d like to save money on your [Car or Home] insurance, then please give me a call back before 5pm today at this number [phoneNumber].`,
+    voicemail: `Hi [Lead’s Name]. This is [Name] calling you from Mason Crapo Insurance. This is my last attempt to reach out to you, and help you save money on your [Car or Home] insurance for your [Home Address or Vehicles]. The quote that I have prepared for you will be recycled out of the system at the end of the day. If you’d like to save money on your [Car or Home] insurance, then please give me a call back before 5pm today at this number [phoneNumber].`,
   },
 ];
 const vladOldLeads = [

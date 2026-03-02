@@ -12,7 +12,11 @@ function List({ items, info }) {
   const handleCopyText = async (e) => {
     if (e.target.closest("button")) return;
     try {
-      await navigator.clipboard.writeText(items.message);
+      const newMessage = items.message.replace(
+        "[Car or Home]",
+        "home and auto",
+      );
+      await navigator.clipboard.writeText(newMessage);
     } catch (err) {
       console.error("Failed to copy text: ", err.message);
     }
