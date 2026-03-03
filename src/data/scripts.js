@@ -125,7 +125,7 @@ it makes sense to revisit your insurance now.  You can call or text me back at [
 const vladNewLeadScripts = [
   {
     day: 1,
-    message: `Hi [Lead’s Name]! This is :user: from Mason Crapo Insurance. I hope you’re having a great day! I received your request for a [Car or Home] quote. What time can we connect today so I can go over your discounts and share the final quote with you?`,
+    message: `Hi :contact:! This is :user: from Mason Crapo Insurance. I hope you’re having a great day! I received your request for a [Car or Home] quote. What time can we connect today so I can go over your discounts and share the final quote with you?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I just received a notification that you were looking to get a [Car or Home] insurance quote.
 I started working on your quote, and would love to connect over the phone to share how much it would cost to insure your [Car or Home] if you worked with us!
@@ -133,25 +133,25 @@ Please give me a call back before 5pm so we can go over that. My number is [phon
   },
   {
     day: 2,
-    message: `Hi [Lead’s Name]! This is :user: with Mason Crapo Insurance. I just called you and left a message. I’m curious, how much are you currently being charged for your insurance?`,
+    message: `Hi :contact:! This is :user: with Mason Crapo Insurance. I just called you and left a message. I’m curious, how much are you currently being charged for your insurance?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
   },
   {
     day: 3,
-    message: `Hi [Lead’s Name]! I’m sure you have a very busy schedule. When is a good time to connect over the phone so I can go over your quote?`,
+    message: `Hi :contact:! I’m sure you have a very busy schedule. When is a good time to connect over the phone so I can go over your quote?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
   },
   {
     day: 4,
-    message: `Hi [Lead’s Name]! This is :user: with Mason Crapo Insurance. I recently called you and left a voicemail. Just so you know, our rates have recently changed, so I wanted to connect with you and share how much your insurance would cost if you worked with our agency. When is a good time to connect so I can go over your insurance proposal that I’ve already started for you?`,
+    message: `Hi :contact:! This is :user: with Mason Crapo Insurance. I recently called you and left a voicemail. Just so you know, our rates have recently changed, so I wanted to connect with you and share how much your insurance would cost if you worked with our agency. When is a good time to connect so I can go over your insurance proposal that I’ve already started for you?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
   },
   {
     day: "5-9",
-    message: `Is this still [Lead’s Name] phone number?`,
+    message: `Is this still :contact: phone number?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
   },
