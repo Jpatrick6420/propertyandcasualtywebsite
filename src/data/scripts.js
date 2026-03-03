@@ -181,7 +181,7 @@ Please give me a call back before 5pm so we can go over that. My number is [phon
     message: `Hey :contact:, I'll stop reaching out after this, but I'm always here if rates change or you want a quick comparison down the road. Happy to help anytime. --:user:`,
     topic: "",
     voicemail: `Hi [Lead’s Name]. This is [Name] calling you from Mason Crapo Insurance. This is my last attempt to reach out to you, and help you save money on your [Car or Home] insurance for your [Home Address or Vehicles]. The quote that I have prepared for you will be recycled out of the system at the end of the day. If you’d like to save money on your [Car or Home] insurance, then please give me a call back before 5pm today at this number [phoneNumber].`,
-    buttons: false,
+    buttons: true,
   },
 ];
 const vladOldLeads = [
