@@ -30,6 +30,7 @@ function List({ items, info }) {
       console.error("Failed to copy text: ", err.message);
     }
   };
+
   const handleHomeClick = async () => {
     try {
       const newMessage = items.message.replace("[Car or Home]", "home");
@@ -61,20 +62,22 @@ function List({ items, info }) {
           {newInfo.voicemail}
         </p>
       )}
-      <div className="flex justify-center gap-2">
-        <button
-          onClick={handleHomeClick}
-          className="px-1 py-0.5 text-stone-50 bg-green-500 hover:bg-green-400 hover:outline-1 rounded-sm outline-gray-500 hover:scale-105 active:scale-100 hover:cursor-pointer"
-        >
-          Home
-        </button>
-        <button
-          onClick={handleAutoClick}
-          className="px-1 py-0.5 text-stone-50 bg-green-500 hover:bg-green-400 hover:outline-1 rounded-sm outline-gray-500 hover:scale-105 active:scale-100 hover:cursor-pointer"
-        >
-          Car
-        </button>
-      </div>
+      {items.buttons && (
+        <div className="flex justify-center gap-2">
+          <button
+            onClick={handleHomeClick}
+            className="px-1 py-0.5 text-stone-50 bg-green-500 hover:bg-green-400 hover:outline-1 rounded-sm outline-gray-500 hover:scale-105 active:scale-100 hover:cursor-pointer"
+          >
+            Home
+          </button>
+          <button
+            onClick={handleAutoClick}
+            className="px-1 py-0.5 text-stone-50 bg-green-500 hover:bg-green-400 hover:outline-1 rounded-sm outline-gray-500 hover:scale-105 active:scale-100 hover:cursor-pointer"
+          >
+            Car
+          </button>
+        </div>
+      )}
     </li>
   );
 }
