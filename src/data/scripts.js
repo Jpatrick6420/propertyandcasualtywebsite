@@ -165,7 +165,7 @@ Please give me a call back before 5pm so we can go over that. My number is [phon
   },
   {
     day: 4,
-    message: `Hi :contact:! This is :user: with Mason Crapo Insurance. I recently called you and left a voicemail. Just so you know, our rates have recently changed, so I wanted to connect with you and share how much your insurance would cost if you worked with our agency. When is a good time to connect so I can go over your insurance proposal that I’ve already started for you?`,
+    message: `Hi :contact:! This is :user: with Mason Crapo Insurance. I recently called you and left a voicemail. Just so you know, we can keep it simple and compare rates for multiple companies at once, so I wanted to connect with you and share how much your insurance would cost if you worked with our agency. When is a good time to connect so I can go over your insurance proposal that I’ve already started for you?`,
     topic: "",
     voicemail: `Hi [Lead’s Name]! This is [Name] calling you from Mason Crapo Insurance. I started your insurance quote for your [Car or Home] that you requested, and it’s coming back at a great rate! Please give me a call back before 5pm so that I can go over that with you. You can call me back at [phoneNumber]. Talk to you soon!`,
   },
