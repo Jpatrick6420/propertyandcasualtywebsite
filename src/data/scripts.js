@@ -32,7 +32,7 @@ const newLeads = [
 const requoteTexts = [
   {
     day: 1,
-    message: `Hey :contact:, this is :user: with Mason Crapo Insurance. We quoted your insurance a while back and couldn't help, but now with our new rates, I'd love to get you a fresh comparison. Are you interested?`,
+    message: `Hey :contact:, this is :user: with Mason Crapo Insurance. We quoted your insurance a while back but we couldn't help at the time. Since our rates have recently changed, I wanted to share our updated quote with you. Are you still at {address}?`,
     voicemail: `Hi [contact], this is [Name] with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your home and auto insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
     buttons: false,
@@ -55,7 +55,7 @@ const requoteTexts = [
 const requoteNoContact = [
   {
     day: 1,
-    message: `Hi :contact:, this is :user: with Mason Crapo Insurance. I'm following up because you had requested a home and auto quote from us in the past and we recently had new rates come out. Would you be open to a quick comparison?`,
+    message: `Hey :contact:, this is :user: with Mason Crapo Insurance. You requested an insurance quote a while back but couldn't help at the time.  Since our rates have recently changed, I wanted to share our updated quote with you. Are you still at {address}?`,
     voicemail: `Hi :contact:, this is [Name] with Mason Crapo Insurance. I’m reaching out because I had your information from a prior quote request and wanted to see if it still makes sense to take a look at your home and auto insurance. You can call or text me back at [phoneNumber] whenever it’s convenient.`,
     topic: "",
     buttons: false,
