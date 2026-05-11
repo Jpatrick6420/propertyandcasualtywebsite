@@ -73,53 +73,53 @@ function ZipCodeSection() {
 
     if (saltLakeCountyZipCodes.includes(zip)) {
       window.open("https://www.saltlakecounty.gov/assessor/", "_blank");
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (weberCountyZipCodes.includes(zip)) {
       window.open("https://webercountyutah.gov/parcelsearch/");
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (davisCountyZipCodes.includes(zip)) {
       window.open(
         "https://webportal.daviscountyutah.gov/App/PropertySearch/esri/map?_gl=1*1rf4rwm*_ga*MTEyMjk0NzY0MS4xNzU0NDQ4NjU2*_ga_C4PN7RFDN6*czE3NTQ0NDg2NTUkbzEkZzAkdDE3NTQ0NDg2NTUkajYwJGwwJGgw",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (boxElderCountyZipCodes.includes(zip)) {
       window.open(
         "https://erecord.boxeldercountyut.gov/eaglesoftware/web/login.jsp",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (tooeleCountyZipCodes.includes(zip)) {
       window.open(
         "https://erecording.tooeleco.gov/eaglesoftware/web/login.jsp",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (utahCountyZipCodes.includes(zip)) {
       window.open(
         "https://www.utahcounty.gov/landrecords/AddressSearchForm.asp",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (washingtonCountyZipCodes.includes(zip)) {
       window.open(
         "https://geoprodvm.washco.utah.gov/Html5Viewer/index.html?viewer=AssessorReport",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (carbonCountyZips.includes(zip)) {
       window.open("https://www.carbon.utah.gov/service/property-search/");
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (adaZipCodes.includes(zip)) {
       window.open(
         "https://apps.adacounty.id.gov/PropertyLookup/SearchProperty",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (kootenaiZipCodes.includes(zip)) {
       window.open(
         "https://id-kootenai.publicaccessnow.com/Assessor/PropertySearch.aspx?utm_source=chatgpt.com",
       );
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (bonnerZipCodes.includes(zip)) {
       window.open("https://cloudgisapps.bonnercountyid.gov/PropertySearch/");
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     } else if (!allZips.includes(zip)) {
-      openZillowAndGoogle(currentAddress);
+      // openZillowAndGoogle(currentAddress);
     }
   };
   return (
