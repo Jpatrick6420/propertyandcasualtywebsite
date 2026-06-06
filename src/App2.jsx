@@ -8,7 +8,7 @@ import DataExtraction from "./features/dataExtraction.jsx";
 import OtherCarriersInfo from "./features/OtherCarriersInfo.jsx";
 
 function App2() {
-  const [currentPage, setCurrentPage] = useState("callscript");
+  const [currentPage, setCurrentPage] = useState("hooks");
   const [currentInfo, setCurrentInfo] = useState({
     name: "",
     phoneNumber: "",

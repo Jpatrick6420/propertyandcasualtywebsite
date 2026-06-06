@@ -44,6 +44,7 @@ function ScriptSection({ info }) {
           conditionalRequotes.map((item, i) => (
             <List key={i} items={item} info={info} />
           ))}
+
         {script == "winback" &&
           winbackScript.map((item, i) => (
             <List key={i} items={item} info={info} />

@@ -126,7 +126,7 @@ function ZipCodeSection() {
   return (
     <>
       <Table />
-      <div className="lg:flex lg:justify-center ">
+      <div className="lg:flex lg:justify-center  mt-4">
         <form method="put" action="/" className="lg:w-1/3">
           <div className="my-2 md:grid md:grid-cols-5 sm:flex sm:justify-center relative ">
             <label htmlFor="address_input">Address</label>
