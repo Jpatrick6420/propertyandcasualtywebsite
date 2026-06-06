@@ -253,15 +253,21 @@ function Table() {
         <tr>
           <td className="text-center w-full ">Yearly Difference</td>
           <td
-            className={`text-center w-full ${difference >= 100 ? "text-red-500" : difference >= -100 ? "text-yellow-500" : "text-green-500"}`}
+            className={`text-center w-full ${difference > 300 ? "text-red-500" : difference > -300 ? "text-yellow-500" : "text-green-500"}`}
           >
             ${difference.toFixed(2)}
           </td>
           <td className="text-center w-full">Monthly Difference</td>
           <td
-            className={`text-center w-full ${difference >= 100 ? "text-red-500" : difference >= -100 ? "text-yellow-500" : "text-green-500"}`}
+            className={`text-center w-full ${Number(difference) / 12 > 25 ? "text-red-500" : Number(difference) / 12 > -25 ? "text-yellow-500" : "text-green-500"}`}
           >
             ${(difference / 12).toFixed(2)}
+          </td>
+          <td className="text-center w-full">Daily Difference</td>
+          <td
+            className={`text-center w-full ${Number(difference) / 365 > 0.82 ? "text-red-500" : Number(difference) / 365 > -0.82 ? "text-yellow-500" : "text-green-500"}`}
+          >
+            ${(difference / 365).toFixed(2)}
           </td>
         </tr>
       </tfoot>
