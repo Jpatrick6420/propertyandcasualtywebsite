@@ -259,7 +259,7 @@ function Table() {
           </td>
           <td className="text-center w-full">Monthly Difference</td>
           <td
-            className={`text-center w-full ${Number(difference) / 12 > 25 ? "text-red-500" : Number(difference) / 12 > -25 ? "text-yellow-500" : "text-green-500"}`}
+            className={`text-center w-full ${Number(difference) / 12 > 15 ? "text-red-500" : Number(difference) / 12 > -25 ? "text-yellow-500" : "text-green-500"}`}
           >
             ${(difference / 12).toFixed(2)}
           </td>
