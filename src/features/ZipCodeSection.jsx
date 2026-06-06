@@ -13,6 +13,7 @@ import {
 } from "../data/zip_code_list.js";
 import Popup from "../components/Popup.jsx";
 import { useState } from "react";
+import Table from "../components/table.jsx";
 
 function ZipCodeSection() {
   const allZips = [
@@ -32,30 +33,30 @@ function ZipCodeSection() {
 
   const [isPopUp, setIsPopUp] = useState(false);
 
-  const openGoogleMaps = (address) => {
-    const formatted = address.trim().replace(/\s+/g, "+");
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      formatted,
-    )}`;
-    const win = window.open(url, "_blank");
+  // const openGoogleMaps = (address) => {
+  //   const formatted = address.trim().replace(/\s+/g, "+");
+  //   const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  //     formatted,
+  //   )}`;
+  //   const win = window.open(url, "_blank");
 
-    if (!win) {
-      alert("Popup blocked! Please allow popups for this site.");
-    }
-  };
+  //   if (!win) {
+  //     alert("Popup blocked! Please allow popups for this site.");
+  //   }
+  // };
 
-  const openZillowDirect = (address) => {
-    // Zillow URLs use hyphens, not plus signs or spaces
-    const slug = encodeURIComponent(address.replace(/\s+/g, "-"));
-    const url = `https://www.zillow.com/homes/${slug}_rb/`;
-    window.open(url, "_blank");
-  };
+  // const openZillowDirect = (address) => {
+  //   // Zillow URLs use hyphens, not plus signs or spaces
+  //   const slug = encodeURIComponent(address.replace(/\s+/g, "-"));
+  //   const url = `https://www.zillow.com/homes/${slug}_rb/`;
+  //   window.open(url, "_blank");
+  // };
 
-  const openZillowAndGoogle = (address) => {
-    openGoogleMaps(address);
-    openZillowDirect(address);
-    setCurrentAddress("");
-  };
+  // const openZillowAndGoogle = (address) => {
+  //   openGoogleMaps(address);
+  //   openZillowDirect(address);
+  //   setCurrentAddress("");
+  // };
 
   const zipCodeInput = (address) => {
     const match = address.match(/\b\d{5}(?:-\d{4})?$/);
@@ -123,37 +124,40 @@ function ZipCodeSection() {
     }
   };
   return (
-    <div className="lg:flex lg:justify-center ">
-      <form method="put" action="/" className="lg:w-1/3">
-        <div className="my-2 md:grid md:grid-cols-5 sm:flex sm:justify-center relative ">
-          <label htmlFor="address_input">Address</label>
-          <input
-            type="text"
-            id="address_input"
-            className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5 relative"
-            value={currentAddress}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setCurrentAddress(e.target.value);
-            }}
-            onMouseEnter={handleEnterPopUp}
-            onMouseLeave={handleLeavePopUp}
-          />
-          {isPopUp && <Popup text="* Must include zip code" />}
-        </div>
-        <div className="flex justify-center w-full">
-          <button
-            className="px-1 py-0.5 text-sm text-stone-50 bg-blue-400 hover:bg-blue-500 hover:scale-110 active:scale-100 "
-            onClick={(e) => {
-              e.preventDefault();
-              handleAddressChange();
-            }}
-          >
-            Enter
-          </button>
-        </div>
-      </form>
-    </div>
+    <>
+      <Table />
+      <div className="lg:flex lg:justify-center ">
+        <form method="put" action="/" className="lg:w-1/3">
+          <div className="my-2 md:grid md:grid-cols-5 sm:flex sm:justify-center relative ">
+            <label htmlFor="address_input">Address</label>
+            <input
+              type="text"
+              id="address_input"
+              className="border-1 border-gray-900 ml-2 col-span-4 px-1 py-0.5 relative"
+              value={currentAddress}
+              onChange={(e) => {
+                console.log(e.target.value);
+                setCurrentAddress(e.target.value);
+              }}
+              onMouseEnter={handleEnterPopUp}
+              onMouseLeave={handleLeavePopUp}
+            />
+            {isPopUp && <Popup text="* Must include zip code" />}
+          </div>
+          <div className="flex justify-center w-full">
+            <button
+              className="px-1 py-0.5 text-sm text-stone-50 bg-blue-400 hover:bg-blue-500 hover:scale-110 active:scale-100 "
+              onClick={(e) => {
+                e.preventDefault();
+                handleAddressChange();
+              }}
+            >
+              Enter
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 
