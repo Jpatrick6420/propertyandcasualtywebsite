@@ -4,7 +4,7 @@ function Table() {
   const [tableData, setTableData] = useState({
     ourPriceAuto: "",
     theirPriceAuto: "",
-    theirPriceAutoYearly: "false",
+    theirPriceAutoYearly: "biannual",
     ourPriceHome: "",
     theirPriceHome: "",
   });
@@ -16,16 +16,27 @@ function Table() {
     }));
   };
 
+  const timeOptions = {
+    monthly: 12,
+    biannual: 2,
+    annual: 1,
+  };
+
+  const calcAnnual = (time, num) => {
+    return Number(num) * timeOptions[time];
+  };
+
   const num = (value) => Number(value || 0);
 
-  const theirAutoYearly =
-    tableData.theirPriceAutoYearly === "true"
-      ? num(tableData.theirPriceAuto)
-      : num(tableData.theirPriceAuto) * 2;
+  const theirAnnual = calcAnnual(
+    tableData.theirPriceAutoYearly,
+    tableData.theirPriceAuto,
+  );
+
   const ourAutoYearly = num(tableData.ourPriceAuto) * 2;
 
   const ourTotal = ourAutoYearly + num(tableData.ourPriceHome);
-  const theirTotal = theirAutoYearly + num(tableData.theirPriceHome);
+  const theirTotal = theirAnnual + num(tableData.theirPriceHome);
 
   const difference = ourTotal - theirTotal;
 
@@ -38,7 +49,7 @@ function Table() {
           <th className="text-center ">Yearly</th>
           <th className="text-center ">Our Yearly</th>
           <th className="text-center ">Their Price</th>
-          <th className="text-center ">Yearly</th>
+          <th className="text-center ">Payment Method</th>
           <th className="text-center ">Their Yearly</th>
         </tr>
       </thead>
@@ -55,12 +66,7 @@ function Table() {
             />
           </td>
           <td className="w-full text-center">Yes</td>
-          <td className="w-full text-center">
-            {tableData.theirPriceAutoYearly
-              ? tableData.ourPriceAuto * 2
-              : tableData.ourPriceAuto / 2}
-          </td>
-
+          <td className="w-full text-center">{ourAutoYearly.toFixed(2)}</td>
           <td className="w-full text-center">
             {tableData.theirPriceAuto != "" ? "$" : ""}
             <input
@@ -74,11 +80,12 @@ function Table() {
               value={tableData.theirPriceAutoYearly}
               onChange={(e) => handleChange(e, "theirPriceAutoYearly")}
             >
-              <option value="false">No</option>
-              <option value="true">Yes</option>
+              <option value="monthly">Monthly</option>
+              <option value="biannual">biannual</option>
+              <option value="annual">Yearly</option>
             </select>
           </td>
-          <td className="w-full text-center"> {theirAutoYearly}</td>
+          <td className="w-full text-center"> {theirAnnual}</td>
         </tr>
 
         <tr>
@@ -111,14 +118,12 @@ function Table() {
 
           <td className="w-full text-center">
             {tableData.ourPriceAuto != "" ? "$" : ""}
-            {(Number(tableData.ourPriceAuto) / 6).toFixed(2)}
+            {(ourAutoYearly / 12).toFixed(2)}
           </td>
           <td className="w-full text-center">Their Monthly rate</td>
           <td className="w-full text-center">
-            {tableData.ourPriceAuto != "" ? "$" : ""}
-            {tableData.theirPriceAutoYearly == true
-              ? (Number(tableData.theirPriceAuto) / 12).toFixed(2)
-              : (Number(tableData.theirPriceAuto) / 6).toFixed(2)}
+            {tableData.ourPriceAuto !== "" ? "$" : ""}
+            {(theirAnnual / 12).toFixed(2)}
           </td>
         </tr>
       </tbody>
