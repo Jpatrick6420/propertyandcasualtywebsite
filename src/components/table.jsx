@@ -7,6 +7,8 @@ function Table() {
     theirPriceAutoYearly: "biannual",
     ourPriceHome: "",
     theirPriceHome: "",
+    ourOther: "",
+    theirOther: "",
   });
 
   const handleChange = (e, field) => {
@@ -35,8 +37,10 @@ function Table() {
 
   const ourAutoYearly = num(tableData.ourPriceAuto) * 2;
 
-  const ourTotal = ourAutoYearly + num(tableData.ourPriceHome);
-  const theirTotal = theirAnnual + num(tableData.theirPriceHome);
+  const ourTotal =
+    ourAutoYearly + num(tableData.ourPriceHome) + num(tableData.ourOther);
+  const theirTotal =
+    theirAnnual + num(tableData.theirPriceHome) + num(tableData.theirOther);
 
   const difference = ourTotal - theirTotal;
 
@@ -46,7 +50,7 @@ function Table() {
         <tr className=" ">
           <th></th>
           <th className="text-center ">Our Price</th>
-          <th className="text-center ">Yearly</th>
+          {/* <th className="text-center ">Yearly</th> */}
           <th className="text-center ">Our Yearly</th>
           <th className="text-center ">Their Price</th>
           <th className="text-center ">Payment Method</th>
@@ -65,7 +69,7 @@ function Table() {
               onChange={(e) => handleChange(e, "ourPriceAuto")}
             />
           </td>
-          <td className="w-full text-center">Yes</td>
+          {/* <td className="w-full text-center">Yes</td> */}
           <td className="w-full text-center">{ourAutoYearly.toFixed(2)}</td>
           <td className="w-full text-center">
             {tableData.theirPriceAuto != "" ? "$" : ""}
@@ -98,7 +102,7 @@ function Table() {
               onChange={(e) => handleChange(e, "ourPriceHome")}
             />
           </td>
-          <td className="w-full text-center">Yes</td>
+          {/* <td className="w-full text-center">Yes</td> */}
           <td className="w-full text-center">{num(tableData.ourPriceHome)}</td>
 
           <td className="w-full text-center">
@@ -114,16 +118,40 @@ function Table() {
           </td>
         </tr>
         <tr>
+          <th className="w-full text-center">Our Other</th>
+          <td className="w-full text-center">
+            {tableData.ourOther != "" ? "$" : ""}{" "}
+            <input
+              type="number"
+              value={tableData.ourOther}
+              onChange={(e) => handleChange(e, "ourOther")}
+            />
+          </td>
+          {/* <td className="w-full text-center">Yes</td> */}
+          <td className="w-full text-center">{num(tableData.ourOther)}</td>
+
+          <td className="w-full text-center">
+            {tableData.theirOther != "" ? "$" : ""}
+            <input
+              type="number"
+              value={tableData.theirOther}
+              onChange={(e) => handleChange(e, "theirOther")}
+            />
+          </td>
+          <td className="w-full text-center">Yes</td>
+          <td className="w-full text-center">{num(tableData.theirOther)}</td>
+        </tr>
+        <tr>
           <td className="w-full text-center">Monthly rate</td>
 
           <td className="w-full text-center">
             {tableData.ourPriceAuto != "" ? "$" : ""}
-            {(ourAutoYearly / 12).toFixed(2)}
+            {((ourAutoYearly + num(tableData.ourOther)) / 12).toFixed(2)}
           </td>
           <td className="w-full text-center">Their Monthly rate</td>
           <td className="w-full text-center">
             {tableData.ourPriceAuto !== "" ? "$" : ""}
-            {(theirAnnual / 12).toFixed(2)}
+            {((theirAnnual + num(tableData.theirOther)) / 12).toFixed(2)}
           </td>
         </tr>
       </tbody>
