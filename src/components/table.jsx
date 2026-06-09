@@ -51,30 +51,78 @@ function Table() {
 
   const difference = ourTotal - theirTotal;
 
-  const handleCopyStatsBtn = async () => {
+  const copyText = async (text) => {
     try {
-      const text = `
-Our auto price yearly: ${dollars(ourAutoYearly)}
-Their auto price yearly: ${dollars(theirAnnual)}
-
-Our home price: ${dollars(tableData.ourPriceHome)}
-Their home price: ${dollars(tableData.theirPriceHome)}
-
---------------------------------
-
-${
-  difference < 0
-    ? `Total savings: ${dollars(Math.abs(difference))} per year`
-    : difference > 0
-      ? `Additional cost: ${dollars(difference)} per year`
-      : "No difference in yearly premium"
-}
-`;
-
       await navigator.clipboard.writeText(text);
     } catch (err) {
       console.error(`Error: ${err.message}`);
     }
+  };
+
+  const autoDifference = ourAutoYearly - theirAnnual;
+  const autoMonthlyDifference = autoDifference / 12;
+
+  const otherLine =
+    num(tableData.ourOther) || num(tableData.theirOther)
+      ? `
+
+Our other price: ${dollars(tableData.ourOther)}
+Their other price: ${dollars(tableData.theirOther)}`
+      : "";
+
+  const differenceText =
+    difference < 0
+      ? `Total savings: ${dollars(Math.abs(difference))} per year`
+      : difference > 0
+        ? `Additional cost: ${dollars(difference)} per year`
+        : "No difference in yearly premium";
+
+  const handleCopyAutoOnly = () => {
+    copyText(`
+Our auto price yearly: ${dollars(ourAutoYearly)}
+Their auto price yearly: ${dollars(theirAnnual)}
+
+Our auto monthly equivalent: ${dollars(ourAutoYearly / 12)}
+Their auto monthly equivalent: ${dollars(theirAnnual / 12)}
+
+--------------------------------
+
+${
+  autoDifference < 0
+    ? `Auto savings: ${dollars(Math.abs(autoDifference))} per year / ${dollars(Math.abs(autoMonthlyDifference))} per month`
+    : autoDifference > 0
+      ? `Auto additional cost: ${dollars(autoDifference)} per year / ${dollars(autoMonthlyDifference)} per month`
+      : "No difference in auto premium"
+}
+`);
+  };
+
+  const handleCopyAnnualTotal = () => {
+    copyText(`
+Our auto price yearly: ${dollars(ourAutoYearly)}
+Their auto price yearly: ${dollars(theirAnnual)}
+
+Our home price: ${dollars(tableData.ourPriceHome)}
+Their home price: ${dollars(tableData.theirPriceHome)}${otherLine}
+
+--------------------------------
+
+${differenceText}
+`);
+  };
+
+  const handleCopyAutoMonthlyHomeAnnual = () => {
+    copyText(`
+Our auto: ${dollars(ourAutoYearly / 12)} per month
+Their auto: ${dollars(theirAnnual / 12)} per month
+
+Our home: ${dollars(tableData.ourPriceHome)} per year
+Their home: ${dollars(tableData.theirPriceHome)} per year${otherLine}
+
+--------------------------------
+
+${differenceText}
+`);
   };
 
   return (
@@ -210,13 +258,30 @@ ${
             ${(difference / 365).toFixed(2)}
           </td>
           <td>
-            <button
-              id="text-stats"
-              className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
-              onClick={handleCopyStatsBtn}
-            >
-              Text
-            </button>
+            <td>
+              <div className="flex gap-2">
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+                  onClick={handleCopyAutoOnly}
+                >
+                  Auto
+                </button>
+
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+                  onClick={handleCopyAnnualTotal}
+                >
+                  Yearly
+                </button>
+
+                <button
+                  className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+                  onClick={handleCopyAutoMonthlyHomeAnnual}
+                >
+                  Mixed
+                </button>
+              </div>
+            </td>
           </td>
         </tr>
       </tfoot>
