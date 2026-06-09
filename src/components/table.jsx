@@ -11,6 +11,13 @@ function Table() {
     theirOther: "",
   });
 
+  const dollars = (amount) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(amount);
+
   const handleChange = (e, field) => {
     setTableData((prev) => ({
       ...prev,
@@ -46,9 +53,25 @@ function Table() {
 
   const handleCopyStatsBtn = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `Our auto price yearly: ${ourAutoYearly || ""}\nrYour auto price yearly: ${theirAnnual || ""}\nOur home price: ${tableData.ourPriceHome || ""}\nYour home price: ${tableData.theirPriceHome || ""}\n-----\nTotal Difference per year: ${difference > 0 ? `${difference} more per year` : `${difference} less per year.`}: `,
-      );
+      const text = `
+Our auto price yearly: ${dollars(ourAutoYearly)}
+Their auto price yearly: ${dollars(theirAnnual)}
+
+Our home price: ${dollars(tableData.ourPriceHome)}
+Their home price: ${dollars(tableData.theirPriceHome)}
+
+--------------------------------
+
+${
+  difference < 0
+    ? `Total savings: ${dollars(Math.abs(difference))} per year`
+    : difference > 0
+      ? `Additional cost: ${dollars(difference)} per year`
+      : "No difference in yearly premium"
+}
+`;
+
+      await navigator.clipboard.writeText(text);
     } catch (err) {
       console.error(`Error: ${err.message}`);
     }
