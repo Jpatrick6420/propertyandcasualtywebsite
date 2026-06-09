@@ -47,7 +47,7 @@ function Table() {
   const handleCopyStatsBtn = async () => {
     try {
       await navigator.clipboard.writeText(
-        `Our auto: ${ourAutoYearly || ""}\nYour auto price yearly: ${theirAnnual || ""}\nOur home price yearly ${tableData.ourPriceHome || ""}\nYour home price: ${tableData.theirPriceHome || ""}\n-----\nTotal Difference: ${difference}`,
+        `Our auto price yearly: ${ourAutoYearly || ""}\nrYour auto price yearly: ${theirAnnual || ""}\nOur home price: ${tableData.ourPriceHome || ""}\nYour home price: ${tableData.theirPriceHome || ""}\n-----\nTotal Difference per year: ${difference > 0 ? `${difference} more per year` : `${difference} less per year.`}: `,
       );
     } catch (err) {
       console.error(`Error: ${err.message}`);
