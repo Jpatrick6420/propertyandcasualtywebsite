@@ -151,7 +151,10 @@ ${differenceText}
             />
           </td>
           {/* <td className="w-full text-center">Yes</td> */}
-          <td className="w-full text-center">{ourAutoYearly.toFixed(2)}</td>
+          <td className="w-full text-center">
+            {ourAutoYearly != "" ? "$" : ""}
+            {ourAutoYearly.toFixed(2)}
+          </td>
           <td className="w-full text-center">
             {tableData.theirPriceAuto != "" ? "$" : ""}
             <input
@@ -170,7 +173,10 @@ ${differenceText}
               <option value="annual">Yearly</option>
             </select>
           </td>
-          <td className="w-full text-center"> {theirAnnual}</td>
+          <td className="w-full text-center">
+            {theirAnnual != "" ? "$" : ""}
+            {theirAnnual}
+          </td>
         </tr>
 
         <tr>
