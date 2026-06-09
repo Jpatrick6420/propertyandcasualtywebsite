@@ -47,7 +47,7 @@ function Table() {
   return (
     <table className="w-full  table-fixed ">
       <thead className="w-full border-2 ">
-        <tr className=" ">
+        <tr>
           <th></th>
           <th className="text-center ">Our Price</th>
           {/* <th className="text-center ">Yearly</th> */}
@@ -59,9 +59,9 @@ function Table() {
       </thead>
 
       <tbody>
-        <tr>
-          <th>Auto</th>
-          <td className="w-full">
+        <tr className="">
+          <th className="w-full text-center ">Auto</th>
+          <td className="w-full text-center">
             {tableData.ourPriceAuto != "" ? "$" : ""}
             <input
               type="number"
