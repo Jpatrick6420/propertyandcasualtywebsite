@@ -44,6 +44,16 @@ function Table() {
 
   const difference = ourTotal - theirTotal;
 
+  const handleCopyStatsBtn = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `Our auto: ${ourAutoYearly || ""}\nYour auto price yearly: ${theirAnnual || ""}\nOur home price yearly ${tableData.ourPriceHome || ""}\nYour home price: ${tableData.theirPriceHome || ""}\n-----\nTotal Difference: ${difference}`,
+      );
+    } catch (err) {
+      console.error(`Error: ${err.message}`);
+    }
+  };
+
   return (
     <table className="w-full  table-fixed ">
       <thead className="w-full border-2 ">
@@ -175,6 +185,15 @@ function Table() {
             className={`text-center w-full ${Number(difference) / 365 > 0.82 ? "text-red-500" : Number(difference) / 365 > -0.82 ? "text-yellow-500" : "text-green-500"}`}
           >
             ${(difference / 365).toFixed(2)}
+          </td>
+          <td>
+            <button
+              id="text-stats"
+              className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+              onClick={handleCopyStatsBtn}
+            >
+              Text
+            </button>
           </td>
         </tr>
       </tfoot>
