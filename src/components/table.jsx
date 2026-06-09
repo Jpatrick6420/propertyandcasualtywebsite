@@ -201,6 +201,8 @@ ${differenceText}
           </td>
 
           <td className="w-full text-center">
+            {tableData.theirPriceHome != "" ? "$" : ""}
+
             <input
               type="number"
               value={tableData.theirPriceHome}
@@ -281,7 +283,7 @@ ${differenceText}
           <td></td>
         </tr>
         <tr>
-          <td>
+          <td className="col-span-6 flex justify-center">
             <div className="flex gap-2">
               <button
                 className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
