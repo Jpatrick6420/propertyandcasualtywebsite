@@ -268,14 +268,14 @@ ${differenceText}
                 </button>
 
                 <button
-                  className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+                  className="bg-purple-500 hover:bg-purple-400 text-stone-50 px-2 py-1 rounded-md"
                   onClick={handleCopyAnnualTotal}
                 >
                   Yearly
                 </button>
 
                 <button
-                  className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"
+                  className="bg-red-500 hover:bg-red-400 text-stone-50 px-2 py-1 rounded-md"
                   onClick={handleCopyAutoMonthlyHomeAnnual}
                 >
                   Mixed
