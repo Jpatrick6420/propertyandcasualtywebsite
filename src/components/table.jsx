@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Table() {
-  const [tableData, setTableData] = useState({
+  const initialTableData = {
     ourPriceAuto: "",
     theirPriceAuto: "",
     theirPriceAutoYearly: "biannual",
@@ -9,7 +9,9 @@ function Table() {
     theirPriceHome: "",
     ourOther: "",
     theirOther: "",
-  });
+  };
+
+  const [tableData, setTableData] = useState(initialTableData);
 
   const dollars = (amount) =>
     new Intl.NumberFormat("en-US", {
@@ -125,6 +127,9 @@ ${differenceText}
 `);
   };
 
+  const handleReset = () => {
+    setTableData(initialTableData);
+  };
   return (
     <table className="w-full  table-fixed ">
       <thead className="w-full border-2 ">
@@ -291,8 +296,14 @@ ${differenceText}
                 </button>
 
                 <button
-                  className="bg-red-500 hover:bg-red-400 text-stone-50 px-2 py-1 rounded-md"
+                  className="bg-teal-500 hover:bg-teal-400 text-stone-50 px-2 py-1 rounded-md"
                   onClick={handleCopyAutoMonthlyHomeAnnual}
+                >
+                  Mixed
+                </button>
+                <button
+                  className="bg-red-500 hover:bg-red-400 text-stone-50 px-2 py-1 rounded-md"
+                  onClick={handleReset}
                 >
                   Mixed
                 </button>
