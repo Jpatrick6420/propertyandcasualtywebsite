@@ -67,7 +67,7 @@ function Table() {
       ? `
 
 Our other price: ${dollars(tableData.ourOther)}
-Their other price: ${dollars(tableData.theirOther)}`
+Your other price: ${dollars(tableData.theirOther)}`
       : "";
 
   const differenceText =
@@ -80,10 +80,10 @@ Their other price: ${dollars(tableData.theirOther)}`
   const handleCopyAutoOnly = () => {
     copyText(`
 Our auto price yearly: ${dollars(ourAutoYearly)}
-Their auto price yearly: ${dollars(theirAnnual)}
+Your auto price yearly: ${dollars(theirAnnual)}
 
 Our auto monthly equivalent: ${dollars(ourAutoYearly / 12)}
-Their auto monthly equivalent: ${dollars(theirAnnual / 12)}
+Your auto monthly equivalent: ${dollars(theirAnnual / 12)}
 
 --------------------------------
 
@@ -100,10 +100,10 @@ ${
   const handleCopyAnnualTotal = () => {
     copyText(`
 Our auto price yearly: ${dollars(ourAutoYearly)}
-Their auto price yearly: ${dollars(theirAnnual)}
+Your auto price yearly: ${dollars(theirAnnual)}
 
 Our home price: ${dollars(tableData.ourPriceHome)}
-Their home price: ${dollars(tableData.theirPriceHome)}${otherLine}
+Your home price: ${dollars(tableData.theirPriceHome)}${otherLine}
 
 --------------------------------
 
@@ -114,10 +114,10 @@ ${differenceText}
   const handleCopyAutoMonthlyHomeAnnual = () => {
     copyText(`
 Our auto: ${dollars(ourAutoYearly / 12)} per month
-Their auto: ${dollars(theirAnnual / 12)} per month
+Your auto: ${dollars(theirAnnual / 12)} per month
 
 Our home: ${dollars(tableData.ourPriceHome)} per year
-Their home: ${dollars(tableData.theirPriceHome)} per year${otherLine}
+Your home: ${dollars(tableData.theirPriceHome)} per year${otherLine}
 
 --------------------------------
 
