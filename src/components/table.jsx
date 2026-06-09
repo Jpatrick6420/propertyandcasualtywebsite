@@ -190,7 +190,10 @@ ${differenceText}
             />
           </td>
           {/* <td className="w-full text-center">Yes</td> */}
-          <td className="w-full text-center">{num(tableData.ourPriceHome)}</td>
+          <td className="w-full text-center">
+            {tableData.ourPriceHome != "" ? "$" : ""}
+            {num(tableData.ourPriceHome)}
+          </td>
 
           <td className="w-full text-center">
             <input
@@ -201,6 +204,7 @@ ${differenceText}
           </td>
           <td className="w-full text-center">Yes</td>
           <td className="w-full text-center">
+            {tableData.theirPriceHome != "" ? "$" : ""}
             {num(tableData.theirPriceHome)}
           </td>
         </tr>
@@ -215,7 +219,10 @@ ${differenceText}
             />
           </td>
           {/* <td className="w-full text-center">Yes</td> */}
-          <td className="w-full text-center">{num(tableData.ourOther)}</td>
+          <td className="w-full text-center">
+            {tableData.ourOther != "" ? "$" : ""}
+            {num(tableData.ourOther)}
+          </td>
 
           <td className="w-full text-center">
             {tableData.theirOther != "" ? "$" : ""}
@@ -226,7 +233,10 @@ ${differenceText}
             />
           </td>
           <td className="w-full text-center">Yes</td>
-          <td className="w-full text-center">{num(tableData.theirOther)}</td>
+          <td className="w-full text-center">
+            {tableData.theirOther != "" ? "$" : ""}
+            {num(tableData.theirOther)}
+          </td>
         </tr>
         <tr>
           <td className="w-full text-center">Monthly rate</td>
