@@ -6,31 +6,31 @@ import { useState } from "react";
 import CurrentInfoSection from "./features/CurrentInfoSection.jsx";
 import DataExtraction from "./features/dataExtraction.jsx";
 import OtherCarriersInfo from "./features/OtherCarriersInfo.jsx";
+import CallForm from "./features/CallForm.jsx";
 
-function App2() {
+function App() {
   const [currentPage, setCurrentPage] = useState("hooks");
-  const [currentInfo, setCurrentInfo] = useState({
-    name: "",
-    phoneNumber: "",
-  });
+  // const [currentInfo, setCurrentInfo] = useState({
+  //   name: "",
+  //   phoneNumber: "",
+  // });
 
   return (
     <>
       <Nav handler={setCurrentPage} />
-
       <ZipCodeSection />
-
-      {currentPage == "callscript" && (
+      {/* {currentPage == "callscript" && (
         <CurrentInfoSection
           currentInfo={currentInfo}
           setCurrentInfo={setCurrentInfo}
         />
-      )}
+      )} */}
       {currentPage == "hooks" && <OtherCarriersInfo />}
-      {currentPage == "callscript" && <ScriptSection info={currentInfo} />}
+      {/* {currentPage == "callscript" && <CallForm />} */}
       {currentPage == "assessor" && <DataExtraction />}
+      {currentPage == "2" && <CallForm />}
     </>
   );
 }
 
-export default App2;
+export default App;

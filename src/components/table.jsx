@@ -283,7 +283,7 @@ ${differenceText}
           <td></td>
         </tr>
         <tr>
-          <td colSpan={7} className="my-2">
+          <td colSpan={7} className="my-2r">
             <div className="flex gap-2 justify-center">
               <button
                 className="bg-blue-500 hover:bg-blue-400 text-stone-50 px-2 py-1 rounded-md"

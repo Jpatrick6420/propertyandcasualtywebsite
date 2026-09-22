@@ -29,6 +29,7 @@ function App2() {
       {currentPage == "hooks" && <OtherCarriersInfo />}
       {currentPage == "callscript" && <ScriptSection info={currentInfo} />}
       {currentPage == "assessor" && <DataExtraction />}
+      {currentPage == "2" && <FormData />}
     </>
   );
 }
