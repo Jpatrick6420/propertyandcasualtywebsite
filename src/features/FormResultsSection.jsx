@@ -5,46 +5,46 @@ function FormResultsSection({ currentData }) {
   const handleCopy = async () => {
     const textToCopy = `
     Pni : ${currentData.pni} DOB: ${currentData.pniDob}
-      ${currentData.sni && `Sni: ${currentData.sni}. DOB: ${currentData.sniDob}`}
-      Auto
-      ${currentData.auto.additionalDrivers ? "Additional Drivers" : ""}
-      ${
-        currentData.auto.additionalDrivers &&
-        currentData.auto.additionalDrivers?.map(
-          (item, i) =>
-            `${i + 1} Name: ${item.name} DOB: ${item.dob} Occupation: ${item.occupation}{" "}
+    ${currentData.sni && `Sni: ${currentData.sni}. DOB: ${currentData.sniDob}`}
+    Auto
+    
+    ${currentData.auto.additionalDrivers ? "Additional Drivers" : ""}
+    ${
+      currentData.auto.additionalDrivers &&
+      currentData.auto.additionalDrivers?.map(
+        (item, i) =>
+          `${i + 1} Name: ${item.name} DOB: ${item.dob} Occupation: ${item.occupation}\n
             ${
               item.occupation?.toLowerCase() == "student"
                 ? item.goodStudent
                 : ""
-            }{" "}
-            Education: ${item.education.split("_").join(" ")}{" "}
+            }
+            Education: ${item.education.split("_").join(" ")}
             ${item.military ? "Military: Yes" : ""}`,
-        )
-      }
+      )
+    }
       ${currentData.auto.claims ? "Claims" : ""}
       ${currentData.auto.claims?.map(
-        (item, i) => ` ${i + 1}  ${item.type} ${item.date}`,
+        (item, i) => ` ${i + 1}  ${item.type} ${item.date}\n`,
       )}
      ${currentData.auto.vehicles ? "Vehicles" : ""}
       ${currentData.auto.vehicles?.map(
         (item, i) =>
-          ` ${i + 1} Year: ${item.year} Make: ${item.make} Model: ${item.model}{" "}
+          ` ${i + 1} Year: ${item.year} Make: ${item.make} Model: ${item.model}\n
           ${item.rideShare ? "Ride Share: Yes" : "Ride Share: No"}
           ${item.businessUse ? "Business Use: Yes" : "Business Use: No"}
-          Collision: ${item.collisionDeductible} Comprehensive:{" "}
-          ${item.comprehensiveDeductible}`,
+          Collision: ${item.collisionDeductible} Comprehensive:
+          ${item.comprehensiveDeductible}\n`,
       )}
       Current Coverage: ${currentData.auto.currentCoverage}
       What's important: ${currentData.auto.whatIsImportant}
       ${currentData.auto.vehicles?.map(
         (item, i) =>
-          `
-      ${i + 1} ${item.year} ${item.make} ${item.model} RideShare:{" "}
-          ${item.rideShare ? "Yes" : "No"} Business Use{" "}
-          ${item.businessUse ? "Yes" : "No"}
-          Collision Deductible: ${item.collisionDeductible} <br />
-          Comprehensive Deductible: ${item.comprehensiveDeductible}
+          `${i + 1} ${item.year} ${item.make} ${item.model} RideShare:
+          ${item.rideShare ? "Yes" : "No"} 
+          Business Use: ${item.businessUse ? "Yes" : "No"}
+          Collision Deductible: ${item.collisionDeductible} \n
+          Comprehensive Deductible: ${item.comprehensiveDeductible}\n
        `,
       )}
       ${currentData.currentCoverage}
@@ -55,7 +55,7 @@ function FormResultsSection({ currentData }) {
       Roof Age: ${currentData.home.roof}
       ${currentData.home.plumbingUpdated && "Plumbing Updated: Yes"}
       ${currentData.home.electricalUpdated && "Electrical Updated: Yes"}
-      ${
+      Dog Types:\n ${
         currentData.home.dogs &&
         currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}`)
       }
@@ -72,7 +72,7 @@ function FormResultsSection({ currentData }) {
         
       Home Claims
 
-      ${currentData.home.claims?.map((item, i) => `${i + 1} ${item.type} ${item.date}`)}`;
+      ${currentData.home.claims?.map((item, i) => `${i + 1} ${item.type} ${item.date}`)}\n`;
     try {
       // Use the native Clipboard API
       await navigator.clipboard.writeText(textToCopy);
@@ -108,12 +108,7 @@ function FormResultsSection({ currentData }) {
             {item.military ? "Military: Yes" : ""}
           </p>
         ))}
-      <p>Claims</p>
-      {currentData.auto.claims?.map((item, i) => (
-        <p key={i}>
-          {item.type} {item.date}
-        </p>
-      ))}
+
       <p>Vehicles:</p>
       {currentData.auto.vehicles?.map((item, i) => (
         <p key={i}>
@@ -125,6 +120,12 @@ function FormResultsSection({ currentData }) {
         </p>
       ))}
       <p>Current Coverage: {currentData.auto.currentCoverage}</p>
+      <p>Claims</p>
+      {currentData.auto.claims?.map((item, i) => (
+        <p key={i}>
+          {item.type} {item.date}
+        </p>
+      ))}
       <p>What's important: {currentData.auto.whatIsImportant}</p>
       {currentData.auto.vehicles?.map((item, i) => (
         <p key={i}>
@@ -171,9 +172,9 @@ function FormResultsSection({ currentData }) {
           {item.type} {item.date}
         </p>
       ))}
-      <div>
+      <div className="flex justify-center">
         <button
-          className="bg-green-600 hover:bg-green-800 active:bg-green-600"
+          className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5"
           onClick={handleCopy}
         >
           Copy

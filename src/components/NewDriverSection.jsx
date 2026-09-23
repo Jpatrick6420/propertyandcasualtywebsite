@@ -31,8 +31,8 @@ function NewDriverSection({ handleCurrentData }) {
   };
   return (
     <>
-      <h3 className="font-bold text-xl">New Driver</h3>
-      <section className="bg-amber-200 px-2 py-0.5">
+      <h3 className="font-bold text-xl mt-2">New Driver</h3>
+      <section className="bg-amber-200 px-2 py-4">
         <div>
           <label className="mr-2">Enter Driver Name</label>
           <input

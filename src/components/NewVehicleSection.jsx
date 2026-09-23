@@ -32,7 +32,7 @@ function NewVehicleSection({ handleCurrentData }) {
   };
   return (
     <>
-      <h3 className="font-bold text-xl">New Vehicle</h3>
+      <h3 className="font-bold text-xl mt-2">New Vehicle</h3>
       <section className="grid grid-cols-2 bg-blue-200 px-2 py-4 rounded-lg">
         <div className="grid grid-cols-5">
           <label className="mr-2">Year</label>

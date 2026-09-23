@@ -46,6 +46,7 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Year Built</label>
         <input
+          className="border-2 border-gray-600"
           type="text"
           value={currentHomeFacts.yearBuilt}
           onChange={(e) => handleHomeDataChange(e, "yearBuilt")}
@@ -54,6 +55,7 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Roof</label>
         <input
+          className="border-2 border-gray-600"
           type="text"
           value={currentHomeFacts.roof}
           onChange={(e) => handleHomeDataChange(e, "roof")}
@@ -86,6 +88,7 @@ function HomeSection({ handleCurrentHomeData }) {
           <>
             <label>Dog Types</label>
             <input
+              className="border-2 border-gray-600"
               type="text"
               value={dogTypeEntry}
               onChange={(e) => setDogTypeEntry(e.target.value)}

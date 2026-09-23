@@ -92,20 +92,13 @@ function CallForm() {
           />
         </div>
         <h2 className="text-lg font-bold">Auto</h2>
-        <div>
-          <label>What is Important?</label>
-          <br></br>
-          <textarea
-            className="border-gray-600 border-[1px] px-0.5 py-1 text-xs"
-            value={currentData.auto["whatIsImportant"]}
-            onChange={(e) => handleAutoDataChange(e, "whatIsImportant")}
-          ></textarea>
-        </div>
+        <div></div>
         <NewDriverSection handleCurrentData={setCurrentData} />
         <NewVehicleSection handleCurrentData={setCurrentData} />
         <div>
           <label>Coverage Options</label>
           <select
+            className="my-4 border-2 border-gray-600 ml-2"
             onChange={(e) => handleSelect(e, "coverageOptions")}
             value={currentData.auto.currentCoverage}
           >
@@ -120,6 +113,13 @@ function CallForm() {
             <option value="250/500/250+">250/500/250+</option>
           </select>
         </div>
+        <label>What is Important?</label>
+        <br></br>
+        <textarea
+          className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg"
+          value={currentData.auto["whatIsImportant"]}
+          onChange={(e) => handleAutoDataChange(e, "whatIsImportant")}
+        ></textarea>
         <ClaimsSection handleCurrentData={setCurrentData} />
         <h2 className="text-lg font-bold">Home</h2>
         <HomeSection handleCurrentHomeData={setCurrentData} />
