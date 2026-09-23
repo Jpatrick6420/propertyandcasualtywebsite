@@ -46,16 +46,16 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Year Built</label>
         <input
-          className="border-2 border-gray-600"
+          className="border-2 border-gray-600 ml-2 px-1 py-0.5"
           type="text"
           value={currentHomeFacts.yearBuilt}
           onChange={(e) => handleHomeDataChange(e, "yearBuilt")}
         />
       </div>
-      <div>
+      <div className="my-2">
         <label>Roof</label>
         <input
-          className="border-2 border-gray-600"
+          className="border-2 border-gray-600 ml-2 px-2 py-0.5"
           type="text"
           value={currentHomeFacts.roof}
           onChange={(e) => handleHomeDataChange(e, "roof")}
@@ -65,6 +65,7 @@ function HomeSection({ handleCurrentHomeData }) {
         <label>Plumbing Updated</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentHomeFacts.plumbingUpdated}
           onChange={(e) => handleCheckboxHome(e, "plumbingUpdated")}
         />
@@ -72,6 +73,7 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Electrical Updated</label>
         <input
+          className="ml-2"
           type="checkbox"
           checked={currentHomeFacts.electricalUpdated}
           onChange={(e) => handleCheckboxHome(e, "electricalUpdated")}
@@ -80,6 +82,7 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Dogs</label>
         <input
+          className="ml-2"
           type="checkbox"
           checked={currentHomeFacts.dogs}
           onChange={(e) => handleCheckboxHome(e, "dogs")}
@@ -88,7 +91,7 @@ function HomeSection({ handleCurrentHomeData }) {
           <>
             <label>Dog Types</label>
             <input
-              className="border-2 border-gray-600"
+              className="border-2 border-gray-600 ml-2 px-1 py-0.5"
               type="text"
               value={dogTypeEntry}
               onChange={(e) => setDogTypeEntry(e.target.value)}
@@ -110,6 +113,7 @@ function HomeSection({ handleCurrentHomeData }) {
       <div>
         <label>Solar</label>
         <input
+          className="ml-2"
           type="checkbox"
           checked={currentHomeFacts.solar}
           onChange={(e) => handleCheckboxHome(e, "solar")}
@@ -119,6 +123,7 @@ function HomeSection({ handleCurrentHomeData }) {
         <label>Good Shape</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentHomeFacts.goodShape}
           onChange={(e) => handleCheckboxHome(e, "goodShape")}
         />
@@ -127,6 +132,7 @@ function HomeSection({ handleCurrentHomeData }) {
         <label>Business Use</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentHomeFacts.businessUse}
           onChange={(e) => handleCheckboxHome(e, "businessUse")}
         />
@@ -135,6 +141,7 @@ function HomeSection({ handleCurrentHomeData }) {
         <label>Swimming Pool</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentHomeFacts.swimmingPool}
           onChange={(e) => handleCheckboxHome(e, "swimmingPool")}
         />
@@ -143,6 +150,7 @@ function HomeSection({ handleCurrentHomeData }) {
         <label className="pr-2">Trampoline</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentHomeFacts.trampoline}
           onChange={(e) => handleCheckboxHome(e, "trampoline")}
         />

@@ -57,12 +57,13 @@ function CallForm() {
 
   return (
     <>
-      <form className="px-4 py-2">
+      <form className="px-4 py-2 ">
         <h3 className="text-lg text-center">New Form Data</h3>
         <div>
           <label>PNI Name</label>
           <input
             type="text"
+            className="ml-2"
             value={currentData.pni}
             onChange={(e) => handlePniAndSniDetails(e, "pni")}
           />
@@ -70,6 +71,7 @@ function CallForm() {
         <div>
           <label>PNI Age</label>
           <input
+            className="ml-2"
             type="date"
             value={currentData.pniDob}
             onChange={(e) => handlePniAndSniDetails(e, "pniDob")}
@@ -78,6 +80,7 @@ function CallForm() {
         <div>
           <label>SNI Name</label>
           <input
+            className="ml-2"
             type="text"
             value={currentData.sni}
             onChange={(e) => handlePniAndSniDetails(e, "sni")}
@@ -86,6 +89,7 @@ function CallForm() {
         <div>
           <label>SNI Name</label>
           <input
+            className="ml-2"
             type="date"
             value={currentData.sniDob}
             onChange={(e) => handlePniAndSniDetails(e, "sniDob")}
