@@ -67,7 +67,7 @@ function CallForm() {
           <label>PNI Name</label>
           <input
             type="text"
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             value={currentData.pni}
             onChange={(e) => handlePniAndSniDetails(e, "pni")}
           />
@@ -75,7 +75,7 @@ function CallForm() {
         <div>
           <label>PNI Age</label>
           <input
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             type="date"
             value={currentData.pniDob}
             onChange={(e) => handlePniAndSniDetails(e, "pniDob")}
@@ -97,7 +97,7 @@ function CallForm() {
         <div>
           <label>Pni Profession</label>
           <input
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             type="text"
             value={currentData.pniProfession}
             onChange={(e) => handlePniAndSniDetails(e, "pniProfession")}
@@ -106,7 +106,7 @@ function CallForm() {
         <div>
           <label>SNI Name</label>
           <input
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             type="text"
             value={currentData.sni}
             onChange={(e) => handlePniAndSniDetails(e, "sni")}
@@ -115,7 +115,7 @@ function CallForm() {
         <div>
           <label>SNI DOB</label>
           <input
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             type="date"
             value={currentData.sniDob}
             onChange={(e) => handlePniAndSniDetails(e, "sniDob")}
@@ -138,7 +138,7 @@ function CallForm() {
         <div>
           <label>Sni Profession</label>
           <input
-            className="ml-2"
+            className="ml-2 border-2 border-gray-600"
             type="text"
             value={currentData.sniProfession}
             onChange={(e) => handlePniAndSniDetails(e, "sniProfession")}
