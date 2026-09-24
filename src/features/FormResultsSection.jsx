@@ -4,8 +4,9 @@ function FormResultsSection({ currentData }) {
   const [isCopied, setIsCopied] = useState(false);
   const handleCopy = async () => {
     const textToCopy = `
-    Pni : ${currentData.pni} DOB: ${currentData.pniDob}
-    ${currentData.sni && `Sni: ${currentData.sni}. DOB: ${currentData.sniDob}`}
+    Pni : ${currentData.pni} DOB: ${currentData.pniDob} Education: ${currentData.pniEducation.split("_").join(" ")} Profession: ${currentData.pniProfession}
+    ${currentData.sni && `Sni: ${currentData.sni}. DOB: ${currentData.sniDob}`} Education: ${currentData.sniEducation.split("_").join(" ")} Profession: ${currentData.sniProfession}
+
     Auto
     
     ${currentData.auto.additionalDrivers ? "Additional Drivers" : ""}
@@ -19,11 +20,11 @@ function FormResultsSection({ currentData }) {
                 ? item.goodStudent
                 : ""
             }
-            Education: ${item.education.split("_").join(" ")}
+           
             ${item.military ? "Military: Yes" : ""}`,
       )
     }
-      ${currentData.auto.claims ? "Claims" : ""}
+      ${currentData.auto.claims ? "Auto Claims" : ""}
       ${currentData.auto.claims?.map(
         (item, i) => ` ${i + 1})  ${item.type} ${item.date}\n`,
       )}
@@ -81,11 +82,15 @@ function FormResultsSection({ currentData }) {
   return (
     <div className="mx-4">
       <p>
-        Pni : {currentData.pni} {currentData.pniDob}
+        Pni : {currentData.pni} {currentData.pniDob} Education:{" "}
+        {currentData.pniEducation.split("_").join(" ")} Profession:{" "}
+        {currentData.pniProfession}
       </p>
       {currentData.sni && (
         <p>
-          Sni: {currentData.sni} DOB: {currentData.sniDob}
+          Sni: {currentData.sni} DOB: {currentData.sniDob} Education:{" "}
+          {currentData.sniEducation.split("_").join(" ")} Profession:{" "}
+          {currentData.sniProfession}
         </p>
       )}
       <h3 className="font-bold text-xl my-2">Auto</h3>
@@ -97,7 +102,6 @@ function FormResultsSection({ currentData }) {
             {item.occupation?.toLowerCase() == "student"
               ? item.goodStudent
               : ""}{" "}
-            Education: {item.education.split("_").join(" ")}{" "}
             {item.military ? "Military: Yes" : ""}
           </p>
         ))}
@@ -114,25 +118,21 @@ function FormResultsSection({ currentData }) {
       ))}
       <p>Current Coverage: {currentData.auto.currentCoverage}</p>
       <p>Claims</p>
-      {currentData.auto.claims?.map((item, i) =>
-        (
-          <p key={i}>
-            {item.type} {item.date}
-          </p>
-        ).join("\n"),
-      )}
+      {currentData.auto.claims?.map((item, i) => (
+        <p key={i}>
+          {item.type} {item.date}
+        </p>
+      ))}
       <p>What's important: {currentData.auto.whatIsImportant}</p>
-      {currentData.auto.vehicles?.map((item, i) =>
-        (
-          <p key={i}>
-            {item.year} {item.make} {item.model} RideShare:{" "}
-            {item.rideShare ? "Yes" : "No"} Business Use{" "}
-            {item.businessUse ? "Yes" : "No"}
-            Collision Deductible: {item.collisionDeductible} <br />
-            Comprehensive Deductible: {item.comprehensiveDeductible}
-          </p>
-        ).join("\n"),
-      )}
+      {currentData.auto.vehicles?.map((item, i) => (
+        <p key={i}>
+          {item.year} {item.make} {item.model} RideShare:{" "}
+          {item.rideShare ? "Yes" : "No"} Business Use{" "}
+          {item.businessUse ? "Yes" : "No"}
+          Collision Deductible: {item.collisionDeductible} <br />
+          Comprehensive Deductible: {item.comprehensiveDeductible}
+        </p>
+      ))}
       <p>{currentData.currentCoverage}</p>
       <h3 className="font-bold text-xl my-2">Home Facts</h3>
       <p>Year Built: {currentData.home.yearBuilt}</p>
@@ -140,9 +140,7 @@ function FormResultsSection({ currentData }) {
       {currentData.home.plumbingUpdated && <p>Plumbing Updated: Yes</p>}
       {currentData.home.electricalUpdated && <p>Electrical Updated: Yes</p>}
       {currentData.home.dogs &&
-        currentData.home.dogTypes
-          ?.map((dog, i) => <p key={i}>{dog}</p>)
-          .join("\n")}
+        currentData.home.dogTypes?.map((dog, i) => <p key={i}>{dog}</p>)}
       {currentData.home.solar ? <p>Solar: Yes</p> : <p>Solar: No</p>}
       {currentData.home.goodShape ? (
         <p>Good Shape: Yes</p>
@@ -166,13 +164,11 @@ function FormResultsSection({ currentData }) {
         <p>Tampoline: No</p>
       )}
       <p>Home Claims</p>
-      {currentData.home.claims?.map((item, i) =>
-        (
-          <p key={i}>
-            {item.type} {item.date}
-          </p>
-        ).join("\n"),
-      )}
+      {currentData.home.claims?.map((item, i) => (
+        <p key={i}>
+          {item.type} {item.date}
+        </p>
+      ))}
       <div className="flex justify-center flex-col items-center">
         <button
           className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5"

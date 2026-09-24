@@ -13,9 +13,6 @@ function NewDriverSection({ handleCurrentData }) {
   const handleFieldChange = (e, field) => {
     setDriverDetails((prev) => ({ ...prev, [field]: e.target.value }));
   };
-  const handleSelect = (e) => {
-    setDriverDetails((prev) => ({ ...prev, education: e.target.value }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,19 +68,7 @@ function NewDriverSection({ handleCurrentData }) {
             />
           </div>
         )}
-        <div>
-          <label className="mr-2">Level Of Education</label>
-          <select
-            onChange={(e) => handleSelect(e)}
-            className="border-2 border-gray-600"
-          >
-            <option value="ged_pending">GED Pending</option>
-            <option value="high_school">High School</option>
-            <option value="some_college">Some College</option>
-            <option value="college_degree">College Degree</option>
-            <option value="docterate">Docterate</option>
-          </select>
-        </div>
+
         <div>
           <label className="mr-2">Military</label>
           <input

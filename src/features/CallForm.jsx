@@ -8,9 +8,13 @@ import HomeSection from "./HomeSection";
 function CallForm() {
   const initInfo = {
     pni: "",
+    pniEducation: "",
+    pniProfession: "",
     pniDob: "",
     sni: "",
     sniDob: "",
+    sniEducation: "",
+    sniProfession: "",
     auto: {
       additionalDrivers: [],
       claims: [],
@@ -48,10 +52,10 @@ function CallForm() {
     }));
   };
 
-  const handleSelect = (e) => {
+  const handleSelect = (e, field) => {
     setCurrentData((prev) => ({
       ...prev,
-      auto: { ...prev.auto, currentCoverage: e.target.value },
+      [field]: e.target.value,
     }));
   };
 
@@ -76,6 +80,28 @@ function CallForm() {
             value={currentData.pniDob}
             onChange={(e) => handlePniAndSniDetails(e, "pniDob")}
           />
+          <div>
+            <label className="mr-2">Level Of Education</label>
+            <select
+              onChange={(e) => handleSelect(e, "pniEducation")}
+              className="border-2 border-gray-600"
+            >
+              <option value="ged_pending">GED Pending</option>
+              <option value="high_school">High School</option>
+              <option value="some_college">Some College</option>
+              <option value="college_degree">College Degree</option>
+              <option value="docterate">Docterate</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label>Pni Profession</label>
+          <input
+            className="ml-2"
+            type="text"
+            value={currentData.pniProfession}
+            onChange={(e) => handlePniAndSniDetails(e, "pniProfession")}
+          />
         </div>
         <div>
           <label>SNI Name</label>
@@ -87,12 +113,35 @@ function CallForm() {
           />
         </div>
         <div>
-          <label>SNI Name</label>
+          <label>SNI DOB</label>
           <input
             className="ml-2"
             type="date"
             value={currentData.sniDob}
             onChange={(e) => handlePniAndSniDetails(e, "sniDob")}
+          />
+        </div>
+
+        <div>
+          <label className="mr-2">Level Of Education</label>
+          <select
+            onChange={(e) => handleSelect(e, "sniEducation")}
+            className="border-2 border-gray-600"
+          >
+            <option value="ged_pending">GED Pending</option>
+            <option value="high_school">High School</option>
+            <option value="some_college">Some College</option>
+            <option value="college_degree">College Degree</option>
+            <option value="docterate">Docterate</option>
+          </select>
+        </div>
+        <div>
+          <label>Sni Profession</label>
+          <input
+            className="ml-2"
+            type="text"
+            value={currentData.sniProfession}
+            onChange={(e) => handlePniAndSniDetails(e, "sniProfession")}
           />
         </div>
         <h2 className="text-lg font-bold">Auto</h2>

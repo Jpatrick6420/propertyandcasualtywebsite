@@ -99,7 +99,7 @@ function HomeSection({ handleCurrentHomeData }) {
             <div>
               <button
                 className="bg-red-600 px-2 py-0.5 hover:bg-red-800 active:bg-red-600"
-                onChange={(e) => {
+                onClick={(e) => {
                   handleDogBreedSubmit(e);
                 }}
               >
