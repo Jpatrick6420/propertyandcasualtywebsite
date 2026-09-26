@@ -7,14 +7,18 @@ import ClaimsSection from "./ClaimsSection";
 import HomeSection from "./HomeSection";
 function CallForm() {
   const initInfo = {
-    pni: "",
-    pniEducation: "",
-    pniProfession: "",
-    pniDob: "",
-    sni: "",
-    sniDob: "",
-    sniEducation: "",
-    sniProfession: "",
+    pni: {
+      name: "",
+      pniEducation: "",
+      pniProfession: "",
+      pniDob: "",
+    },
+    sni: {
+      name: "",
+      sniDob: "",
+      sniEducation: "",
+      sniProfession: "",
+    },
     auto: {
       additionalDrivers: [],
       claims: [],
@@ -29,7 +33,7 @@ function CallForm() {
       plumbingUpdated: false,
       electricalUpdated: false,
       dogs: false,
-      dogType: [],
+      dogTypes: [],
       solar: false,
       goodShape: true,
       businessUse: false,
@@ -42,8 +46,11 @@ function CallForm() {
 
   const [currentData, setCurrentData] = useState(initInfo);
 
-  const handlePniAndSniDetails = (e, field) => {
-    setCurrentData((prev) => ({ ...prev, [field]: e.target.value }));
+  const handlePniAndSniDetails = (e, person, field) => {
+    setCurrentData((prev) => ({
+      ...prev,
+      [person]: { ...prev[person], [field]: e.target.value },
+    }));
   };
   const handleAutoDataChange = (e, field) => {
     setCurrentData((prev) => ({
@@ -52,10 +59,10 @@ function CallForm() {
     }));
   };
 
-  const handleSelect = (e, field) => {
+  const handleSelect = (e, person, field) => {
     setCurrentData((prev) => ({
       ...prev,
-      [field]: e.target.value,
+      [person]: { ...prev[person], [field]: e.target.value },
     }));
   };
 
@@ -68,22 +75,22 @@ function CallForm() {
           <input
             type="text"
             className="ml-2 border-2 border-gray-600"
-            value={currentData.pni}
-            onChange={(e) => handlePniAndSniDetails(e, "pni")}
+            value={currentData.pni.name}
+            onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
           />
         </div>
         <div>
-          <label>PNI Age</label>
+          <label>PNI DOB</label>
           <input
             className="ml-2 border-2 border-gray-600"
             type="date"
             value={currentData.pniDob}
-            onChange={(e) => handlePniAndSniDetails(e, "pniDob")}
+            onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
           />
           <div>
             <label className="mr-2">Level Of Education</label>
             <select
-              onChange={(e) => handleSelect(e, "pniEducation")}
+              onChange={(e) => handleSelect(e, "pni", "pniEducation")}
               className="border-2 border-gray-600"
             >
               <option value="ged_pending">GED Pending</option>
@@ -99,8 +106,8 @@ function CallForm() {
           <input
             className="ml-2 border-2 border-gray-600"
             type="text"
-            value={currentData.pniProfession}
-            onChange={(e) => handlePniAndSniDetails(e, "pniProfession")}
+            value={currentData.pni.pniProfession}
+            onChange={(e) => handlePniAndSniDetails(e, "pni", "pniProfession")}
           />
         </div>
         <div>
@@ -108,8 +115,8 @@ function CallForm() {
           <input
             className="ml-2 border-2 border-gray-600"
             type="text"
-            value={currentData.sni}
-            onChange={(e) => handlePniAndSniDetails(e, "sni")}
+            value={currentData.sni.name}
+            onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
           />
         </div>
         <div>
@@ -117,15 +124,15 @@ function CallForm() {
           <input
             className="ml-2 border-2 border-gray-600"
             type="date"
-            value={currentData.sniDob}
-            onChange={(e) => handlePniAndSniDetails(e, "sniDob")}
+            value={currentData.sni.sniDob}
+            onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
           />
         </div>
 
         <div>
           <label className="mr-2">Level Of Education</label>
           <select
-            onChange={(e) => handleSelect(e, "sniEducation")}
+            onChange={(e) => handleSelect(e, "sni", "sniEducation")}
             className="border-2 border-gray-600"
           >
             <option value="ged_pending">GED Pending</option>
@@ -138,10 +145,10 @@ function CallForm() {
         <div>
           <label>Sni Profession</label>
           <input
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2"
             type="text"
-            value={currentData.sniProfession}
-            onChange={(e) => handlePniAndSniDetails(e, "sniProfession")}
+            value={currentData.sni.sniProfession}
+            onChange={(e) => handlePniAndSniDetails(e, "sni", "sniProfession")}
           />
         </div>
         <h2 className="text-lg font-bold">Auto</h2>
@@ -175,7 +182,10 @@ function CallForm() {
         ></textarea>
         <ClaimsSection handleCurrentData={setCurrentData} />
         <h2 className="text-lg font-bold">Home</h2>
-        <HomeSection handleCurrentHomeData={setCurrentData} />
+        <HomeSection
+          handleCurrentHomeData={setCurrentData}
+          currentData={currentData}
+        />
       </form>
       <FormResultsSection currentData={currentData} />
     </>

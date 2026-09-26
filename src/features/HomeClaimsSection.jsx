@@ -10,7 +10,7 @@ function HomeCliaimsSection({ handleCurrentData }) {
     const newClaim = { type: currentClaim.type, date: currentClaim.date };
     handleCurrentData((prev) => ({
       ...prev,
-      claims: [...prev.claims, newClaim],
+      home: { ...prev.home, claims: [...prev.home.claims, newClaim] },
     }));
 
     setCurrentClaim(initClaim);
