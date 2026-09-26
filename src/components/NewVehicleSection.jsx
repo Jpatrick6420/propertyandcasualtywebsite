@@ -37,32 +37,32 @@ function NewVehicleSection({ handleCurrentData }) {
         <div className="grid grid-cols-5">
           <label className="mr-2">Year</label>
           <input
-            className="border-2 border-gray-700 px-1 py-0.5 col-span-2"
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2 mb-1"
             type="number"
             min="1980"
             value={vehicleOptions.year}
             onChange={(e) => handleFieldChange(e, "year")}
           />
         </div>
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-5 mb-1">
           <label className="mr-2"> * Make</label>
           <input
-            className="border-2 border-gray-700 px-1 py-0.5 col-span-2"
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2"
             type="text"
             value={vehicleOptions.make}
             onChange={(e) => handleFieldChange(e, "make")}
           />
         </div>
-        <div className="grid grid-cols-5 mt-2">
+        <div className="grid grid-cols-5 mt-2 mb-1">
           <label className="mr-2">Model</label>
           <input
-            className="border-2 border-gray-700 px-1 py-0.5 col-span-2 "
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2 "
             type="text"
             value={vehicleOptions.model}
             onChange={(e) => handleFieldChange(e, "model")}
           />
         </div>
-        <div className="">
+        <div className="mb-1">
           <label className="mr-2">Ride Share</label>
           <input
             type="checkbox"
@@ -77,27 +77,27 @@ function NewVehicleSection({ handleCurrentData }) {
           />
         </div>
 
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Collision Deductible</label>
           <input
             type="number"
-            className="border-2 border-gray-700 px-1 py-0.5 "
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 "
             value={vehicleOptions.collisionDeductible}
             onChange={(e) => {
               handleFieldChange(e, "collisionDeductible");
             }}
           />
         </div>
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Comprehensive Deductible</label>
           <input
-            className="border-2 border-gray-700 px-1 py-0.5"
+            className="border-2 border-gray-700 px-1 py-0.5 bg-stone-50"
             type="number"
             value={vehicleOptions.comprehensiveDeductible}
             onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}
           />
         </div>
-        <div className="col-span-2 flex justify-center">
+        <div className="col-span-2 flex justify-center mb-1">
           <button
             onClick={(e) => {
               handleSubmit(e);

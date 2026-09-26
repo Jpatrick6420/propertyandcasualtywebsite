@@ -45,12 +45,16 @@ function FormResultsSection({ currentData }) {
       Home Facts
       
       Year Built: ${currentData.home.yearBuilt}
-      Roof Age: ${currentData.home.roof}
+      Roof Age: ${
+        Number(currentData.home.roof) > 1000
+          ? new Date().getFullYear() - Number(currentData.home.roof)
+          : currentData.home.roof
+      }
       ${currentData.home.plumbingUpdated ? "Plumbing Updated: Yes" : ""}
       ${currentData.home.electricalUpdated ? "Electrical Updated: Yes" : ""}
       Dog Types:\n ${
         currentData.home.dogs
-          ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}`)
+          ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}\n`)
           : "No"
       }
       ${currentData.home.solar ? "Solar: Yes" : "Solar: No"}
@@ -135,7 +139,12 @@ function FormResultsSection({ currentData }) {
       <p>{currentData.currentCoverage}</p>
       <h3 className="font-bold text-xl my-2">Home Facts</h3>
       <p>Year Built: {currentData.home.yearBuilt}</p>
-      <p>Roof Age: {currentData.home.roof}</p>
+      <p>
+        Roof Age:{" "}
+        {Number(currentData.home.roof) > 1000
+          ? new Date().getFullYear() - Number(currentData.home.roof)
+          : currentData.home.roof}
+      </p>
       {currentData.home.plumbingUpdated && <p>Plumbing Updated: Yes</p>}
       {currentData.home.electricalUpdated && <p>Electrical Updated: Yes</p>}
       <ol>

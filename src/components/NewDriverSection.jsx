@@ -30,38 +30,38 @@ function NewDriverSection({ handleCurrentData }) {
     <>
       <h3 className="font-bold text-xl mt-2">New Driver</h3>
       <section className="bg-amber-200 px-2 py-4">
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Enter Driver Name</label>
           <input
-            className="border-2 border-gray-600"
+            className="border-2 border-gray-600 bg-stone-50"
             type="text"
             value={driverDetails.name}
             onChange={(e) => handleFieldChange(e, "name")}
           />
         </div>
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Enter Driver Date of Birth</label>
           <input
-            className="border-2 border-gray-600"
+            className="border-2 border-gray-600 bg-stone-50"
             type="date"
             value={driverDetails.dob}
             onChange={(e) => handleFieldChange(e, "dob")}
           />
         </div>
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Enter Driver Occupation</label>
           <input
-            className="border-2 border-gray-600"
+            className="border-2 border-gray-600 bg-stone-50"
             type="text"
             value={driverDetails.occupation}
             onChange={(e) => handleFieldChange(e, "occupation")}
           />
         </div>
         {driverDetails.occupation == "student" && (
-          <div>
+          <div className="mb-1">
             <label className="mr-2">Good Student</label>
             <input
-              className="border-2 border-gray-600"
+              className="border-2 border-gray-600 bg-stone-50"
               type="checkbox"
               value={driverDetails.goodStudent}
               onChange={(e) => handleFieldChange(e, "goodStudent")}
@@ -69,7 +69,7 @@ function NewDriverSection({ handleCurrentData }) {
           </div>
         )}
 
-        <div>
+        <div className="mb-1">
           <label className="mr-2">Military</label>
           <input
             type="checkbox"
@@ -84,7 +84,7 @@ function NewDriverSection({ handleCurrentData }) {
         </div>
         <div className="flex justify-center my-2">
           <button
-            className="px-2 py-0.5 bg-amber-600 hover:bg-amber-800 active:bg-amber-600"
+            className="px-2 py-0.5 bg-amber-600 hover:bg-amber-800 active:bg-amber-600 text-stone-50"
             onClick={(e) => {
               handleSubmit(e);
             }}

@@ -74,7 +74,7 @@ function CallForm() {
           <label>PNI Name</label>
           <input
             type="text"
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2 border-2 border-gray-600 mb-1"
             value={currentData.pni.name}
             onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
           />
@@ -82,7 +82,7 @@ function CallForm() {
         <div>
           <label>PNI DOB</label>
           <input
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2 border-2 border-gray-600 mb-1"
             type="date"
             value={currentData.pniDob}
             onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
@@ -91,7 +91,7 @@ function CallForm() {
             <label className="mr-2">Level Of Education</label>
             <select
               onChange={(e) => handleSelect(e, "pni", "pniEducation")}
-              className="border-2 border-gray-600"
+              className="border-2 border-gray-600 mb-1"
             >
               <option value="ged_pending">GED Pending</option>
               <option value="high_school">High School</option>
@@ -104,7 +104,7 @@ function CallForm() {
         <div>
           <label>Pni Profession</label>
           <input
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2 border-2 border-gray-600 mb-1"
             type="text"
             value={currentData.pni.pniProfession}
             onChange={(e) => handlePniAndSniDetails(e, "pni", "pniProfession")}
@@ -113,7 +113,7 @@ function CallForm() {
         <div>
           <label>SNI Name</label>
           <input
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2 border-2 border-gray-600 mb-1"
             type="text"
             value={currentData.sni.name}
             onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
@@ -122,7 +122,7 @@ function CallForm() {
         <div>
           <label>SNI DOB</label>
           <input
-            className="ml-2 border-2 border-gray-600"
+            className="ml-2 border-2 border-gray-600 mb-1"
             type="date"
             value={currentData.sni.sniDob}
             onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
@@ -133,7 +133,7 @@ function CallForm() {
           <label className="mr-2">Level Of Education</label>
           <select
             onChange={(e) => handleSelect(e, "sni", "sniEducation")}
-            className="border-2 border-gray-600"
+            className="border-2 border-gray-600 mb-1"
           >
             <option value="ged_pending">GED Pending</option>
             <option value="high_school">High School</option>
@@ -145,7 +145,7 @@ function CallForm() {
         <div>
           <label>Sni Profession</label>
           <input
-            className="ml-2"
+            className="ml-2 mb-1"
             type="text"
             value={currentData.sni.sniProfession}
             onChange={(e) => handlePniAndSniDetails(e, "sni", "sniProfession")}
@@ -158,8 +158,8 @@ function CallForm() {
         <div>
           <label>Coverage Options</label>
           <select
-            className="my-4 border-2 border-gray-600 ml-2"
-            onChange={(e) => handleSelect(e, "coverageOptions")}
+            className="my-4 border-2 border-gray-600 ml-2 mb-1"
+            onChange={(e) => handleSelect(e, "auto", "currentCoverage")}
             value={currentData.auto.currentCoverage}
           >
             <option value="30/65/25">30/65/25</option>
@@ -176,7 +176,7 @@ function CallForm() {
         <label>What is Important?</label>
         <br></br>
         <textarea
-          className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg"
+          className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg mb-1"
           value={currentData.auto["whatIsImportant"]}
           onChange={(e) => handleAutoDataChange(e, "whatIsImportant")}
         ></textarea>
