@@ -5,6 +5,9 @@ import NewVehicleSection from "../components/NewVehicleSection";
 import FormResultsSection from "./FormResultsSection";
 import ClaimsSection from "./ClaimsSection";
 import HomeSection from "./HomeSection";
+import PniResults from "./PniResults";
+import DriversResults from "./DriversResults";
+import VehicleResultsSection from "../components/VehicleResultsSection";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -30,15 +33,15 @@ function CallForm() {
       //calculate replacement year or age
       roof: "",
       yearBuilt: "",
-      plumbingUpdated: false,
-      electricalUpdated: false,
+      plumbingUpdated: "",
+      electricalUpdated: "",
       dogs: false,
       dogTypes: [],
-      solar: false,
+      solar: "",
       goodShape: true,
       businessUse: false,
       swimmingPool: false,
-      fenced: true,
+      fenced: false,
       claims: [],
       trampoline: false,
     },
@@ -70,91 +73,115 @@ function CallForm() {
     <>
       <form className="px-4 py-2 ">
         <h3 className="text-lg text-center">New Form Data</h3>
-        <div>
-          <label>PNI Name</label>
-          <input
-            type="text"
-            className="ml-2 border-2 border-gray-600 mb-1"
-            value={currentData.pni.name}
-            onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
-          />
-        </div>
-        <div>
-          <label>PNI DOB</label>
-          <input
-            className="ml-2 border-2 border-gray-600 mb-1"
-            type="date"
-            value={currentData.pniDob}
-            onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
-          />
+        <section className="grid grid-cols-1 lg:grid-cols-2">
           <div>
-            <label className="mr-2">Level Of Education</label>
-            <select
-              onChange={(e) => handleSelect(e, "pni", "pniEducation")}
-              className="border-2 border-gray-600 mb-1"
-            >
-              <option value="ged_pending">GED Pending</option>
-              <option value="high_school">High School</option>
-              <option value="some_college">Some College</option>
-              <option value="college_degree">College Degree</option>
-              <option value="docterate">Docterate</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label>Pni Profession</label>
-          <input
-            className="ml-2 border-2 border-gray-600 mb-1"
-            type="text"
-            value={currentData.pni.pniProfession}
-            onChange={(e) => handlePniAndSniDetails(e, "pni", "pniProfession")}
-          />
-        </div>
-        <div>
-          <label>SNI Name</label>
-          <input
-            className="ml-2 border-2 border-gray-600 mb-1"
-            type="text"
-            value={currentData.sni.name}
-            onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
-          />
-        </div>
-        <div>
-          <label>SNI DOB</label>
-          <input
-            className="ml-2 border-2 border-gray-600 mb-1"
-            type="date"
-            value={currentData.sni.sniDob}
-            onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
-          />
-        </div>
+            <div>
+              <label>PNI Name</label>
+              <input
+                type="text"
+                className="ml-2 border-2 border-gray-600 mb-1"
+                value={currentData.pni.name}
+                onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
+              />
+            </div>
+            <div>
+              <label>PNI DOB</label>
+              <input
+                className="ml-2 border-2 border-gray-600 mb-1"
+                type="date"
+                value={currentData.pniDob}
+                onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
+              />
+              <div>
+                <label className="mr-2">Level Of Education</label>
+                <select
+                  onChange={(e) => handleSelect(e, "pni", "pniEducation")}
+                  className="border-2 border-gray-600 mb-1"
+                >
+                  <option value="ged_pending">GED Pending</option>
+                  <option value="high_school">High School</option>
+                  <option value="some_college">Some College</option>
+                  <option value="college_degree">College Degree</option>
+                  <option value="docterate">Docterate</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label>Pni Profession</label>
+              <input
+                className="ml-2 border-2 border-gray-600 mb-1"
+                type="text"
+                value={currentData.pni.pniProfession}
+                onChange={(e) =>
+                  handlePniAndSniDetails(e, "pni", "pniProfession")
+                }
+              />
+            </div>
+            <div>
+              <label>SNI Name</label>
+              <input
+                className="ml-2 border-2 border-gray-600 mb-1"
+                type="text"
+                value={currentData.sni.name}
+                onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
+              />
+            </div>
+            <div>
+              <label>SNI DOB</label>
+              <input
+                className="ml-2 border-2 border-gray-600 mb-1"
+                type="date"
+                value={currentData.sni.sniDob}
+                onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
+              />
+            </div>
 
-        <div>
-          <label className="mr-2">Level Of Education</label>
-          <select
-            onChange={(e) => handleSelect(e, "sni", "sniEducation")}
-            className="border-2 border-gray-600 mb-1"
-          >
-            <option value="ged_pending">GED Pending</option>
-            <option value="high_school">High School</option>
-            <option value="some_college">Some College</option>
-            <option value="college_degree">College Degree</option>
-            <option value="docterate">Docterate</option>
-          </select>
-        </div>
-        <div>
-          <label>Sni Profession</label>
-          <input
-            className="ml-2 mb-1"
-            type="text"
-            value={currentData.sni.sniProfession}
-            onChange={(e) => handlePniAndSniDetails(e, "sni", "sniProfession")}
-          />
-        </div>
-        <h2 className="text-lg font-bold">Auto</h2>
-        <div></div>
-        <NewDriverSection handleCurrentData={setCurrentData} />
-        <NewVehicleSection handleCurrentData={setCurrentData} />
+            <div>
+              <label className="mr-2">Level Of Education</label>
+              <select
+                onChange={(e) => handleSelect(e, "sni", "sniEducation")}
+                className="border-2 border-gray-600 mb-1"
+              >
+                <option value="ged_pending">GED Pending</option>
+                <option value="high_school">High School</option>
+                <option value="some_college">Some College</option>
+                <option value="college_degree">College Degree</option>
+                <option value="docterate">Docterate</option>
+              </select>
+            </div>
+            <div>
+              <label>Sni Profession</label>
+              <input
+                className="ml-2 mb-1"
+                type="text"
+                value={currentData.sni.sniProfession}
+                onChange={(e) =>
+                  handlePniAndSniDetails(e, "sni", "sniProfession")
+                }
+              />
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <PniResults pni={currentData.pni} sni={currentData.sni} />
+          </div>
+        </section>
+        <section className="grid grid-cols-1 lg:grid-cols-2">
+          <div>
+            <h2 className="text-lg font-bold">Auto</h2>
+            <NewDriverSection handleCurrentData={setCurrentData} />
+          </div>
+          <div className="hidden lg:block">
+            <DriversResults currentData={currentData.auto} />
+          </div>
+        </section>
+        <section className="grid grid-cols-1 lg:grid-cols-2">
+          <div>
+            <NewVehicleSection handleCurrentData={setCurrentData} />
+          </div>
+          <div className="hidden lg:block">
+            <VehicleResultsSection currentData={currentData.auto} />
+          </div>
+        </section>
         <div>
           <label>Coverage Options</label>
           <select

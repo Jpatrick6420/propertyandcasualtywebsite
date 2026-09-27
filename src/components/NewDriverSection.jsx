@@ -31,27 +31,27 @@ function NewDriverSection({ handleCurrentData }) {
       <h3 className="font-bold text-xl mt-2">New Driver</h3>
       <section className="bg-amber-200 px-2 py-4">
         <div className="mb-1">
-          <label className="mr-2">Enter Driver Name</label>
+          <label className="mr-2 lg:text-sm">Enter Driver Name</label>
           <input
-            className="border-2 border-gray-600 bg-stone-50"
+            className=" lg:text-smborder-2 border-gray-600 bg-stone-50"
             type="text"
             value={driverDetails.name}
             onChange={(e) => handleFieldChange(e, "name")}
           />
         </div>
         <div className="mb-1">
-          <label className="mr-2">Enter Driver Date of Birth</label>
+          <label className="mr-2 lg:text-sm">Enter Driver Date of Birth</label>
           <input
-            className="border-2 border-gray-600 bg-stone-50"
+            className="border-2 border-gray-600 bg-stone-50 lg:text-sm"
             type="date"
             value={driverDetails.dob}
             onChange={(e) => handleFieldChange(e, "dob")}
           />
         </div>
         <div className="mb-1">
-          <label className="mr-2">Enter Driver Occupation</label>
+          <label className="mr-2 lg:text-sm">Enter Driver Occupation</label>
           <input
-            className="border-2 border-gray-600 bg-stone-50"
+            className="border-2 border-gray-600 bg-stone-50 lg:text-sm"
             type="text"
             value={driverDetails.occupation}
             onChange={(e) => handleFieldChange(e, "occupation")}

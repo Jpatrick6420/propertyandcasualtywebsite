@@ -33,21 +33,21 @@ function NewVehicleSection({ handleCurrentData }) {
   return (
     <>
       <h3 className="font-bold text-xl mt-2">New Vehicle</h3>
-      <section className="grid grid-cols-2 bg-blue-200 px-2 py-4 rounded-lg">
+      <section className="grid grid-cols-2 bg-blue-200 px-2 py-4 rounded-lg lg:text-sm">
         <div className="grid grid-cols-5">
           <label className="mr-2">Year</label>
           <input
-            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2 mb-1"
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2 mb-1 lg:text-sm"
             type="number"
             min="1980"
             value={vehicleOptions.year}
             onChange={(e) => handleFieldChange(e, "year")}
           />
         </div>
-        <div className="grid grid-cols-5 mb-1">
-          <label className="mr-2"> * Make</label>
+        <div className="grid grid-cols-5 mb-1 lg:text-sm">
+          <label className="mr-2"> Make</label>
           <input
-            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2"
+            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 col-span-2 lg:text-sm"
             type="text"
             value={vehicleOptions.make}
             onChange={(e) => handleFieldChange(e, "make")}

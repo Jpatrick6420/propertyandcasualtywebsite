@@ -1,7 +1,14 @@
 import { useState } from "react";
+import PniResults from "./PniResults";
+import DriversResults from "./DriversResults";
+import VehiclesResults from "./VehiclesResults";
+import ClaimsResults from "./ClaimsResults";
+import { calcAge } from "../helpers/helpers";
+import VehicleResultsSection from "../components/VehicleResultsSection";
 function FormResultsSection({ currentData }) {
   //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
+
   const handleCopy = async () => {
     const textToCopy = `
     Pni : ${currentData.pni.name} DOB: ${currentData.pni.pniDob} Education: ${currentData.pni.pniEducation?.split("_").join(" ")} Profession: ${currentData.pni.pniProfession}
@@ -45,19 +52,15 @@ function FormResultsSection({ currentData }) {
       Home Facts
       
       Year Built: ${currentData.home.yearBuilt}
-      Roof Age: ${
-        Number(currentData.home.roof) > 1000
-          ? new Date().getFullYear() - Number(currentData.home.roof)
-          : currentData.home.roof
-      }
-      ${currentData.home.plumbingUpdated ? "Plumbing Updated: Yes" : ""}
-      ${currentData.home.electricalUpdated ? "Electrical Updated: Yes" : ""}
+      Roof Age: ${calcAge(currentData.home.roof)}
+      ${currentData.home.plumbingUpdated ? `Plumbing Updated: ${calcAge(currentData.home.plumbingUpdated)}` : ""}
+      ${currentData.home.electricalUpdated ? `Electrical Updated: ${calcAge(currentData.home.electricalUpdated)}` : ""}
       Dog Types:\n ${
         currentData.home.dogs
           ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}\n`)
           : "No"
       }
-      ${currentData.home.solar ? "Solar: Yes" : "Solar: No"}
+      ${currentData.home.solar ? `Solar: ${currentData.home.solar}` : "Solar: No"}
       ${currentData.home.goodShape ? "Good Shape: Yes" : "Good Shape: No"}
       ${currentData.home.businessUse ? "Business Use: Yes" : "Business Use: No"}
       ${
@@ -85,68 +88,36 @@ function FormResultsSection({ currentData }) {
 
   return (
     <div className="mx-4">
-      <p>
-        Pni : {currentData.pni.name} {currentData.pniDob} Education:{" "}
-        {currentData.pni.pniEducation?.split("_").join(" ")} Profession:{" "}
-        {currentData.pni.pniProfession}
-      </p>
-      {currentData.sni && (
-        <p>
-          Sni: {currentData.sni.name} DOB: {currentData.sni.sniDob} Education:{" "}
-          {currentData.sni.sniEducation?.split("_").join(" ")} Profession:{" "}
-          {currentData.sni.sniProfession}
-        </p>
-      )}
+      <PniResults pni={currentData.pni} sni={currentData.sni} />
       <h3 className="font-bold text-xl my-2">Auto</h3>
-      <p>Additional Drivers</p>
-      {currentData.auto.additionalDrivers &&
-        currentData.auto.additionalDrivers?.map((item, i) => (
-          <p key={i}>
-            Name: {item.name} DOB: {item.dob} Occupation: {item.occupation}{" "}
-            {item.occupation?.toLowerCase() == "student"
-              ? item.goodStudent
-              : ""}{" "}
-            {item.military ? "Military: Yes" : ""}
-          </p>
-        ))}
-      <p>Vehicles:</p>
-      {currentData.auto.vehicles?.map((item, i) => (
-        <p key={i}>
-          Year: {item.year} Make: {item.make} Model: {item.model}{" "}
-          {item.rideShare ? "Ride Share: Yes" : "Ride Share: No"}
-          {item.businessUse ? "Business Use: Yes" : "Business Use: No"}
-          Collision: {item.collisionDeductible} Comprehensive:{" "}
-          {item.comprehensiveDeductible}
-        </p>
-      ))}
+      <DriversResults currentData={currentData.auto} />
+
+      {/* <VehiclesResults currentData={currentData.auto} /> */}
+
       <p>Current Coverage: {currentData.auto.currentCoverage}</p>
-      <p>Claims</p>
+      <ClaimsResults currentData={currentData} />
+      {/* <p>Claims</p>
       {currentData.auto.claims?.map((item, i) => (
         <p key={i}>
           {item.type} {item.date}
         </p>
-      ))}
+      ))} */}
       <p>What's important: {currentData.auto.whatIsImportant}</p>
-      {currentData.auto.vehicles?.map((item, i) => (
-        <p key={i}>
-          {item.year} {item.make} {item.model} RideShare:{" "}
-          {item.rideShare ? "Yes" : "No"} Business Use{" "}
-          {item.businessUse ? "Yes" : "No"}
-          Collision Deductible: {item.collisionDeductible} <br />
-          Comprehensive Deductible: {item.comprehensiveDeductible}
-        </p>
-      ))}
+      <h3 className="font-bold text-xl pt-4">Vehicles </h3>
+      <VehicleResultsSection currentData={currentData.auto} />
+
       <p>{currentData.currentCoverage}</p>
       <h3 className="font-bold text-xl my-2">Home Facts</h3>
       <p>Year Built: {currentData.home.yearBuilt}</p>
-      <p>
-        Roof Age:{" "}
-        {Number(currentData.home.roof) > 1000
-          ? new Date().getFullYear() - Number(currentData.home.roof)
-          : currentData.home.roof}
-      </p>
-      {currentData.home.plumbingUpdated && <p>Plumbing Updated: Yes</p>}
-      {currentData.home.electricalUpdated && <p>Electrical Updated: Yes</p>}
+      <p>Roof Age: {calcAge(currentData.home.roof)}</p>
+      {currentData.home.plumbingUpdated && (
+        <p>Plumbing Updated: {calcAge(currentData.home.plumbingUpdated)}</p>
+      )}
+      {currentData.home.electricalUpdated && (
+        <p>
+          Electrical Updated: {calcAge(currentData.home.electricalUpdated)}{" "}
+        </p>
+      )}
       <ol>
         Dogs:{" "}
         {currentData.home.dogs &&
@@ -156,7 +127,11 @@ function FormResultsSection({ currentData }) {
             </li>
           ))}
       </ol>
-      {currentData.home.solar ? <p>Solar: Yes</p> : <p>Solar: No</p>}
+      {currentData.home.solar ? (
+        <p>Solar: {currentData.home.solar}</p>
+      ) : (
+        <p>Solar: No</p>
+      )}
       {currentData.home.goodShape ? (
         <p>Good Shape: Yes</p>
       ) : (

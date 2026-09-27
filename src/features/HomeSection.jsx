@@ -1,25 +1,8 @@
 import { useState } from "react";
 import HomeClaimsSection from "./HomeClaimsSection";
 function HomeSection({ handleCurrentHomeData, currentData }) {
-  //   const init = {
-  //     yearBuilt: "",
-  //     roof: "",
-  //     plumbingUpdated: false,
-  //     electricalUpdated: false,
-  //     dogs: false,
-  //     dogTypes: [],
-  //     solar: false,
-  //     goodShape: true,
-  //     businessUse: false,
-  //     swimmingPool: false,
-  //     trampoline: false,
-  //     claims: [],
-  //     fenced: true,
-  //   };
   const [dogTypeEntry, setDogTypeEntry] = useState("");
-  //   const [currentHomeFacts, setCurrentHomeFacts] = useState(init);
   const handleHomeDataChange = (e, field) => {
-    // setCurrentHomeFacts((prev) => ({ ...prev, [field]: e.target.value }));
     handleCurrentHomeData((prev) => ({
       ...prev,
       home: { ...prev.home, [field]: e.target.value },
@@ -27,7 +10,6 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
   };
   const handleCheckboxHome = (e, field) => {
     e.preventDefault();
-    // setCurrentHomeFacts((prev) => ({ ...prev, [field]: !prev[field] }));
     handleCurrentHomeData((prev) => ({
       ...prev,
       home: { ...prev.home, [field]: !prev.home[field] },
@@ -35,24 +17,14 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
   };
   const handleDogBreedSubmit = (e) => {
     e.preventDefault();
-    // setCurrentHomeFacts((prev) => ({
-    //   ...prev,
-    //   dogTypes: [...prev.dogTypes, dogTypeEntry],
-    // }));
+
     handleCurrentHomeData((prev) => ({
       ...prev,
       home: { ...prev.home, dogTypes: [...prev.home.dogTypes, dogTypeEntry] },
     }));
     setDogTypeEntry("");
   };
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     const homeDetails = { ...currentHomeFacts };
-  //     handleCurrentHomeData((prev) => ({
-  //       ...prev,
-  //       home: { ...homeDetails },
-  //     }));
-  //   };
+
   return (
     <section>
       <div>
@@ -76,19 +48,19 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       <div>
         <label>Plumbing Updated</label>
         <input
-          type="checkbox"
+          type="text"
           className="ml-2"
-          checked={currentData.home.plumbingUpdated}
-          onChange={(e) => handleCheckboxHome(e, "plumbingUpdated")}
+          value={currentData.home.plumbingUpdated}
+          onChange={(e) => handleHomeDataChange(e, "plumbingUpdated")}
         />
       </div>
       <div>
         <label>Electrical Updated</label>
         <input
           className="ml-2"
-          type="checkbox"
-          checked={currentData.home.electricalUpdated}
-          onChange={(e) => handleCheckboxHome(e, "electricalUpdated")}
+          type="text"
+          value={currentData.home.electricalUpdated}
+          onChange={(e) => handleHomeDataChange(e, "electricalUpdated")}
         />
       </div>
       <div>
@@ -123,12 +95,12 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       </div>
 
       <div>
-        <label>Solar</label>
+        <label># Solar Panels</label>
         <input
           className="ml-2"
-          type="checkbox"
-          checked={currentData.home.solar}
-          onChange={(e) => handleCheckboxHome(e, "solar")}
+          type="text"
+          value={currentData.home.solar}
+          onChange={(e) => handleHomeDataChange(e, "solar")}
         />
       </div>
       <div>
@@ -176,14 +148,6 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         />
       </div>
       <HomeClaimsSection handleCurrentData={handleCurrentHomeData} />
-      {/* <div>
-        <button
-          onClick={(e) => handleSubmit(e)}
-          className="px-2 py-0.5 bg-purple-600 hover:bg-purple-800 text-stone-50"
-        >
-          Submit
-        </button>
-      </div> */}
     </section>
   );
 }
