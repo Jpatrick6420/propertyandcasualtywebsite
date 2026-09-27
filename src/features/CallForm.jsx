@@ -8,6 +8,7 @@ import HomeSection from "./HomeSection";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
 import VehicleResultsSection from "../components/VehicleResultsSection";
+import ClaimsResultsSection from "../components/ClaimsResultsSection";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -207,7 +208,17 @@ function CallForm() {
           value={currentData.auto["whatIsImportant"]}
           onChange={(e) => handleAutoDataChange(e, "whatIsImportant")}
         ></textarea>
-        <ClaimsSection handleCurrentData={setCurrentData} />
+        <section className="grid lg:grid-cols-2">
+          <div>
+            <ClaimsSection handleCurrentData={setCurrentData} />
+          </div>
+          <div className="hidden lg:block px-4 py-8">
+            <ClaimsResultsSection
+              currentData={currentData.auto}
+              label="Auto Claims"
+            />
+          </div>
+        </section>
         <h2 className="text-lg font-bold">Home</h2>
         <HomeSection
           handleCurrentHomeData={setCurrentData}

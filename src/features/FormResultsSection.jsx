@@ -2,9 +2,9 @@ import { useState } from "react";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
 import VehiclesResults from "./VehiclesResults";
-import ClaimsResults from "./ClaimsResults";
 import { calcAge } from "../helpers/helpers";
 import VehicleResultsSection from "../components/VehicleResultsSection";
+import ClaimsResultsSection from "../components/ClaimsResultsSection";
 function FormResultsSection({ currentData }) {
   //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
@@ -52,9 +52,9 @@ function FormResultsSection({ currentData }) {
       Home Facts
       
       Year Built: ${currentData.home.yearBuilt}
-      Roof Age: ${calcAge(currentData.home.roof)}
-      ${currentData.home.plumbingUpdated ? `Plumbing Updated: ${calcAge(currentData.home.plumbingUpdated)}` : ""}
-      ${currentData.home.electricalUpdated ? `Electrical Updated: ${calcAge(currentData.home.electricalUpdated)}` : ""}
+      Roof Age: ${currentData.home.roof} ${calcAge(currentData.home.roof)}
+      ${currentData.home.plumbingUpdated ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${calcAge(currentData.home.plumbingUpdated)}` : ""}
+      ${currentData.home.electricalUpdated ? `Electrical Updated: ${currentData.home.electricalUpdated} ${calcAge(currentData.home.electricalUpdated)}` : ""}
       Dog Types:\n ${
         currentData.home.dogs
           ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}\n`)
@@ -88,77 +88,76 @@ function FormResultsSection({ currentData }) {
 
   return (
     <div className="mx-4">
-      <PniResults pni={currentData.pni} sni={currentData.sni} />
-      <h3 className="font-bold text-xl my-2">Auto</h3>
-      <DriversResults currentData={currentData.auto} />
+      <div className="lg:hidden">
+        <PniResults pni={currentData.pni} sni={currentData.sni} />
+        <h3 className="font-bold text-xl my-2">Auto</h3>
+        <DriversResults currentData={currentData.auto} />
 
-      {/* <VehiclesResults currentData={currentData.auto} /> */}
+        <p>Current Coverage: {currentData.auto.currentCoverage}</p>
+        <ClaimsResultsSection
+          currentData={currentData.auto}
+          label="Auto Claims"
+        />
 
-      <p>Current Coverage: {currentData.auto.currentCoverage}</p>
-      <ClaimsResults currentData={currentData} />
-      {/* <p>Claims</p>
-      {currentData.auto.claims?.map((item, i) => (
-        <p key={i}>
-          {item.type} {item.date}
-        </p>
-      ))} */}
-      <p>What's important: {currentData.auto.whatIsImportant}</p>
-      <h3 className="font-bold text-xl pt-4">Vehicles </h3>
-      <VehicleResultsSection currentData={currentData.auto} />
+        <p>What's important: {currentData.auto.whatIsImportant}</p>
+        <h3 className="font-bold text-xl pt-4">Vehicles </h3>
+        <VehicleResultsSection currentData={currentData.auto} />
 
-      <p>{currentData.currentCoverage}</p>
-      <h3 className="font-bold text-xl my-2">Home Facts</h3>
-      <p>Year Built: {currentData.home.yearBuilt}</p>
-      <p>Roof Age: {calcAge(currentData.home.roof)}</p>
-      {currentData.home.plumbingUpdated && (
-        <p>Plumbing Updated: {calcAge(currentData.home.plumbingUpdated)}</p>
-      )}
-      {currentData.home.electricalUpdated && (
-        <p>
-          Electrical Updated: {calcAge(currentData.home.electricalUpdated)}{" "}
-        </p>
-      )}
-      <ol>
-        Dogs:{" "}
-        {currentData.home.dogs &&
-          currentData.home.dogTypes?.map((dog, i) => (
-            <li key={i} className="pl-6">
-              {dog}
-            </li>
-          ))}
-      </ol>
-      {currentData.home.solar ? (
-        <p>Solar: {currentData.home.solar}</p>
-      ) : (
-        <p>Solar: No</p>
-      )}
-      {currentData.home.goodShape ? (
-        <p>Good Shape: Yes</p>
-      ) : (
-        <p>Good Shape: No</p>
-      )}
-      {currentData.home.businessUse ? (
-        <p>Business Use: Yes</p>
-      ) : (
-        <p>Business Use: No</p>
-      )}
-      {currentData.home.swimmingPool ? (
-        <p>Swimming Pool: Yes</p>
-      ) : (
-        <p>Swimming Pool: No</p>
-      )}
-      {currentData.home.fenced ? <p>Fenced: Yes</p> : <p>Fenced: No</p>}
-      {currentData.home.trampoline ? (
-        <p>Trampoline: Yes</p>
-      ) : (
-        <p>Tampoline: No</p>
-      )}
-      <ol>Home Claims</ol>
-      {currentData.home.claims?.map((item, i) => (
-        <li key={i} className="pl-6">
-          {item.type} {item.date}
-        </li>
-      ))}
+        <p>{currentData.currentCoverage}</p>
+      </div>
+      <div class="lg:hidden">
+        <h3 className="font-bold text-xl my-2">Home Facts</h3>
+        <p>Year Built: {currentData.home.yearBuilt}</p>
+        <p>Roof Age: {calcAge(currentData.home.roof)}</p>
+        {currentData.home.plumbingUpdated && (
+          <p>Plumbing Updated: {calcAge(currentData.home.plumbingUpdated)}</p>
+        )}
+        {currentData.home.electricalUpdated && (
+          <p>
+            Electrical Updated:{" "}
+            {calcAge(currentData.home.electricalUpdated)}{" "}
+          </p>
+        )}
+        <ol>
+          Dogs:{" "}
+          {currentData.home.dogs &&
+            currentData.home.dogTypes?.map((dog, i) => (
+              <li key={i} className="pl-6">
+                {dog}
+              </li>
+            ))}
+        </ol>
+        {currentData.home.solar ? (
+          <p>Solar: {currentData.home.solar}</p>
+        ) : (
+          <p>Solar: No</p>
+        )}
+        {currentData.home.goodShape ? (
+          <p>Good Shape: Yes</p>
+        ) : (
+          <p>Good Shape: No</p>
+        )}
+        {currentData.home.businessUse ? (
+          <p>Business Use: Yes</p>
+        ) : (
+          <p>Business Use: No</p>
+        )}
+        {currentData.home.swimmingPool ? (
+          <p>Swimming Pool: Yes</p>
+        ) : (
+          <p>Swimming Pool: No</p>
+        )}
+        {currentData.home.fenced ? <p>Fenced: Yes</p> : <p>Fenced: No</p>}
+        {currentData.home.trampoline ? (
+          <p>Trampoline: Yes</p>
+        ) : (
+          <p>Tampoline: No</p>
+        )}
+        <ClaimsResultsSection
+          currentData={currentData.home}
+          label="Home Claims"
+        />
+      </div>
       <div className="flex justify-center flex-col items-center">
         <button
           className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5"
