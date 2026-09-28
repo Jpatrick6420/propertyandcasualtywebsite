@@ -1,5 +1,5 @@
 import { useState } from "react";
-import extractText from "../helper_functions/helper";
+import extractText from "../helper/helper";
 
 function DataExtraction() {
   const init = {

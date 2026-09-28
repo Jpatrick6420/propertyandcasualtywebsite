@@ -105,7 +105,7 @@ function FormResultsSection({ currentData }) {
 
         <p>{currentData.currentCoverage}</p>
       </div>
-      <div class="lg:hidden">
+      <div className="lg:hidden">
         <h3 className="font-bold text-xl my-2">Home Facts</h3>
         <p>Year Built: {currentData.home.yearBuilt}</p>
         <p>Roof Age: {calcAge(currentData.home.roof)}</p>

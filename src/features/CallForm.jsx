@@ -9,6 +9,7 @@ import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
 import VehicleResultsSection from "../components/VehicleResultsSection";
 import ClaimsResultsSection from "../components/ClaimsResultsSection";
+import SuggestionSection from "./SuggestionSection";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -225,7 +226,12 @@ function CallForm() {
           currentData={currentData}
         />
       </form>
-      <FormResultsSection currentData={currentData} />
+      <div>
+        <FormResultsSection currentData={currentData} />
+      </div>
+      <div>
+        <SuggestionSection currentData={currentData} />
+      </div>
     </>
   );
 }
