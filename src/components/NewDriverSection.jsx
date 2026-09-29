@@ -33,7 +33,7 @@ function NewDriverSection({ handleCurrentData }) {
         <div className="mb-1">
           <label className="mr-2 lg:text-sm">Enter Driver Name</label>
           <input
-            className=" lg:text-smborder-2 border-gray-600 bg-stone-50"
+            className=" lg:text-sm border-2 border-gray-600 bg-stone-50"
             type="text"
             value={driverDetails.name}
             onChange={(e) => handleFieldChange(e, "name")}

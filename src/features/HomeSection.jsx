@@ -46,11 +46,11 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleHomeDataChange(e, "roof")}
         />
       </div>
-      <div>
+      <div className="mb-2">
         <label>Plumbing Updated</label>
         <input
           type="text"
-          className="ml-2"
+          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
           value={currentData.home.plumbingUpdated}
           onChange={(e) => handleHomeDataChange(e, "plumbingUpdated")}
         />
@@ -58,7 +58,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       <div>
         <label>Electrical Updated</label>
         <input
-          className="ml-2"
+          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
           type="text"
           value={currentData.home.electricalUpdated}
           onChange={(e) => handleHomeDataChange(e, "electricalUpdated")}
@@ -110,7 +110,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       <div>
         <label># Solar Panels</label>
         <input
-          className="ml-2"
+          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
           type="text"
           value={currentData.home.solar}
           onChange={(e) => handleHomeDataChange(e, "solar")}

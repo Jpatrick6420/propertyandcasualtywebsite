@@ -14,20 +14,20 @@ function CallForm() {
   const initInfo = {
     pni: {
       name: "",
-      pniEducation: "",
+      pniEducation: "not_asked",
       pniProfession: "",
       pniDob: "",
     },
     sni: {
       name: "",
       sniDob: "",
-      sniEducation: "",
+      sniEducation: "not_asked",
       sniProfession: "",
     },
     auto: {
       additionalDrivers: [],
       claims: [],
-      currentCoverage: "100/300/100",
+      currentCoverage: "not_confirmed",
       whatIsImportant: "",
       vehicles: [],
     },
@@ -74,7 +74,7 @@ function CallForm() {
   return (
     <>
       <form className="px-4 py-2 ">
-        <h3 className="text-lg text-center">New Form Data</h3>
+        <h3 className="text-3xl font-bold py-4 text-center">Intake Form</h3>
         <section className="grid grid-cols-1 lg:grid-cols-2">
           <div>
             <div>
@@ -99,7 +99,9 @@ function CallForm() {
                 <select
                   onChange={(e) => handleSelect(e, "pni", "pniEducation")}
                   className="border-2 border-gray-600 mb-1"
+                  value={currentData.pni.pniEducation}
                 >
+                  <option value="not_asked">Not Asked</option>
                   <option value="ged_pending">GED Pending</option>
                   <option value="high_school">High School</option>
                   <option value="some_college">Some College</option>
@@ -111,7 +113,7 @@ function CallForm() {
             <div>
               <label>Pni Profession</label>
               <input
-                className="ml-2 border-2 border-gray-600 mb-1"
+                className="ml-2 border-2 border-gray-600 mb-1 "
                 type="text"
                 value={currentData.pni.pniProfession}
                 onChange={(e) =>
@@ -143,7 +145,9 @@ function CallForm() {
               <select
                 onChange={(e) => handleSelect(e, "sni", "sniEducation")}
                 className="border-2 border-gray-600 mb-1"
+                value={currentData.sni.sniEducation}
               >
+                <option value="not_asked">Not Asked</option>
                 <option value="ged_pending">GED Pending</option>
                 <option value="high_school">High School</option>
                 <option value="some_college">Some College</option>
@@ -154,7 +158,7 @@ function CallForm() {
             <div>
               <label>Sni Profession</label>
               <input
-                className="ml-2 mb-1"
+                className="ml-2 mb-1 border-2 border-gray-600"
                 type="text"
                 value={currentData.sni.sniProfession}
                 onChange={(e) =>
@@ -191,6 +195,7 @@ function CallForm() {
             onChange={(e) => handleSelect(e, "auto", "currentCoverage")}
             value={currentData.auto.currentCoverage}
           >
+            <option value="not_confirmed">Not Confirmed</option>
             <option value="30/65/25">30/65/25</option>
             <option value="30/65/50">30/65/50</option>
             <option value="50/100/50">50/100/50</option>

@@ -21,7 +21,7 @@ function FormResultsSection({ currentData }) {
       currentData.auto.additionalDrivers &&
       currentData.auto.additionalDrivers?.map(
         (item, i) =>
-          `${i + 1}) Name: ${item.name} DOB: ${item.dob} Occupation: ${item.occupation}
+          `${i + 1}) Name: ${item.name} ${item.dob ? `DOB: ${item.dob}` : ""} ${item.occupation ? `DOB: ${item.occupation}` : ""}
             ${
               item.occupation?.toLowerCase() == "student"
                 ? item.goodStudent
@@ -41,13 +41,11 @@ function FormResultsSection({ currentData }) {
           ` ${i + 1}) Year: ${item.year} Make: ${item.make} Model: ${item.model}\n
           ${item.rideShare ? "Ride Share: Yes" : "Ride Share: No"}
           ${item.businessUse ? "Business Use: Yes" : "Business Use: No"}
-          Collision: ${item.collisionDeductible} \nComprehensive:
-          ${item.comprehensiveDeductible}\n`,
+          Collision: ${item.collisionDeductible} 
+          Comprehensive: ${item.comprehensiveDeductible}`,
       )}
       Current Coverage: ${currentData.auto.currentCoverage}
       What's important: ${currentData.auto.whatIsImportant}
-    
-      ${currentData.auto.currentCoverage}
       
       Home Facts
       
@@ -55,7 +53,8 @@ function FormResultsSection({ currentData }) {
       Roof Age: ${currentData.home.roof} ${calcAge(currentData.home.roof)}
       ${currentData.home.plumbingUpdated ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${calcAge(currentData.home.plumbingUpdated)}` : ""}
       ${currentData.home.electricalUpdated ? `Electrical Updated: ${currentData.home.electricalUpdated} ${calcAge(currentData.home.electricalUpdated)}` : ""}
-      Dog Types:\n ${
+      Dog Types:
+      ${
         currentData.home.dogs
           ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}\n`)
           : "No"
@@ -160,7 +159,7 @@ function FormResultsSection({ currentData }) {
       </div>
       <div className="flex justify-center flex-col items-center">
         <button
-          className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5"
+          className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5 text-stone-50 hover:cursor-pointer"
           onClick={handleCopy}
         >
           Copy

@@ -78,7 +78,9 @@ function NewVehicleSection({ handleCurrentData }) {
         </div>
 
         <div className="mb-1">
-          <label className="mr-2">Collision Deductible</label>
+          <label className="mr-2">
+            Collision Deductible (-1 means not included)
+          </label>
           <input
             type="number"
             className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 "
@@ -89,7 +91,9 @@ function NewVehicleSection({ handleCurrentData }) {
           />
         </div>
         <div className="mb-1">
-          <label className="mr-2">Comprehensive Deductible</label>
+          <label className="mr-2">
+            Comprehensive Deductible (-1 means not included)
+          </label>
           <input
             className="border-2 border-gray-700 px-1 py-0.5 bg-stone-50"
             type="number"
