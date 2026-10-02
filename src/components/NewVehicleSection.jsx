@@ -20,6 +20,7 @@ function NewVehicleSection({ handleCurrentData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!vehicleOptions.model || !vehicleOptions.year) return;
     const newVehicle = { ...vehicleOptions };
     handleCurrentData((prev) => ({
       ...prev,

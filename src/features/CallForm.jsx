@@ -71,7 +71,9 @@ function CallForm() {
       [person]: { ...prev[person], [field]: e.target.value },
     }));
   };
-
+  const resetForm = () => {
+    setCurrentData(initInfo);
+  };
   return (
     <>
       <form className="px-4 py-2 ">
@@ -244,7 +246,18 @@ function CallForm() {
         />
       </form>
       <div>
-        <FormResultsSection currentData={currentData} />
+        <FormResultsSection
+          currentData={currentData}
+          setCurrentData={setCurrentData}
+        />
+      </div>
+      <div className="flex justify-center">
+        <button
+          className="bg-red-600 hover:bg-red-800 active:bg-red-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+          onClick={resetForm}
+        >
+          Reset Form
+        </button>
       </div>
       <div>
         <SuggestionSection currentData={currentData} />

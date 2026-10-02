@@ -7,7 +7,7 @@ function ClaimsSection({ handleCurrentData }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (!currentClaim.type || !currentClaim.date) return;
     handleCurrentData((prev) => ({
       ...prev,
       auto: {

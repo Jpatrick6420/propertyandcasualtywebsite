@@ -19,6 +19,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
   };
   const handleDogBreedSubmit = (e) => {
     e.preventDefault();
+    if (!dogTypeEntry) return;
 
     handleCurrentHomeData((prev) => ({
       ...prev,

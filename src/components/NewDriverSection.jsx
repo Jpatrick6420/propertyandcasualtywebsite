@@ -16,6 +16,7 @@ function NewDriverSection({ handleCurrentData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!driverDetails.name || !driverDetails.dob) return;
     const newDriver = { ...driverDetails };
     handleCurrentData((prev) => ({
       ...prev,
