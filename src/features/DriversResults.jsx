@@ -1,16 +1,34 @@
-function DriversResults({ currentData }) {
+function DriversResults({ currentData, setCurrentData }) {
+  const handleDelete = (e, index) => {
+    e.preventDefault();
+
+    const additionalDrivers = currentData.additionalDrivers;
+    const newArr = additionalDrivers.filter((item, i) => i != index);
+    setCurrentData((prev) => ({
+      ...prev,
+      auto: { ...prev.auto, additionalDrivers: newArr },
+    }));
+  };
   return (
     <div className="px-4 py-8">
       <h3 className="text-xl font-bold mb-4">Additional Drivers</h3>
       {currentData.additionalDrivers &&
         currentData.additionalDrivers?.map((item, i) => (
-          <p key={i} className="mb-2">
+          <p key={i} className={`mb-2 drivers-${i}`}>
             {i + 1}) Name: {item.name} DOB: {item.dob} Occupation:{" "}
             {item.occupation}{" "}
             {item.occupation?.toLowerCase() == "student"
               ? item.goodStudent
               : ""}{" "}
             {item.military ? "Military: Yes" : ""}
+            <button
+              className="bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
+              onClick={(e) => {
+                handleDelete(e, i);
+              }}
+            >
+              Delete
+            </button>
           </p>
         ))}
     </div>

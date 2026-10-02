@@ -177,7 +177,10 @@ function CallForm() {
             <NewDriverSection handleCurrentData={setCurrentData} />
           </div>
           <div className="hidden lg:block">
-            <DriversResults currentData={currentData.auto} />
+            <DriversResults
+              currentData={currentData.auto}
+              setCurrentData={setCurrentData}
+            />
           </div>
         </section>
         <section className="grid grid-cols-1 lg:grid-cols-2">
@@ -185,7 +188,10 @@ function CallForm() {
             <NewVehicleSection handleCurrentData={setCurrentData} />
           </div>
           <div className="hidden lg:block">
-            <VehicleResultsSection currentData={currentData.auto} />
+            <VehicleResultsSection
+              setCurrentData={setCurrentData}
+              currentData={currentData.auto}
+            />
           </div>
         </section>
         <div>
