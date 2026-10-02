@@ -1,10 +1,26 @@
-function ClaimsResults({ currentData }) {
+function ClaimsResults({ currentData, setCurrentData, type }) {
+  const handleDelete = (e, index) => {
+    e.preventDefault();
+
+    const claims = currentData.claims;
+    const newArr = claims.filter((item, i) => i != index);
+    setCurrentData((prev) => ({
+      ...prev,
+      [type]: { ...prev[type], claims: newArr },
+    }));
+  };
   return (
     <>
       <p>Claims</p>
-      {currentData.auto.claims?.map((item, i) => (
+      {currentData.claims?.map((item, i) => (
         <p key={i}>
           {item.type} {item.date}
+          <button
+            className="bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+            onClick={(e) => handleDelete(e, i)}
+          >
+            Delete
+          </button>
         </p>
       ))}
     </>

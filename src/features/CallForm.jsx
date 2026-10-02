@@ -10,6 +10,7 @@ import DriversResults from "./DriversResults";
 import VehicleResultsSection from "../components/VehicleResultsSection";
 import ClaimsResultsSection from "../components/ClaimsResultsSection";
 import SuggestionSection from "./SuggestionSection";
+import ClaimsResults from "./ClaimsResults";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -225,9 +226,14 @@ function CallForm() {
             <ClaimsSection handleCurrentData={setCurrentData} />
           </div>
           <div className="hidden lg:block px-4 py-8">
-            <ClaimsResultsSection
+            {/* <ClaimsResultsSection
               currentData={currentData.auto}
               label="Auto Claims"
+            /> */}
+            <ClaimsResults
+              currentData={currentData.auto}
+              setCurrentData={setCurrentData}
+              type="auto"
             />
           </div>
         </section>

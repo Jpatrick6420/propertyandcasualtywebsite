@@ -1,6 +1,7 @@
 import { useState } from "react";
 import HomeClaimsSection from "./HomeClaimsSection";
 import ClaimsResultsSection from "../components/ClaimsResultsSection";
+import ClaimsResults from "./ClaimsResults";
 function HomeSection({ handleCurrentHomeData, currentData }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
   const handleHomeDataChange = (e, field) => {
@@ -26,6 +27,16 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
     setDogTypeEntry("");
   };
 
+  const handleDelete = (e, index) => {
+    e.preventDefault();
+
+    const dogTypes = currentData.home.dogTypes;
+    const newArr = dogTypes.filter((item, i) => i != index);
+    handleCurrentHomeData((prev) => ({
+      ...prev,
+      home: { ...prev.home, dogTypes: newArr },
+    }));
+  };
   return (
     <section>
       <div>
@@ -99,6 +110,12 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
                 {currentData.home.dogTypes?.map((item, i) => (
                   <li key={i} className="px-4">
                     {`${i + 1})`} {item}
+                    <button
+                      className="bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+                      onClick={(e) => handleDelete(e, i)}
+                    >
+                      Delete
+                    </button>
                   </li>
                 ))}
               </ol>
@@ -165,9 +182,10 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           <HomeClaimsSection handleCurrentData={handleCurrentHomeData} />
         </div>
         <div className="hidden lg:block">
-          <ClaimsResultsSection
+          <ClaimsResults
             currentData={currentData.home}
-            label="Home Claims"
+            setCurrentData={handleCurrentHomeData}
+            type="home"
           />
         </div>
       </section>
