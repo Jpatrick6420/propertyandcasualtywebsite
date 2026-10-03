@@ -28,20 +28,20 @@ function NewDriverSection({ handleCurrentData }) {
     setDriverDetails(initDriverDetails);
   };
   return (
-    <>
+    <section>
       <h3 className="font-bold text-xl mt-2">New Driver</h3>
-      <section className="bg-amber-200 px-2 py-4">
-        <div className="mb-1">
+      <section className="bg-amber-200 px-2 py-4 grid md:grid-cols-2 text-sm">
+        <div className="mb-1 grid md:grid-cols-2 mr-2">
           <label className="mr-2 lg:text-sm">Enter Driver Name</label>
           <input
-            className=" lg:text-sm border-2 border-gray-600 bg-stone-50"
+            className="border-2 border-gray-600 bg-stone-50"
             type="text"
             value={driverDetails.name}
             onChange={(e) => handleFieldChange(e, "name")}
           />
         </div>
-        <div className="mb-1">
-          <label className="mr-2 lg:text-sm">Enter Driver Date of Birth</label>
+        <div className="mb-1 grid md:grid-cols-2 mr-2">
+          <label className="mr-2 lg:text-sm">Date of Birth</label>
           <input
             className="border-2 border-gray-600 bg-stone-50 lg:text-sm"
             type="date"
@@ -49,8 +49,8 @@ function NewDriverSection({ handleCurrentData }) {
             onChange={(e) => handleFieldChange(e, "dob")}
           />
         </div>
-        <div className="mb-1">
-          <label className="mr-2 lg:text-sm">Enter Driver Occupation</label>
+        <div className="mb-1 grid md:grid-cols-2 mr-2">
+          <label className="mr-2 lg:text-sm">Occupation</label>
           <input
             className="border-2 border-gray-600 bg-stone-50 lg:text-sm"
             type="text"
@@ -83,7 +83,7 @@ function NewDriverSection({ handleCurrentData }) {
             }
           />
         </div>
-        <div className="flex justify-center my-2">
+        <div className="flex justify-center my-4 col-span-2">
           <button
             className="px-2 py-0.5 bg-amber-600 hover:bg-amber-800 active:bg-amber-600 text-stone-50"
             onClick={(e) => {
@@ -94,7 +94,7 @@ function NewDriverSection({ handleCurrentData }) {
           </button>
         </div>
       </section>
-    </>
+    </section>
   );
 }
 

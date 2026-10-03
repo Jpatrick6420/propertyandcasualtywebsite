@@ -38,6 +38,13 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       home: { ...prev.home, dogTypes: newArr },
     }));
   };
+  const handleNotesChange = (e) => {
+    e.preventDefault();
+    handleCurrentHomeData((prev) => ({
+      ...prev,
+      home: { ...prev.home, notes: e.target.value },
+    }));
+  };
   return (
     <section>
       <div>
@@ -190,6 +197,16 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           />
         </div>
       </section>
+      <div>
+        <label>Notes</label>
+        <br />
+
+        <textarea
+          className=" px-2 py-0.5 border-2 text-sm border-gray-600 min-w-[50%]"
+          value={currentData.home.notes}
+          onChange={(e) => handleNotesChange(e)}
+        ></textarea>
+      </div>
     </section>
   );
 }

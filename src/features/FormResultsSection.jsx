@@ -72,7 +72,8 @@ function FormResultsSection({ currentData }) {
         
       Home Claims
 
-      ${currentData.home.claims?.map((item, i) => `${i + 1}) ${item.type} ${item.date}`)}\n`;
+      ${currentData.home.claims?.map((item, i) => `${i + 1}) ${item.type} ${item.date}`)}\n
+      Misc Notes: ${currentData.home?.notes}`;
     try {
       // Use the native Clipboard API
       await navigator.clipboard.writeText(textToCopy);

@@ -7,6 +7,7 @@ function HomeCliaimsSection({ handleCurrentData }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!currentClaim.type || !currentClaim.date) return;
     const newClaim = { type: currentClaim.type, date: currentClaim.date };
     handleCurrentData((prev) => ({
       ...prev,

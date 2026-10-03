@@ -47,6 +47,7 @@ function CallForm() {
       fenced: false,
       claims: [],
       trampoline: false,
+      notes: "",
     },
   };
 
@@ -79,26 +80,30 @@ function CallForm() {
       <form className="px-4 py-2 ">
         <h3 className="text-3xl font-bold py-4 text-center">Intake Form</h3>
         <section className="grid grid-cols-1 lg:grid-cols-2">
-          <div>
-            <div>
-              <label>PNI Name</label>
-              <input
-                type="text"
-                className="ml-2 border-2 border-gray-600 mb-1"
-                value={currentData.pni.name}
-                onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
-              />
-            </div>
-            <div>
-              <label>PNI DOB</label>
-              <input
-                className="ml-2 border-2 border-gray-600 mb-1"
-                type="date"
-                value={currentData.pniDob}
-                onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
-              />
+          <div className="grid md:grid-cols-2 ">
+            <div className="pni-section text-sm grid sm:grid-col-2 ">
+              <div className="grid grid-cols-2 mr-2  ">
+                <label>PNI Name</label>
+                <input
+                  type="text"
+                  className="ml-2 border-2 border-gray-600 mb-1"
+                  value={currentData.pni.name}
+                  onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
+                />
+              </div>
               <div>
-                <label className="mr-2">Level Of Education</label>
+                <div className="grid grid-cols-2 mr-2  ">
+                  <label>PNI DOB</label>
+                  <input
+                    className="ml-2 border-2 border-gray-600 mb-1"
+                    type="date"
+                    value={currentData.pniDob}
+                    onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 mr-2 ">
+                <label>Level Of Education</label>
                 <select
                   onChange={(e) => handleSelect(e, "pni", "pniEducation")}
                   className="border-2 border-gray-600 mb-1"
@@ -112,62 +117,64 @@ function CallForm() {
                   <option value="docterate">Docterate</option>
                 </select>
               </div>
+              <div className="grid grid-cols-2 mr-2">
+                <label>Pni Profession</label>
+                <input
+                  className="ml-2 border-2 border-gray-600 mb-1 "
+                  type="text"
+                  value={currentData.pni.pniProfession}
+                  onChange={(e) =>
+                    handlePniAndSniDetails(e, "pni", "pniProfession")
+                  }
+                />
+              </div>
             </div>
-            <div>
-              <label>Pni Profession</label>
-              <input
-                className="ml-2 border-2 border-gray-600 mb-1 "
-                type="text"
-                value={currentData.pni.pniProfession}
-                onChange={(e) =>
-                  handlePniAndSniDetails(e, "pni", "pniProfession")
-                }
-              />
-            </div>
-            <div>
-              <label>SNI Name</label>
-              <input
-                className="ml-2 border-2 border-gray-600 mb-1"
-                type="text"
-                value={currentData.sni.name}
-                onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
-              />
-            </div>
-            <div>
-              <label>SNI DOB</label>
-              <input
-                className="ml-2 border-2 border-gray-600 mb-1"
-                type="date"
-                value={currentData.sni.sniDob}
-                onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
-              />
-            </div>
+            <div className="sni-section text-sm grid sm:grid-col-2">
+              <div className="grid grid-cols-2 mr-2">
+                <label>SNI Name</label>
+                <input
+                  className="ml-2 border-2 border-gray-600 mb-1"
+                  type="text"
+                  value={currentData.sni.name}
+                  onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
+                />
+              </div>
+              <div className="grid grid-cols-2 mr-2">
+                <label>SNI DOB</label>
+                <input
+                  className="ml-2 border-2 border-gray-600 mb-1"
+                  type="date"
+                  value={currentData.sni.sniDob}
+                  onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
+                />
+              </div>
 
-            <div>
-              <label className="mr-2">Level Of Education</label>
-              <select
-                onChange={(e) => handleSelect(e, "sni", "sniEducation")}
-                className="border-2 border-gray-600 mb-1"
-                value={currentData.sni.sniEducation}
-              >
-                <option value="not_asked">Not Asked</option>
-                <option value="ged_pending">GED Pending</option>
-                <option value="high_school">High School</option>
-                <option value="some_college">Some College</option>
-                <option value="college_degree">College Degree</option>
-                <option value="docterate">Docterate</option>
-              </select>
-            </div>
-            <div>
-              <label>Sni Profession</label>
-              <input
-                className="ml-2 mb-1 border-2 border-gray-600"
-                type="text"
-                value={currentData.sni.sniProfession}
-                onChange={(e) =>
-                  handlePniAndSniDetails(e, "sni", "sniProfession")
-                }
-              />
+              <div className="grid grid-cols-2 mr-2">
+                <label className="mr-2">Level Of Education</label>
+                <select
+                  onChange={(e) => handleSelect(e, "sni", "sniEducation")}
+                  className="border-2 border-gray-600 mb-1"
+                  value={currentData.sni.sniEducation}
+                >
+                  <option value="not_asked">Not Asked</option>
+                  <option value="ged_pending">GED Pending</option>
+                  <option value="high_school">High School</option>
+                  <option value="some_college">Some College</option>
+                  <option value="college_degree">College Degree</option>
+                  <option value="docterate">Docterate</option>
+                </select>
+              </div>
+              <div className="grid grid-cols-2 mr-2">
+                <label>Sni Profession</label>
+                <input
+                  className="ml-2 mb-1 border-2 border-gray-600"
+                  type="text"
+                  value={currentData.sni.sniProfession}
+                  onChange={(e) =>
+                    handlePniAndSniDetails(e, "sni", "sniProfession")
+                  }
+                />
+              </div>
             </div>
           </div>
           <div className="hidden lg:block">
