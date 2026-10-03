@@ -23,8 +23,8 @@ function ClaimsSection({ handleCurrentData }) {
   return (
     <>
       <h3 className="font-bold text-xl">Claims</h3>
-      <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-sm">
-        <div className=" mb-2">
+      <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-sm grid grid-cols-2 gap-2 text-sm">
+        <div className=" mb-2 grid grid-cols-2">
           <label className="mr-2">Enter Claim Type</label>
           <input
             className="border-2 bg-stone-50 border-gray-600 "
@@ -42,7 +42,7 @@ function ClaimsSection({ handleCurrentData }) {
             onChange={(e) => handleFieldChange(e, "date")}
           />
         </div>
-        <div className="flex justify-center my-2">
+        <div className="flex justify-center my-2 col-span-2">
           <button
             className="px-2 py-0.5 bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 rounded-md"
             type="submit"
