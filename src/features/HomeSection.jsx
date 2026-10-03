@@ -47,7 +47,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
   };
   return (
     <section>
-      <div>
+      <div className="grid grid-cols-7">
         <label>Year Built</label>
         <input
           className="border-2 border-gray-600 ml-2 px-1 py-0.5"
@@ -56,7 +56,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleHomeDataChange(e, "yearBuilt")}
         />
       </div>
-      <div className="my-2">
+      <div className="grid grid-cols-7 my-2">
         <label>Roof</label>
         <input
           className="border-2 border-gray-600 ml-2 px-2 py-0.5"
@@ -65,7 +65,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleHomeDataChange(e, "roof")}
         />
       </div>
-      <div className="mb-2">
+      <div className="grid grid-cols-7 my-2">
         <label>Plumbing Updated</label>
         <input
           type="text"
@@ -74,7 +74,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleHomeDataChange(e, "plumbingUpdated")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label>Electrical Updated</label>
         <input
           className="ml-2 border-2 border-gray-600 px-1 py-0.5"
@@ -91,8 +91,9 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           checked={currentData.home.dogs}
           onChange={(e) => handleCheckboxHome(e, "dogs")}
         />
+
         {currentData.home.dogs && (
-          <section className="grid lg:grid-cols-2">
+          <section>
             <div>
               <label>Dog Types</label>
               <input
@@ -132,7 +133,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         )}
       </div>
 
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label># Solar Panels</label>
         <input
           className="ml-2 border-2 border-gray-600 px-1 py-0.5"
@@ -141,7 +142,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleHomeDataChange(e, "solar")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label>Good Shape</label>
         <input
           type="checkbox"
@@ -150,7 +151,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleCheckboxHome(e, "goodShape")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label>Business Use</label>
         <input
           type="checkbox"
@@ -159,7 +160,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleCheckboxHome(e, "businessUse")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label>Swimming Pool</label>
         <input
           type="checkbox"
@@ -168,7 +169,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleCheckboxHome(e, "swimmingPool")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label className="pr-2">Trampoline</label>
         <input
           type="checkbox"
@@ -177,7 +178,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
           onChange={(e) => handleCheckboxHome(e, "trampoline")}
         />
       </div>
-      <div>
+      <div className="grid grid-cols-7 my-2">
         <label className="pr-2">Fenced</label>
         <input
           type="checkbox"
