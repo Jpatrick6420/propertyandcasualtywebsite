@@ -84,13 +84,15 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         />
       </div>
       <div>
-        <label>Dogs</label>
-        <input
-          className="ml-2"
-          type="checkbox"
-          checked={currentData.home.dogs}
-          onChange={(e) => handleCheckboxHome(e, "dogs")}
-        />
+        <div className="grid grid-cols-2 max-w-[28.5%]  mb-2 ">
+          <label>Dogs</label>
+          <input
+            className="ml-2"
+            type="checkbox"
+            checked={currentData.home.dogs}
+            onChange={(e) => handleCheckboxHome(e, "dogs")}
+          />
+        </div>
 
         {currentData.home.dogs && (
           <section>
@@ -104,7 +106,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
               />
               <div>
                 <button
-                  className="bg-red-600 px-2 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
+                  className="bg-red-600 px-2 mb-4 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
                   onClick={(e) => {
                     handleDogBreedSubmit(e);
                   }}
@@ -113,7 +115,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
                 </button>
               </div>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block mb-4">
               <h3 className="underline list-decimal">Dog Types</h3>
               <ol>
                 {currentData.home.dogTypes?.map((item, i) => (
