@@ -8,7 +8,7 @@ import HomeSection from "./HomeSection";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
 import VehicleResultsSection from "../components/VehicleResultsSection";
-import SuggestionSection from "./SuggestionSection";
+// import SuggestionSection from "./SuggestionSection";
 import ClaimsResults from "./ClaimsResults";
 function CallForm() {
   const initInfo = {
@@ -265,9 +265,9 @@ function CallForm() {
           Reset Form
         </button>
       </div>
-      <div>
+      {/* <div>
         <SuggestionSection currentData={currentData} />
-      </div>
+      </div> */}
     </>
   );
 }
