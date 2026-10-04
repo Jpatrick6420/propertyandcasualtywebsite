@@ -6,8 +6,8 @@ function NewVehicleSection({ handleCurrentData }) {
     model: "",
     rideShare: false,
     businessUse: false,
-    collisionDeductible: 500,
-    comprehensiveDeductible: 500,
+    collisionDeductible: "not_asked",
+    comprehensiveDeductible: "not_asked",
   };
   const [vehicleOptions, setVehicleOptions] = useState(initVehicleOptions);
 
@@ -31,6 +31,7 @@ function NewVehicleSection({ handleCurrentData }) {
     }));
     setVehicleOptions(initVehicleOptions);
   };
+
   return (
     <>
       <h3 className="font-bold text-xl mt-2">New Vehicle</h3>
@@ -79,28 +80,42 @@ function NewVehicleSection({ handleCurrentData }) {
         </div>
 
         <div className="mb-1">
-          <label className="mr-2">
-            Collision Deductible (-1 means not included)
-          </label>
-          <input
-            type="number"
-            className="border-2 bg-stone-50 border-gray-700 px-1 py-0.5 "
+          <label className="mr-2 text-sm">Collision Deductible</label>
+
+          <select
             value={vehicleOptions.collisionDeductible}
-            onChange={(e) => {
-              handleFieldChange(e, "collisionDeductible");
-            }}
-          />
+            onChange={(e) => handleFieldChange(e, "collisionDeductible")}
+            className="border-2 border-gray-600 text-sm bg-stone-50"
+          >
+            <option value="not_asked">Not Asked</option>
+            <option value="no_collision">No Collision</option>
+            <option value="0">0</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+            <option value="750">750</option>
+            <option value="1000">1000</option>
+            <option value="1000+">1000+</option>
+          </select>
         </div>
         <div className="mb-1">
-          <label className="mr-2">
-            Comprehensive Deductible (-1 means not included)
-          </label>
-          <input
-            className="border-2 border-gray-700 px-1 py-0.5 bg-stone-50"
-            type="number"
+          <label className="mr-2">Comp Deductible</label>
+
+          <select
             value={vehicleOptions.comprehensiveDeductible}
             onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}
-          />
+            className="border-2 border-gray-600 text-sm bg-stone-50"
+          >
+            <option value="not_asked">Not Asked</option>
+            <option value="no_comprehensive">No Comprehensive</option>
+            <option value="0">0</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+            <option value="750">750</option>
+            <option value="1000">1000</option>
+            <option value="1000+">1000+</option>
+          </select>
         </div>
         <div className="col-span-2 flex justify-center mb-1">
           <button
