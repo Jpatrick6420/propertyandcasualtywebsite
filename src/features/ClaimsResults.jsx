@@ -11,7 +11,7 @@ function ClaimsResults({ currentData, setCurrentData, type }) {
   };
   return (
     <>
-      <p>Claims</p>
+      <h3 className="text-xl font-bold mt-4 ml-2">Claims</h3>
       {currentData.claims?.map((item, i) => (
         <p key={i}>
           {item.type} {item.date}

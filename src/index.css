@@ -2,10 +2,24 @@ button {
   cursor: pointer;
   border-radius: 5px;
   font-size: 13px;
+
   &:hover {
     transform: scale(1.05);
+    cursor: pointer;
   }
   &:active {
     transform: scale(1);
   }
+}
+label,
+select {
+  font-size: 0.9rem;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+  padding: 2px 4px;
 }

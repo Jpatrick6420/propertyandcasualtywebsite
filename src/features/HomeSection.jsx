@@ -85,7 +85,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
       </div>
       <div>
         <div className="grid md:grid-cols-2 max-w-[28.5%]  mb-2 ">
-          <label>Dogs</label>
+          <label className="text-sm">Dogs</label>
           <input
             className="ml-2"
             type="checkbox"
@@ -97,7 +97,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         {currentData.home.dogs && (
           <section>
             <div>
-              <label>Dog Types</label>
+              <label className="text-sm">Dog Types</label>
               <input
                 className="border-2 border-gray-600 ml-2 px-1 py-0.5"
                 type="text"
@@ -116,11 +116,12 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
               </div>
             </div>
             <div className="hidden lg:block mb-4">
-              <h3 className="underline list-decimal">Dog Types</h3>
+              <h3 className="underline list-decimal text-sm">Dog Types</h3>
               <ol>
                 {currentData.home.dogTypes?.map((item, i) => (
-                  <li key={i} className="px-4">
+                  <li key={i} className="px-4 text-xs">
                     {`${i + 1})`} {item}
+                    {"  "}
                     <button
                       className="bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
                       onClick={(e) => handleDelete(e, i)}
