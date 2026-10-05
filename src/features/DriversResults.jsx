@@ -1,3 +1,5 @@
+import { formatDate } from "../helpers/helpers";
+
 function DriversResults({ currentData, setCurrentData }) {
   const handleDelete = (e, index) => {
     e.preventDefault();
@@ -12,25 +14,46 @@ function DriversResults({ currentData, setCurrentData }) {
   return (
     <div className="px-4 py-8">
       <h3 className="text-xl font-bold mb-4">Additional Drivers</h3>
-      {currentData.additionalDrivers &&
-        currentData.additionalDrivers?.map((item, i) => (
-          <p key={i} className={`mb-2 drivers-${i}`}>
-            {i + 1}) Name: {item.name} DOB: {item.dob} Occupation:{" "}
-            {item.occupation}{" "}
-            {item.occupation?.toLowerCase() == "student"
-              ? item.goodStudent
-              : ""}{" "}
-            {item.military ? "Military: Yes" : ""}
-            <button
-              className="bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
-              onClick={(e) => {
-                handleDelete(e, i);
-              }}
-            >
-              Delete
-            </button>
-          </p>
-        ))}
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Occupation</th>
+            <th>Good Student</th>
+            <th>Military</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentData.additionalDrivers &&
+            currentData.additionalDrivers?.map((item, i) => (
+              <tr key={i}>
+                <td>{i + 1})</td>
+                <td>{item.name} </td>
+                <td>{formatDate(item.dob)}</td>
+                <td>{item.occupation} </td>
+                <td>
+                  {item.occupation?.toLowerCase() == "student"
+                    ? item.goodStudent
+                    : ""}
+                </td>
+                <td>{item.military ? "Yes" : ""}</td>
+                <td>
+                  <button
+                    className="bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
+                    onClick={(e) => {
+                      handleDelete(e, i);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
     </div>
   );
 }

@@ -14,6 +14,10 @@ function NewDriverSection({ handleCurrentData }) {
     setDriverDetails((prev) => ({ ...prev, [field]: e.target.value }));
   };
 
+  const handleCheckboxChange = (e, field) => {
+    e.preventDefault();
+    setDriverDetails((prev) => ({ ...prev, [field]: !driverDetails[field] }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!driverDetails.name || !driverDetails.dob) return;
@@ -65,7 +69,7 @@ function NewDriverSection({ handleCurrentData }) {
               className="border-2 border-gray-600 bg-stone-50"
               type="checkbox"
               value={driverDetails.goodStudent}
-              onChange={(e) => handleFieldChange(e, "goodStudent")}
+              onChange={(e) => handleCheckboxChange(e, "goodStudent")}
             />
           </div>
         )}

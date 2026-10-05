@@ -5,4 +5,13 @@ function calcAge(year) {
   return numYear > 1000 ? thisYear - numYear : numYear;
 }
 
-export { calcAge };
+function formatDate(date) {
+  const options = {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  };
+  const newDate = new Date(date).toLocaleString("en-US", options);
+  return newDate;
+}
+export { calcAge, formatDate };
