@@ -17,20 +17,20 @@ function DriversResults({ currentData, setCurrentData }) {
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>Number</th>
             <th>Name</th>
             <th>DOB</th>
             <th>Occupation</th>
             <th>Good Student</th>
             <th>Military</th>
-            <th></th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {currentData.additionalDrivers &&
             currentData.additionalDrivers?.map((item, i) => (
               <tr key={i}>
-                <td>{i + 1})</td>
+                <td>{i + 1}</td>
                 <td>{item.name} </td>
                 <td>{formatDate(item.dob)}</td>
                 <td>{item.occupation} </td>

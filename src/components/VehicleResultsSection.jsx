@@ -16,7 +16,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>Number</th>
             <th>Year</th>
             <th>Make</th>
             <th>Model</th>
@@ -24,13 +24,13 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
             <th>Business</th>
             <th>Col Ded</th>
             <th>Comp Ded</th>
-            <th></th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {currentData.vehicles?.map((item, idx) => (
             <tr key={idx} className="mb-2">
-              <td>{idx + 1})</td>
+              <td>{idx + 1}</td>
               <td>{item.year} </td>
               <td>{item.make}</td>
               <td>{item.model}</td>
