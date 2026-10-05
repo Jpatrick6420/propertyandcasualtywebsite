@@ -16,7 +16,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
       <table>
         <thead>
           <tr>
-            <th>Number</th>
+            <th></th>
             <th>Year</th>
             <th>Make</th>
             <th>Model</th>
@@ -24,7 +24,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
             <th>Business</th>
             <th>Col Ded</th>
             <th>Comp Ded</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

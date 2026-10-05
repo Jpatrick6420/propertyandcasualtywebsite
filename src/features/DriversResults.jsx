@@ -17,13 +17,13 @@ function DriversResults({ currentData, setCurrentData }) {
       <table>
         <thead>
           <tr>
-            <th>Number</th>
+            <th></th>
             <th>Name</th>
             <th>DOB</th>
             <th>Occupation</th>
             <th>Good Student</th>
             <th>Military</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

@@ -234,10 +234,6 @@ function CallForm() {
             <ClaimsSection handleCurrentData={setCurrentData} />
           </div>
           <div className="hidden lg:block px-4 py-8">
-            {/* <ClaimsResultsSection
-              currentData={currentData.auto}
-              label="Auto Claims"
-            /> */}
             <ClaimsResults
               currentData={currentData.auto}
               setCurrentData={setCurrentData}

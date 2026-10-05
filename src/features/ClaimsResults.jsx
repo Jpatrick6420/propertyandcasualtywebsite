@@ -17,10 +17,10 @@ function ClaimsResults({ currentData, setCurrentData, type }) {
       <table>
         <thead>
           <tr>
-            <th>Number</th>
+            <th></th>
             <th>Type</th>
             <th>Date</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
