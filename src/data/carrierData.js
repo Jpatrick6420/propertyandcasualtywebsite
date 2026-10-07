@@ -9,19 +9,26 @@ export const carrierAppetite = [
         "Clean claims history",
         "Secondary/seasonal homes when supported by HO-3",
       ],
-      weak: [
-        "Older homes",
-        "Older roofs",
-        "Wood shake roofs",
-        "Flat roofs",
-        "Vacant or for-sale homes",
-        "Manufactured/mobile homes",
-        "Prior claims",
-        "Commercial exposure",
-      ],
+      weak: ["Older homes", "Older roofs", "Prior claims"],
+      coverage: {
+        restrictions: [
+          "Flat/low-pitch roofs (3/12 or less) require a 2% deductible",
+          "Commercial exposure requires underwriting approval",
+          "Secondary/seasonal homes must be supported by an HO-3 policy",
+          "Prior losses may require underwriting approval",
+        ],
+      },
       product: "HO-3",
       underwritingPhone: "(801) 226-2662",
       underwriting: {
+        ineligiblePropertyTypes: [
+          "Wood shake roofs",
+          "Manufactured/mobile homes in Preferred",
+          "Vacant or for-sale homes in Preferred",
+        ],
+        ineligibleRiskTypes: [
+          "Animals with bite history or restricted animals without signed exclusion in Preferred",
+        ],
         bindingAuthority: { min: 100000, max: 800000 },
         underwritingApproval: {
           dwellingMin: 800000,
@@ -80,9 +87,10 @@ export const carrierAppetite = [
         "Business-owned rentals",
         "Vacant/renovation risks through DP1",
       ],
-      weak: [
-        "Flat or low-pitch roofs",
-        "Higher dwelling values without underwriting approval",
+      weak: [],
+      restrictions: [
+        "Flat/low-pitch roofs require a 2% deductible or exclusion",
+        "Higher dwelling values require underwriting approval",
       ],
       product: "DP3",
       underwriting: {
@@ -214,9 +222,12 @@ export const carrierAppetite = [
         "United auto customers",
         "Customers with qualifying HO-3, HO-4, or HO-6 liability coverage",
       ],
-      weak: [
-        "Auto insured outside United",
-        "Lower underlying liability limits",
+      weak: [],
+      restrictions: [
+        "Auto must be insured with United",
+        "Property underlying personal liability must be at least $300,000",
+        "Auto underlying limit must be 500/500/100 and is available only in Preferred",
+        "Policy must be paid in full at issue",
       ],
       underwriting: {
         payInFullAtIssueRequired: true,
@@ -234,14 +245,18 @@ export const carrierAppetite = [
         "Standard-frame homes",
         "Homes with qualifying replacement cost",
       ],
-      weak: [
-        "Pre-1940 homes",
-        "Solid brick or masonry homes",
-        "Homes built on piers or posts",
-        "Steep lots",
-        "Restricted ZIP codes",
+      weak: [],
+      restrictions: [
+        "Lots with more than 10 feet of slope require underwriting approval",
+        "Unavailable ZIP codes require special handling for existing United earthquake policies",
       ],
       underwriting: {
+        ineligiblePropertyTypes: [
+          "Homes built in 1939 or earlier",
+          "Solid brick or masonry homes",
+          "Homes built on piers or posts",
+        ],
+        ineligibleRiskTypes: [],
         packages: {
           basic: "Dwelling only coverage",
           standard: "Includes Personal Property & Loss of Use",
@@ -304,18 +319,18 @@ export const carrierAppetite = [
         "Homes with qualifying roofs",
         "Customers wanting broad optional endorsements",
       ],
-      weak: [
-        "High fireline scores",
-        "Unfenced pools",
-        "Dogs with bite history",
-        "Manufactured/mobile homes",
-        "Vacant homes",
-        "Older roofs",
-        "Wood shake roofs",
-        "Flat/rolled roofs",
-        "Multiple prior claims",
-      ],
+      weak: ["Older roofs", "Multiple prior claims"],
       underwriting: {
+        ineligiblePropertyTypes: [
+          "Manufactured/mobile homes",
+          "Wood shake roofs",
+          "Flat/rolled roofs",
+        ],
+        ineligibleRiskTypes: [
+          "Fireline score 8 or above",
+          "Unfenced pools",
+          "Dogs with bite history",
+        ],
         firelineScore8OrAboveEligible: false,
         dwellingMaxWithoutAuthority: 2000000,
         unfencedPoolsEligible: false,
@@ -342,6 +357,14 @@ export const carrierAppetite = [
         ],
       },
       coverage: {
+        restrictions: [
+          "Vacant homes are eligible only when under renovation or when a new purchase will be occupied within 30 days",
+          "Homes built in 1940 or earlier require the functional replacement cost endorsement",
+          "Gas furnace heating cannot be older than 35 years",
+          "Older homes must have electrical, heating, roof, and plumbing updated to code",
+          "Dwelling limits of $1.5M+ may require central burglar and fire alarms; verify current rule",
+          "Roof age cannot exceed 25 years, subject to the tile exception",
+        ],
         minimumAllPerilDeductible: 1000,
         optionalPackages: [
           "Plus Additional Coverage Package",
@@ -465,14 +488,20 @@ export const carrierAppetite = [
       ],
       weak: [
         "Older roofs",
-        "Wood roofs",
-        "Vacant or unoccupied homes",
         "Multiple prior claims",
-        "Outdated electrical systems",
-        "Dogs with bite history",
+        "Older homes requiring system updates",
       ],
       underwritingPhone: "(877) 566-6001",
       underwriting: {
+        ineligiblePropertyTypes: [
+          "Wood roofs",
+          "Vacant or unoccupied homes unless a construction/renovation exception applies",
+        ],
+        ineligibleRiskTypes: [
+          "Pre-1976 homes with fuses, knob & tube wiring, or aluminum wiring",
+          "Dogs with bite history",
+          "Exotic pets",
+        ],
         pre1976:
           "Homes built prior to 1976 containing fuses, knob & tube wiring, or aluminum wiring are not eligible.",
         roof: {
@@ -519,6 +548,15 @@ export const carrierAppetite = [
           "All losses in the prior 5 years are subject to underwriting review.",
       },
       coverage: {
+        restrictions: [
+          "Pools must be fenced; a hard cover is acceptable",
+          "Trampolines must have a safety net",
+          "Aggressive-breed dogs require no bite history, a fenced yard with a 6-foot fence, and vaccination",
+          "Homes with higher fireline/PPC exposure must meet the listed protection requirements",
+          "All losses in the prior 5 years are subject to underwriting review",
+          "More than one home claim requires an underwriting eligibility review",
+          "Roof age limits are 20 years for asphalt, metal, slate, and tile",
+        ],
         packageLevels: ["Essential", "New Quality-Plus", "Optimum", "Premier"],
         recommendation:
           "New Quality Plus for Homeowners; add correct endorsements for risk.",
@@ -651,15 +689,15 @@ export const carrierAppetite = [
         "Solar-equipped homes",
         "Course of construction",
       ],
-      weak: [
-        "Manufactured/mobile homes",
-        "Wood roofs",
-        "Older roofs",
-        "Very high-value homes",
-        "Unsupported secondary residences",
-      ],
+      weak: ["Older roofs that remain eligible with scheduled roof settlement"],
       underwritingPhone: "888-325-1190",
       underwriting: {
+        ineligiblePropertyTypes: [
+          "Manufactured/mobile homes",
+          "Homes with wood roofs",
+          "Homes with replacement cost over $1.5M",
+        ],
+        ineligibleRiskTypes: [],
         ineligibleHomeTypes: ["manufactured/mobile", "wood roofs"],
         roof: {
           asphaltMaxAgeYears: 21,
@@ -676,6 +714,11 @@ export const carrierAppetite = [
           "Primary home must be written with National General.",
       },
       coverage: {
+        restrictions: [
+          "Secondary residences require the primary home to be written with National General",
+          "Roof replacement-cost eligibility varies by roof age and material",
+          "Older eligible roofs may use scheduled payment for wind/hail total roof losses",
+        ],
         coverageA: { min: 150000, max: 1500000 },
         productLevels: ["Signature", "Preferred", "Elite"],
         recommendation: "Signature with endorsements.",
@@ -722,9 +765,11 @@ export const carrierAppetite = [
         "National General home and auto customers",
         "Customers with higher underlying liability limits",
       ],
-      weak: [
-        "Customers with home or auto insured elsewhere",
-        "Lower underlying liability limits",
+      weak: [],
+      restrictions: [
+        "Home and auto must both be written with National General",
+        "Auto underlying limits must be 250/500 or 500 CSL",
+        "Home underlying liability must be at least $300,000",
       ],
       underwriting: {
         autoAndHomeMustBeWrittenWithNationalGeneral: true,
@@ -761,20 +806,7 @@ export const carrierAppetite = [
         "Dogs without bite history",
         "Customers wanting guaranteed replacement cost",
       ],
-      weak: [
-        "PPC 9-10",
-        "Multi-family homes",
-        "Townhomes/condos/rowhomes",
-        "Manufactured/mobile homes",
-        "Log homes",
-        "Historic-register homes",
-        "Homes on stilts or piers",
-        "Non-standard roofs",
-        "Outdated electrical systems",
-        "Unconventional heating",
-        "On-site business exposure",
-        "Dogs with bite history",
-      ],
+      weak: [],
       coverage: {
         guaranteedReplacementCostMax: 5000000,
         rceMax: 3000000,
@@ -786,8 +818,11 @@ export const carrierAppetite = [
         shortTermRentalEligible: true,
         singleFamilyPreference:
           "Openly 'loves' single-family, well-maintained, newer-construction homes (1990 & newer) with RCE between $400k & $2M.",
-        restrictions:
-          "No restrictions on pools, solar panels, trampolines, or dog breeds; dogs must not have bite history and pools must be fenced, below ground or above ground.",
+        restrictions: [
+          "Dogs may be any breed but must not have bite history",
+          "Pools must meet Openly's fencing/type requirements",
+          "Pay in full only",
+        ],
         ageOfHome: "Does not matter.",
         payPlan: "Pay in full only.",
         minimumDeductible: {
@@ -814,6 +849,7 @@ export const carrierAppetite = [
           "Non-standard roofing materials (rolled roofs, gravel, asbestos)",
           "On-site business (homes hosting over five monthly visitors)",
           "Missing handrails, railings, banisters",
+          "Dogs with bite history",
         ],
         claims:
           "To check claims-history eligibility, quote it and see if it qualifies.",
