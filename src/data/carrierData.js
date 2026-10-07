@@ -41,6 +41,7 @@ export const carrierAppetite = [
         secondarySeasonal: "Must have supported HO-3 policy.",
       },
       roof: {
+        maxAge: {},
         replacementCostYears: { min: 1, max: 10 },
         afterReplacementCostPeriod: "Scheduled payment thereafter.",
         poorCondition: "Must be excluded.",
@@ -341,7 +342,7 @@ export const carrierAppetite = [
         vacantHomes:
           "Not eligible unless under renovation or home is a new purchase and will be occupied within 30 days of inception.",
         roof: {
-          maxAge: 25,
+          maxAge: { all: 25 },
           tileException: true,
           woodShakeEligible: false,
           flatRolledRoofEligible: false,
@@ -700,7 +701,7 @@ export const carrierAppetite = [
         ineligibleRiskTypes: [],
         ineligibleHomeTypes: ["manufactured/mobile", "wood roofs"],
         roof: {
-          asphaltMaxAgeYears: 21,
+          asphalt: 21,
           metalTileMaxAgeYears: 26,
           replacementCostOver1500000Eligible: false,
           replacementCostEndorsementMaxAge: {
@@ -851,6 +852,7 @@ export const carrierAppetite = [
           "Missing handrails, railings, banisters",
           "Dogs with bite history",
         ],
+        roof: { maxAge: {} },
         claims:
           "To check claims-history eligibility, quote it and see if it qualifies.",
       },

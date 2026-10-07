@@ -103,7 +103,7 @@ function CallForm() {
                 </div>
               </div>
               <div className="grid md:grid-cols-2 mr-2 ">
-                <label>Level Of Education</label>
+                <label className="underline">Level Of Education</label>
                 <select
                   onChange={(e) => handleSelect(e, "pni", "pniEducation")}
                   className="border-2 border-gray-600 mb-1"
@@ -118,7 +118,7 @@ function CallForm() {
                 </select>
               </div>
               <div className="grid md:grid-cols-2 mr-2">
-                <label>Pni Profession</label>
+                <label className="underline">Pni Profession</label>
                 <input
                   className="ml-2 border-2 border-gray-600 mb-1 "
                   type="text"
@@ -150,7 +150,7 @@ function CallForm() {
               </div>
 
               <div className="grid md:grid-cols-2 mr-2">
-                <label className="mr-2">Level Of Education</label>
+                <label className="mr-2 underline">Level Of Education</label>
                 <select
                   onChange={(e) => handleSelect(e, "sni", "sniEducation")}
                   className="border-2 border-gray-600 mb-1"
@@ -165,7 +165,7 @@ function CallForm() {
                 </select>
               </div>
               <div className="grid md:grid-cols-2 mr-2">
-                <label>Sni Profession</label>
+                <label className="underline">Sni Profession</label>
                 <input
                   className="ml-2 mb-1 border-2 border-gray-600"
                   type="text"

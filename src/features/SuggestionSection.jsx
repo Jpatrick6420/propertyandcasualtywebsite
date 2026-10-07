@@ -1,13 +1,13 @@
 import carrierAppetite from "../data/carrierData";
 function SuggestionSection({ currentData }) {
   return (
-    <section>
+    <section className="px-4">
       <h3>Carrier Appetite Home</h3>
       <ol>
-        {carrierAppetite.map((item, i) => {
+        {carrierAppetite.map((carrier, i) => {
           return (
             <li key={i} className="text-xs my-4 mx-2 ">
-              <h2 className="text-lg font-bold my-4">{item.name}</h2>
+              <h2 className="text-lg font-bold my-4">{carrier.name}</h2>
               <h4 className="text-md font-bold text-green-800">Strengths</h4>
               <ol>
                 {carrierAppetite[i].homeowners.strong.map((item, i) => {
@@ -20,8 +20,8 @@ function SuggestionSection({ currentData }) {
               </ol>
               <h4 className="text-md font-bold text-red-500">Weak</h4>
               <ol className="px-4">
-                {carrierAppetite[i].homeowners.weak.map((item, i) => {
-                  return <li key={i}>{item}</li>;
+                {carrierAppetite[i].homeowners.weak.map((weakness, i) => {
+                  return <li key={i}>{weakness}</li>;
                 })}
               </ol>
               <details>
@@ -31,7 +31,12 @@ function SuggestionSection({ currentData }) {
                 <ol className="px-4">
                   {carrierAppetite[i].homeowners.coverage?.restrictions?.map(
                     (item, i) => {
-                      return <li key={i}>{item}</li>;
+                      return (
+                        <li key={i}>
+                          {i + 1 + ") "}
+                          {item}
+                        </li>
+                      );
                     },
                   )}
                 </ol>
