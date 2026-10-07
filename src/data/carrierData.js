@@ -8,14 +8,24 @@ export const carrierAppetite = [
         "Good credit",
         "Clean claims history",
         "Secondary/seasonal homes when supported by HO-3",
+        "Covers homes with PPC 1-8 up to $800,000 or 1.5 million with UW approval",
+        "Poor roofs can be excluded instead of denied",
+        "Covers flat roofs (with 2% deductible)",
       ],
-      weak: ["Older homes", "Older roofs", "Prior claims"],
+      weak: [
+        "Older homes - preffered plans are only available for homes newer than 1980. Homes older than 1940 are ** HO-8 **",
+        "Older roofs- at 10 years it switches to scheduled. Schedule goes to 10% at 25 years",
+        "Prior claims",
+        "Dogs - restrictions on dogs",
+      ],
       coverage: {
         restrictions: [
+          "Homes older than 1940 are ** HO-8 **",
           "Flat/low-pitch roofs (3/12 or less) require a 2% deductible",
           "Commercial exposure requires underwriting approval",
           "Secondary/seasonal homes must be supported by an HO-3 policy",
           "Prior losses may require underwriting approval",
+          "No more than 2 horses",
         ],
       },
       product: "HO-3",
@@ -319,8 +329,13 @@ export const carrierAppetite = [
         "Older homes with updated systems",
         "Homes with qualifying roofs",
         "Customers wanting broad optional endorsements",
+        "Older homes that were remodeled",
       ],
-      weak: ["Older roofs", "Multiple prior claims"],
+      weak: [
+        "Older roofs - over 25 years",
+        "Multiple prior claims",
+        "Older Furnace and heating",
+      ],
       underwriting: {
         ineligiblePropertyTypes: [
           "Manufactured/mobile homes",
@@ -331,6 +346,9 @@ export const carrierAppetite = [
           "Fireline score 8 or above",
           "Unfenced pools",
           "Dogs with bite history",
+          "Vacant Homes- can be vacant up to 30 days of bind",
+
+          "Wood shake",
         ],
         firelineScore8OrAboveEligible: false,
         dwellingMaxWithoutAuthority: 2000000,
