@@ -12,8 +12,8 @@ function DriversResults({ currentData, setCurrentData }) {
     }));
   };
   return (
-    <div className="px-4 py-8">
-      <h3 className="text-xl font-bold mb-4">Additional Drivers</h3>
+    <div className="px-4 py-8 md:py-0">
+      <h3 className="text-xl font-bold mb-4 ">Additional Drivers</h3>
       <table>
         <thead>
           <tr>

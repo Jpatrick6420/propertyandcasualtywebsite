@@ -347,7 +347,6 @@ export const carrierAppetite = [
           "Unfenced pools",
           "Dogs with bite history",
           "Vacant Homes- can be vacant up to 30 days of bind",
-
           "Wood shake",
         ],
         firelineScore8OrAboveEligible: false,

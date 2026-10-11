@@ -11,7 +11,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
   };
 
   return (
-    <div className="px-4 py-8">
+    <div className="px-4 py-8 md:py-0">
       <h3 className="font-bold text-xl">Vehicles</h3>
       <table>
         <thead>

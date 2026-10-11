@@ -1,6 +1,6 @@
 import { useState } from "react";
 import HomeClaimsSection from "./HomeClaimsSection";
-import ClaimsResultsSection from "../components/ClaimsResultsSection";
+import ClaimsResultsSection from "./ClaimsResultsSection";
 import ClaimsResults from "./ClaimsResults";
 function HomeSection({ handleCurrentHomeData, currentData }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");

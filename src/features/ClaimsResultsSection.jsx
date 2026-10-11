@@ -3,7 +3,7 @@ import { formatDate } from "../helpers/helpers";
 function ClaimsResultsSection({ currentData, label = "Claims" }) {
   return (
     <>
-      <ol className="px-4 py-2 space-y-2 font-bold text-xl">{label}</ol>
+      <ol className="px-4 py-2 space-y-2 font-bold text-xl md:py-0">{label}</ol>
       <table>
         <thead>
           <tr>

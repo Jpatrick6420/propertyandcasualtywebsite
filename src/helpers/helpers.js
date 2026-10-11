@@ -14,4 +14,13 @@ function formatDate(date) {
   const newDate = new Date(date).toLocaleString("en-US", options);
   return newDate;
 }
-export { calcAge, formatDate };
+const formatName = (name, separation = " ") => {
+  const splitName = name.split(separation);
+  const formattedName = splitName.map((word) => {
+    const firstLetter = word[0].toUpperCase();
+    const restOfWord = word.slice(1).toLowerCase();
+    return `${firstLetter}${restOfWord}`;
+  });
+  return formattedName.join(" ");
+};
+export { calcAge, formatDate, formatName };

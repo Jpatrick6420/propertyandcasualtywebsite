@@ -1,16 +1,17 @@
 import { useState } from "react";
-import NewDriverSection from "../components/NewDriverSection";
-import NewVehicleSection from "../components/NewVehicleSection";
+import NewDriverSection from "./NewDriverSection";
+import NewVehicleSection from "./NewVehicleSection";
 
 import FormResultsSection from "./FormResultsSection";
 import ClaimsSection from "./ClaimsSection";
 import HomeSection from "./HomeSection";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
-import VehicleResultsSection from "../components/VehicleResultsSection";
+import VehicleResultsSection from "./VehicleResultsSection";
 // import SuggestionSection from "./SuggestionSection";
 import ClaimsResults from "./ClaimsResults";
 import SuggestionSection from "./SuggestionSection";
+import Select from "../components/Select";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -47,7 +48,15 @@ function CallForm() {
       fenced: false,
       claims: [],
       trampoline: false,
+      addresses: [],
       notes: "",
+    },
+    otherRisks: {
+      umbrella: false,
+      otherAddresses: [],
+      motorHomes: [],
+      offRoad: [],
+      motorcycles: [],
     },
   };
 
@@ -102,20 +111,23 @@ function CallForm() {
                   />
                 </div>
               </div>
-              <div className="grid md:grid-cols-2 mr-2 ">
-                <label className="underline">Level Of Education</label>
-                <select
-                  onChange={(e) => handleSelect(e, "pni", "pniEducation")}
-                  className="border-2 border-gray-600 mb-1"
-                  value={currentData.pni.pniEducation}
-                >
-                  <option value="not_asked">Not Asked</option>
-                  <option value="ged_pending">GED Pending</option>
-                  <option value="high_school">High School</option>
-                  <option value="some_college">Some College</option>
-                  <option value="college_degree">College Degree</option>
-                  <option value="docterate">Docterate</option>
-                </select>
+              <div className=" ">
+                <Select
+                  startValue={currentData.pni.pniEducation}
+                  setCurrentData={setCurrentData}
+                  options={[
+                    "not_asked",
+                    "ged_pending",
+                    "high_school",
+                    "some_college",
+                    "college_degree",
+                    "docterate",
+                  ]}
+                  label="Level Of Education"
+                  item={"pni"}
+                  attribute={"pniEducation"}
+                  currentData={currentData}
+                />
               </div>
               <div className="grid md:grid-cols-2 mr-2">
                 <label className="underline">Pni Profession</label>
@@ -149,21 +161,22 @@ function CallForm() {
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 mr-2">
-                <label className="mr-2 underline">Level Of Education</label>
-                <select
-                  onChange={(e) => handleSelect(e, "sni", "sniEducation")}
-                  className="border-2 border-gray-600 mb-1"
-                  value={currentData.sni.sniEducation}
-                >
-                  <option value="not_asked">Not Asked</option>
-                  <option value="ged_pending">GED Pending</option>
-                  <option value="high_school">High School</option>
-                  <option value="some_college">Some College</option>
-                  <option value="college_degree">College Degree</option>
-                  <option value="docterate">Docterate</option>
-                </select>
-              </div>
+              <Select
+                startValue={currentData.sni.sniEducation}
+                setCurrentData={setCurrentData}
+                options={[
+                  "not_asked",
+                  "ged_pending",
+                  "high_school",
+                  "some_college",
+                  "college_degree",
+                  "docterate",
+                ]}
+                label="Level Of Education"
+                item={"sni"}
+                attribute={"sniEducation"}
+                currentData={currentData}
+              />
               <div className="grid md:grid-cols-2 mr-2">
                 <label className="underline">Sni Profession</label>
                 <input
@@ -181,9 +194,9 @@ function CallForm() {
             <PniResults pni={currentData.pni} sni={currentData.sni} />
           </div>
         </section>
+        <h2 className="text-lg font-bold py-2">Auto</h2>
         <section className="grid md:grid-cols-2">
           <div>
-            <h2 className="text-lg font-bold">Auto</h2>
             <NewDriverSection handleCurrentData={setCurrentData} />
           </div>
           <div className="hidden lg:block">
@@ -234,7 +247,7 @@ function CallForm() {
           <div>
             <ClaimsSection handleCurrentData={setCurrentData} />
           </div>
-          <div className="hidden lg:block px-4 py-8">
+          <div className="hidden lg:block px-4 py-8 md:py-0">
             <ClaimsResults
               currentData={currentData.auto}
               setCurrentData={setCurrentData}

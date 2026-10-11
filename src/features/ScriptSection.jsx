@@ -9,8 +9,7 @@ import {
   vladOldLeads,
   winbackScript,
 } from "../data/scripts";
-import List from "./List";
-
+import List from "../components/List";
 function ScriptSection({ info }) {
   const [script, setScript] = useState("newlead");
   return (
