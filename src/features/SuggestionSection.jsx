@@ -18,7 +18,7 @@ function SuggestionSection({ currentData }) {
                   );
                 })}
               </ol>
-              <h4 className="text-md font-bold text-red-500">Weak</h4>
+              <h4 className="text-md font-bold text-red-500">Weaknesses</h4>
               <ol className="px-4">
                 {carrierAppetite[i].homeowners.weak.map((weakness, i) => {
                   return <li key={i}>{weakness}</li>;
