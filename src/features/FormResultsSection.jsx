@@ -1,9 +1,8 @@
 import { useState } from "react";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
-import { calcAge, formatDate } from "../helpers/helpers";
+import { calcAge, formatDate } from "../helper/helper";
 import VehicleResultsSection from "./VehicleResultsSection";
-import ClaimsSection from "./ClaimsSection";
 import ClaimsResults from "./ClaimsResults";
 
 function FormResultsSection({ currentData, setCurrentData }) {
@@ -105,82 +104,6 @@ Misc Notes: ${currentData.home.notes || ""}`;
       console.error("Failed to copy text: ", error);
     }
   };
-  // const handleCopy = async () => {
-  //   const textToCopy = `
-  //   Pni : ${currentData.pni.name} DOB: ${formatDate(currentData.pni.pniDob)} Education: ${currentData.pni.pniEducation?.split("_").join(" ")} Profession: ${currentData.pni.pniProfession}
-  //   ${currentData.sni.name && `Sni: ${currentData.sni.name}. DOB: ${formatDate(currentData.sniDob)}`} Education: ${currentData.sniEducation?.split("_").join(" ")} Profession: ${currentData.sniProfession}
-
-  //   Auto
-
-  //   ${currentData.auto.additionalDrivers ? "Additional Drivers:  " : ""}
-  //   ${
-  //     currentData.auto.additionalDrivers &&
-  //     currentData.auto.additionalDrivers?.map(
-  //       (item, i) =>
-  //         `${i + 1}) Name: ${item.name} ${item.dob ? `DOB: ${formatDate(item.dob)}` : ""} ${item.occupation ? `DOB: ${item.occupation}` : ""}
-  //           ${
-  //             item.occupation?.toLowerCase() == "student"
-  //               ? ` Good Student: ${item.goodStudent ? "Yes" : "No"}  `
-  //               : ""
-  //           }
-
-  //           ${item.military ? "Military: Yes" : ""}`,
-  //     )
-  //   }
-  //     ${currentData.auto.claims ? "Auto Claims  " : ""}
-  //     ${currentData.auto.claims?.map(
-  //       (item, i) => ` ${i + 1})  ${item.type} ${formatDate(item.date)}\n`,
-  //     )}
-  //    ${currentData.auto.vehicles ? "Vehicles  " : ""}
-  //     ${currentData.auto.vehicles?.map(
-  //       (item, i) =>
-  //         ` ${i + 1}) Year: ${item.year}  Make: ${item.make}   Model: ${item.model}\n
-  //         ${item.rideShare ? "Ride Share: Yes " : "Ride Share: No  "}
-  //         ${item.businessUse ? "Business Use: Yes  " : "Business Use: No  "}
-  //         Collision: ${item.collisionDeductible.split("_").join(" ")}
-  //         Comprehensive: ${item.comprehensiveDeductible.split("_").join(" ")}`,
-  //     )}
-  //     Current Coverage: ${currentData.auto.currentCoverage}
-  //     What's important: ${currentData.auto.whatIsImportant}
-
-  //     Home Facts
-
-  //     Year Built: ${currentData.home.yearBuilt}
-  //     Roof Age: ${currentData.home.roof}  ${calcAge(currentData.home.roof)}
-  //     ${currentData.home.plumbingUpdated ? `Plumbing Updated: ${currentData.home.plumbingUpdated}  ${calcAge(currentData.home.plumbingUpdated)}  ` : ""}
-  //     ${currentData.home.electricalUpdated ? `Electrical Updated: ${currentData.home.electricalUpdated ? "Yes " : "Not known "} ${calcAge(currentData.home.electricalUpdated)}` : ""}
-  //     Dog Types:
-  //     ${
-  //       currentData.home.dogs
-  //         ? currentData.home.dogTypes?.map((dog, i) => `${i + 1} ${dog}\n`)
-  //         : "No"
-  //     }
-  //     ${currentData.home.solar ? `Solar: ${currentData.home.solar} ` : "Solar: No "}
-  //     ${currentData.home.goodShape ? "Good Shape: Yes  " : "Good Shape: No  "}
-  //     ${currentData.home.businessUse ? "Business Use: Yes  " : "Business Use: No "}
-  //     ${
-  //       currentData.home.swimmingPool
-  //         ? "Swimming Pool: Yes "
-  //         : "Swimming Pool: No "
-  //     }
-  //     ${currentData.home.fenced ? "Fenced: Yes " : "Fenced: No "}
-  //     ${currentData.home.trampoline ? "Trampoline: Yes " : "Trampoline: No "}
-
-  //     Home Claims
-
-  //     ${currentData.home.claims?.map((item, i) => `${i + 1}) ${item.type} ${formatDate(item.date)} `)}\n
-  //     Misc Notes: ${currentData.home?.notes}`;
-  //   try {
-  //     // Use the native Clipboard API
-  //     await navigator.clipboard.writeText(textToCopy);
-  //     setIsCopied(true);
-
-  //     // Reset the "Copied!" state after 2 seconds
-  //     setTimeout(() => setIsCopied(false), 2000);
-  //   } catch (error) {
-  //     console.error("Failed to copy text: ", error);
-  //   }
-  // };
 
   return (
     <div className="mx-4">

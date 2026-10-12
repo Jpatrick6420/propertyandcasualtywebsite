@@ -2,15 +2,15 @@ import { useState } from "react";
 import ClaimsResults from "./ClaimsResults";
 import TextInput from "../components/TextInput";
 import ClaimsSection from "./ClaimsSection";
-function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
+function HomeSection({
+  setCurrentData,
+  currentData,
+  updateItem,
+  addNewItem,
+  handleCheckbox,
+}) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
-  const handleCheckboxHome = (e, field) => {
-    setCurrentData((prev) => ({
-      ...prev,
-      home: { ...prev.home, [field]: !prev.home[field] },
-    }));
-  };
   const handleDogBreedSubmit = (e) => {
     e.preventDefault();
     if (!dogTypeEntry) return;
@@ -64,13 +64,13 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
         />
       </div>
       <div>
-        <div className="grid md:grid-cols-2 max-w-[28.5%]  mb-2 ">
+        <div className="grid md:grid-cols-8   mb-2 ">
           <label className="text-sm">Dogs</label>
           <input
             className="ml-2"
             type="checkbox"
             checked={currentData.home.dogs}
-            onChange={(e) => handleCheckboxHome(e, "dogs")}
+            onChange={() => handleCheckbox("home", "dogs")}
           />
         </div>
 
@@ -124,49 +124,49 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           onChange={(e) => updateItem(e, "home", "solar")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
+      <div className="grid md:grid-cols-8 my-2">
         <label>Good Shape</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.goodShape}
-          onChange={(e) => handleCheckboxHome(e, "goodShape")}
+          onChange={() => handleCheckbox("home", "goodShape")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
+      <div className="grid md:grid-cols-8 my-2">
         <label>Business Use</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.businessUse}
-          onChange={(e) => handleCheckboxHome(e, "businessUse")}
+          onChange={() => handleCheckbox("home", "businessUse")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
+      <div className="grid md:grid-cols-8 my-2">
         <label>Swimming Pool</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.swimmingPool}
-          onChange={(e) => handleCheckboxHome(e, "swimmingPool")}
+          onChange={() => handleCheckbox("home", "swimmingPool")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
+      <div className="grid md:grid-cols-8 my-2">
         <label className="pr-2">Trampoline</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.trampoline}
-          onChange={(e) => handleCheckboxHome(e, "trampoline")}
+          onChange={() => handleCheckbox("home", "trampoline")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
+      <div className="grid md:grid-cols-8 my-2">
         <label className="pr-2">Fenced</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.fenced}
-          onChange={(e) => handleCheckboxHome(e, "fenced")}
+          onChange={() => handleCheckbox("home", "fenced")}
         />
       </div>
       <section className="grid md:grid-cols-2">

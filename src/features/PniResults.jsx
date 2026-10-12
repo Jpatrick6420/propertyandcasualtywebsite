@@ -1,4 +1,4 @@
-import { formatDate } from "../helpers/helpers";
+import { formatDate } from "../helper/helper";
 
 function PniResults({ pni, sni }) {
   return (

@@ -1,4 +1,4 @@
-import { formatDate } from "../helpers/helpers";
+import { formatDate } from "../helper/helper";
 
 function ClaimsResults({ currentData, setCurrentData, type }) {
   const handleDelete = (e, index) => {

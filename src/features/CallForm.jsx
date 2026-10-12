@@ -83,6 +83,12 @@ function CallForm() {
       },
     }));
   };
+  const handleCheckbox = (risk, attribute) => {
+    setCurrentData((prev) => ({
+      ...prev,
+      [risk]: { ...prev[risk], [attribute]: !prev[risk][attribute] },
+    }));
+  };
   return (
     <>
       <form className="px-4 py-2 ">
@@ -248,6 +254,7 @@ function CallForm() {
           currentData={currentData}
           updateItem={updateItem}
           addNewItem={addNewItem}
+          handleCheckbox={handleCheckbox}
         />
       </form>
       <div>
