@@ -1,8 +1,7 @@
 import { useState } from "react";
-import HomeClaimsSection from "./HomeClaimsSection";
-import ClaimsResultsSection from "./ClaimsResultsSection";
 import ClaimsResults from "./ClaimsResults";
 import TextInput from "../components/TextInput";
+import ClaimsSection from "./ClaimsSection";
 function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
@@ -85,13 +84,7 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
                   setDogTypeEntry(e.target.value);
                 }}
               />
-              {/* <label className="text-sm">Dog Types</label>
-              <input
-                className="border-2 border-gray-600 ml-2 px-1 py-0.5"
-                type="text"
-                value={dogTypeEntry}
-                onChange={(e) => setDogTypeEntry(e.target.value)}
-              /> */}
+
               <div className="md:flex md:items-center">
                 <button
                   className="bg-red-600 px-2 mb-4 md:mb-0 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
@@ -178,7 +171,8 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
       </div>
       <section className="grid md:grid-cols-2">
         <div>
-          <HomeClaimsSection handleCurrentData={setCurrentData} />
+          {/* <HomeClaimsSection handleCurrentData={setCurrentData} /> */}
+          <ClaimsSection addNewItem={addNewItem} risk="home" />
         </div>
         <div className="hidden lg:block">
           <ClaimsResults

@@ -4,9 +4,10 @@ import DriversResults from "./DriversResults";
 import VehiclesResults from "./VehiclesResults";
 import { calcAge, formatDate } from "../helpers/helpers";
 import VehicleResultsSection from "./VehicleResultsSection";
-import ClaimsResultsSection from "./ClaimsResultsSection";
+import ClaimsSection from "./ClaimsSection";
+import ClaimsResults from "./ClaimsResults";
 
-function FormResultsSection({ currentData }) {
+function FormResultsSection({ currentData, setCurrentData }) {
   //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
   const handleCopy = async () => {
@@ -190,9 +191,10 @@ Misc Notes: ${currentData.home.notes || ""}`;
         <DriversResults currentData={currentData.auto} />
 
         <p>Current Coverage: {currentData.auto.currentCoverage}</p>
-        <ClaimsResultsSection
-          currentData={currentData.auto}
-          label="Auto Claims"
+        <ClaimsResults
+          currentData={currentData}
+          setCurrentData={setCurrentData}
+          type="auto"
         />
 
         <p>What's important: {currentData.auto.whatIsImportant}</p>
@@ -249,9 +251,10 @@ Misc Notes: ${currentData.home.notes || ""}`;
         ) : (
           <p>Tampoline: No</p>
         )}
-        <ClaimsResultsSection
-          currentData={currentData.home}
-          label="Home Claims"
+        <ClaimsResults
+          currentData={currentData}
+          setCurrentData={setCurrentData}
+          type="home"
         />
       </div>
       <div className="flex justify-center flex-col items-center">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-function ClaimsSection({ handleCurrentData }) {
+function ClaimsSection({ addNewItem, risk }) {
   const initClaim = { type: "", date: "" };
   const [currentClaim, setCurrentClaim] = useState(initClaim);
   const handleFieldChange = (e, field) => {
@@ -8,16 +8,7 @@ function ClaimsSection({ handleCurrentData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!currentClaim.type || !currentClaim.date) return;
-    handleCurrentData((prev) => ({
-      ...prev,
-      auto: {
-        ...prev.auto,
-        claims: [
-          ...prev.auto.claims,
-          { type: currentClaim.type, date: currentClaim.date },
-        ],
-      },
-    }));
+    addNewItem(e, risk, "claims", currentClaim);
     setCurrentClaim(initClaim);
   };
   return (

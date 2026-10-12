@@ -63,25 +63,6 @@ function CallForm() {
 
   const [currentData, setCurrentData] = useState(initInfo);
 
-  const handlePniAndSniDetails = (e, person, field) => {
-    setCurrentData((prev) => ({
-      ...prev,
-      [person]: { ...prev[person], [field]: e.target.value },
-    }));
-  };
-  const handleAutoDataChange = (e, field) => {
-    setCurrentData((prev) => ({
-      ...prev,
-      auto: { ...prev.auto, [field]: e.target.value },
-    }));
-  };
-
-  const handleSelect = (e, person, field) => {
-    setCurrentData((prev) => ({
-      ...prev,
-      [person]: { ...prev[person], [field]: e.target.value },
-    }));
-  };
   const resetForm = () => {
     setCurrentData(initInfo);
   };
@@ -121,7 +102,7 @@ function CallForm() {
                     className="ml-2 border-2 border-gray-600 mb-1"
                     type="date"
                     value={currentData.pniDob}
-                    onChange={(e) => handlePniAndSniDetails(e, "pni", "pniDob")}
+                    onChange={(e) => updateItem(e, "pni", "pniDob")}
                   />
                 </div>
               </div>
@@ -154,7 +135,7 @@ function CallForm() {
                   className="ml-2 border-2 border-gray-600 mb-1"
                   type="text"
                   value={currentData.sni.name}
-                  onChange={(e) => handlePniAndSniDetails(e, "sni", "name")}
+                  onChange={(e) => updateItem(e, "sni", "name")}
                 />
               </div>
               <div className="grid md:grid-cols-2 mr-2">
@@ -163,7 +144,7 @@ function CallForm() {
                   className="ml-2 border-2 border-gray-600 mb-1"
                   type="date"
                   value={currentData.sni.sniDob}
-                  onChange={(e) => handlePniAndSniDetails(e, "sni", "sniDob")}
+                  onChange={(e) => updateItem(e, "sni", "sniDob")}
                 />
               </div>
 
@@ -215,35 +196,43 @@ function CallForm() {
             />
           </div>
         </section>
-        <div>
-          <label>Coverage Options</label>
-          <select
-            className="my-4 border-2 border-gray-600 ml-2 mb-1"
-            onChange={(e) => handleSelect(e, "auto", "currentCoverage")}
-            value={currentData.auto.currentCoverage}
-          >
-            <option value="not_confirmed">Not Confirmed</option>
-            <option value="30/65/25">30/65/25</option>
-            <option value="30/65/50">30/65/50</option>
-            <option value="50/100/50">50/100/50</option>
-            <option value="50/100/100">50/100/100</option>
-            <option value="100/300/50">100/300/50</option>
-            <option value="100/300/100">100/300/100</option>
-            <option value="100/300/250">100/300/250</option>
-            <option value="250/500/100">250/500/100</option>
-            <option value="250/500/250+">250/500/250+</option>
-          </select>
-        </div>
+
+        <Select
+          value={currentData.auto.currentCoverage}
+          label="currentCoverage"
+          options={[
+            "not_confirmed",
+            "30/65/25",
+            "30/65/50",
+            "50/100/50",
+            "50/100/100",
+            "100/300/50",
+            "100/300/100",
+            "250/500/50",
+            "250/500/50",
+            "250/500/100",
+            "250/500/250",
+            "500/500/100",
+            "500/500/500",
+            "other",
+          ]}
+          onChange={(e) => updateItem(e, "auto", "currentCoverage")}
+          columns="5"
+        />
         <label>What is Important?</label>
         <br></br>
         <textarea
           className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg mb-1"
           value={currentData.auto["whatIsImportant"]}
-          onChange={(e) => handleAutoDataChange(e, "whatIsImportant")}
+          onChange={(e) => updateItem(e, "auto", "whatIsImportant")}
         ></textarea>
         <section className="grid md:grid-cols-2">
           <div>
-            <ClaimsSection handleCurrentData={setCurrentData} />
+            <ClaimsSection
+              handleCurrentData={setCurrentData}
+              addNewItem={addNewItem}
+              risk="auto"
+            />
           </div>
           <div className="hidden lg:block px-4 py-8 md:py-0">
             <ClaimsResults

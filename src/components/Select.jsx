@@ -1,9 +1,9 @@
 import { formatName } from "../helpers/helpers";
 
-function Select({ onChange, options, value, label }) {
+function Select({ onChange, options, value, label, columns = "2" }) {
   return (
-    <div className="grid md:grid-cols-2 mr-2 ">
-      <label className="underline">{label}</label>
+    <div className={`grid md:grid-cols-${columns} mr-2 `}>
+      <label>{label}</label>
       <select
         onChange={onChange}
         className="border-2 border-gray-600 mb-1"
