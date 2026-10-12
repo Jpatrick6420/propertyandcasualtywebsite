@@ -1,25 +1,13 @@
 import { formatName } from "../helpers/helpers";
 
-function Select({
-  setCurrentData,
-  options,
-  startValue,
-  label,
-  attribute,
-  item,
-}) {
+function Select({ onChange, options, value, label }) {
   return (
     <div className="grid md:grid-cols-2 mr-2 ">
       <label className="underline">{label}</label>
       <select
-        onChange={(e) =>
-          setCurrentData((prev) => ({
-            ...prev,
-            [item]: { ...prev[item], [attribute]: e.target.value },
-          }))
-        }
+        onChange={onChange}
         className="border-2 border-gray-600 mb-1"
-        value={startValue}
+        value={value}
       >
         {options.map((option, i) => {
           const formattedOption = formatName(option, "_");

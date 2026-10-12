@@ -1,5 +1,5 @@
 import { useState } from "react";
-function NewDriverSection({ handleCurrentData }) {
+function NewDriverSection({ addNewItem }) {
   const initDriverDetails = {
     name: "",
     dob: "",
@@ -22,13 +22,8 @@ function NewDriverSection({ handleCurrentData }) {
     e.preventDefault();
     if (!driverDetails.name || !driverDetails.dob) return;
     const newDriver = { ...driverDetails };
-    handleCurrentData((prev) => ({
-      ...prev,
-      auto: {
-        ...prev.auto,
-        additionalDrivers: [...prev.auto.additionalDrivers, newDriver],
-      },
-    }));
+
+    addNewItem(e, "auto", "additionalDrivers", newDriver);
     setDriverDetails(initDriverDetails);
   };
   return (

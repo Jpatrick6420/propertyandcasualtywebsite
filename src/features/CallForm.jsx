@@ -12,6 +12,7 @@ import VehicleResultsSection from "./VehicleResultsSection";
 import ClaimsResults from "./ClaimsResults";
 import SuggestionSection from "./SuggestionSection";
 import Select from "../components/Select";
+import TextInput from "../components/TextInput";
 function CallForm() {
   const initInfo = {
     pni: {
@@ -84,6 +85,23 @@ function CallForm() {
   const resetForm = () => {
     setCurrentData(initInfo);
   };
+  const updateItem = (e, item, attribute) => {
+    e.preventDefault();
+    setCurrentData((prev) => ({
+      ...prev,
+      [item]: { ...prev[item], [attribute]: e.target.value },
+    }));
+  };
+  const addNewItem = (e, item, attribute, newItem = "") => {
+    e.preventDefault();
+    setCurrentData((prev) => ({
+      ...prev,
+      [item]: {
+        ...prev[item],
+        [attribute]: [...prev[item][attribute], newItem || e.target.value],
+      },
+    }));
+  };
   return (
     <>
       <form className="px-4 py-2 ">
@@ -91,15 +109,11 @@ function CallForm() {
         <section className="grid  md:grid-cols-2">
           <div className="grid md:grid-cols-2 ">
             <div className="pni-section text-sm grid md:grid-col-2 ">
-              <div className="grid md:grid-cols-2 mr-2  ">
-                <label>PNI Name</label>
-                <input
-                  type="text"
-                  className="ml-2 border-2 border-gray-600 mb-1"
-                  value={currentData.pni.name}
-                  onChange={(e) => handlePniAndSniDetails(e, "pni", "name")}
-                />
-              </div>
+              <TextInput
+                value={currentData.pni.name}
+                label="PNI Name"
+                onChange={(e) => updateItem(e, "pni", "name")}
+              />
               <div>
                 <div className="grid md:grid-cols-2 mr-2  ">
                   <label>PNI DOB</label>
@@ -113,8 +127,7 @@ function CallForm() {
               </div>
               <div className=" ">
                 <Select
-                  startValue={currentData.pni.pniEducation}
-                  setCurrentData={setCurrentData}
+                  value={currentData.pni.pniEducation}
                   options={[
                     "not_asked",
                     "ged_pending",
@@ -124,22 +137,15 @@ function CallForm() {
                     "docterate",
                   ]}
                   label="Level Of Education"
-                  item={"pni"}
-                  attribute={"pniEducation"}
-                  currentData={currentData}
+                  onChange={(e) => updateItem(e, "pni", "pniEducation")}
                 />
               </div>
-              <div className="grid md:grid-cols-2 mr-2">
-                <label className="underline">Pni Profession</label>
-                <input
-                  className="ml-2 border-2 border-gray-600 mb-1 "
-                  type="text"
-                  value={currentData.pni.pniProfession}
-                  onChange={(e) =>
-                    handlePniAndSniDetails(e, "pni", "pniProfession")
-                  }
-                />
-              </div>
+              <TextInput
+                value={currentData.pni.pniProfession}
+                label="Profession"
+                onChange={(e) => updateItem(e, "pni", "pniProfession")}
+                decoration="underline"
+              />
             </div>
             <div className="sni-section text-sm grid md:grid-col-2">
               <div className="grid md:grid-cols-2 mr-2">
@@ -162,8 +168,7 @@ function CallForm() {
               </div>
 
               <Select
-                startValue={currentData.sni.sniEducation}
-                setCurrentData={setCurrentData}
+                value={currentData.sni.sniEducation}
                 options={[
                   "not_asked",
                   "ged_pending",
@@ -173,21 +178,14 @@ function CallForm() {
                   "docterate",
                 ]}
                 label="Level Of Education"
-                item={"sni"}
-                attribute={"sniEducation"}
-                currentData={currentData}
+                onChange={(e) => updateItem(e, "sni", "sniEducation")}
               />
-              <div className="grid md:grid-cols-2 mr-2">
-                <label className="underline">Sni Profession</label>
-                <input
-                  className="ml-2 mb-1 border-2 border-gray-600"
-                  type="text"
-                  value={currentData.sni.sniProfession}
-                  onChange={(e) =>
-                    handlePniAndSniDetails(e, "sni", "sniProfession")
-                  }
-                />
-              </div>
+              <TextInput
+                value={currentData.sni.sniProfession}
+                label="Profession"
+                onChange={(e) => updateItem(e, "sni", "sniProfession")}
+                decoration="underline"
+              />
             </div>
           </div>
           <div className="hidden lg:block">
@@ -197,7 +195,7 @@ function CallForm() {
         <h2 className="text-lg font-bold py-2">Auto</h2>
         <section className="grid md:grid-cols-2">
           <div>
-            <NewDriverSection handleCurrentData={setCurrentData} />
+            <NewDriverSection addNewItem={addNewItem} />
           </div>
           <div className="hidden lg:block">
             <DriversResults
@@ -208,7 +206,7 @@ function CallForm() {
         </section>
         <section className="grid md:grid-cols-2">
           <div>
-            <NewVehicleSection handleCurrentData={setCurrentData} />
+            <NewVehicleSection addNewItem={addNewItem} />
           </div>
           <div className="hidden lg:block">
             <VehicleResultsSection
@@ -257,8 +255,10 @@ function CallForm() {
         </section>
         <h2 className="text-lg font-bold">Home</h2>
         <HomeSection
-          handleCurrentHomeData={setCurrentData}
+          setCurrentData={setCurrentData}
           currentData={currentData}
+          updateItem={updateItem}
+          addNewItem={addNewItem}
         />
       </form>
       <div>

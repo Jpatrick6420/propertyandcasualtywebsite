@@ -1,16 +1,12 @@
-function TextInput({ label, handler, startValue, item, attribute }) {
+function TextInput({ label, onChange, value, decoration = "" }) {
   return (
-    <div>
-      <label>{label}</label>
+    <div className="grid md:grid-cols-2 mr-2">
+      <label className={decoration}>{label}</label>
       <input
+        className="ml-2 mb-1 border-2 border-gray-600"
         type="text"
-        onChange={(e) =>
-          handler((prev) => ({
-            ...prev,
-            [item]: { ...prev[item], [attribute]: e.target.value },
-          }))
-        }
-        placeholder={startValue}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );

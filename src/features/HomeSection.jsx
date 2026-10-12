@@ -2,17 +2,12 @@ import { useState } from "react";
 import HomeClaimsSection from "./HomeClaimsSection";
 import ClaimsResultsSection from "./ClaimsResultsSection";
 import ClaimsResults from "./ClaimsResults";
-function HomeSection({ handleCurrentHomeData, currentData }) {
+import TextInput from "../components/TextInput";
+function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
-  const handleHomeDataChange = (e, field) => {
-    handleCurrentHomeData((prev) => ({
-      ...prev,
-      home: { ...prev.home, [field]: e.target.value },
-    }));
-  };
+
   const handleCheckboxHome = (e, field) => {
-    e.preventDefault();
-    handleCurrentHomeData((prev) => ({
+    setCurrentData((prev) => ({
       ...prev,
       home: { ...prev.home, [field]: !prev.home[field] },
     }));
@@ -21,10 +16,7 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
     e.preventDefault();
     if (!dogTypeEntry) return;
 
-    handleCurrentHomeData((prev) => ({
-      ...prev,
-      home: { ...prev.home, dogTypes: [...prev.home.dogTypes, dogTypeEntry] },
-    }));
+    addNewItem(e, "home", "dogTypes", dogTypeEntry);
     setDogTypeEntry("");
   };
 
@@ -33,54 +25,43 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
 
     const dogTypes = currentData.home.dogTypes;
     const newArr = dogTypes.filter((item, i) => i != index);
-    handleCurrentHomeData((prev) => ({
+    setCurrentData((prev) => ({
       ...prev,
       home: { ...prev.home, dogTypes: newArr },
     }));
   };
   const handleNotesChange = (e) => {
     e.preventDefault();
-    handleCurrentHomeData((prev) => ({
-      ...prev,
-      home: { ...prev.home, notes: e.target.value },
-    }));
+    updateItem(e, "home", "notes");
   };
   return (
     <section>
-      <div className="grid md:grid-cols-7">
-        <label>Year Built</label>
-        <input
-          className="border-2 border-gray-600 ml-2 px-1 py-0.5"
-          type="text"
+      <div className="grid md:grid-cols-4">
+        <TextInput
+          label="Year Built"
           value={currentData.home.yearBuilt}
-          onChange={(e) => handleHomeDataChange(e, "yearBuilt")}
+          onChange={(e) => updateItem(e, "home", "yearBuilt")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
-        <label>Roof</label>
-        <input
-          className="border-2 border-gray-600 ml-2 px-2 py-0.5"
-          type="text"
+      <div className="grid md:grid-cols-4 my-2">
+        <TextInput
+          label="Roof"
           value={currentData.home.roof}
-          onChange={(e) => handleHomeDataChange(e, "roof")}
+          onChange={(e) => updateItem(e, "home", "roof")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
-        <label>Plumbing Updated</label>
-        <input
-          type="text"
-          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
+      <div className="grid md:grid-cols-4 my-2">
+        <TextInput
+          label="Plumbing Updated"
           value={currentData.home.plumbingUpdated}
-          onChange={(e) => handleHomeDataChange(e, "plumbingUpdated")}
+          onChange={(e) => updateItem(e, "home", "plumbingUpdated")}
         />
       </div>
-      <div className="grid md:grid-cols-7 my-2">
-        <label>Electrical Updated</label>
-        <input
-          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
-          type="text"
+      <div className="grid md:grid-cols-4 my-2">
+        <TextInput
+          label="Electrical Updated"
           value={currentData.home.electricalUpdated}
-          onChange={(e) => handleHomeDataChange(e, "electricalUpdated")}
+          onChange={(e) => updateItem(e, "home", "electricalUpdated")}
         />
       </div>
       <div>
@@ -96,17 +77,24 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
 
         {currentData.home.dogs && (
           <section>
-            <div>
-              <label className="text-sm">Dog Types</label>
+            <div className="grid grid-cols-4">
+              <TextInput
+                value={dogTypeEntry}
+                label="Dogs Types"
+                onChange={(e) => {
+                  setDogTypeEntry(e.target.value);
+                }}
+              />
+              {/* <label className="text-sm">Dog Types</label>
               <input
                 className="border-2 border-gray-600 ml-2 px-1 py-0.5"
                 type="text"
                 value={dogTypeEntry}
                 onChange={(e) => setDogTypeEntry(e.target.value)}
-              />
-              <div>
+              /> */}
+              <div className="md:flex md:items-center">
                 <button
-                  className="bg-red-600 px-2 mb-4 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
+                  className="bg-red-600 px-2 mb-4 md:mb-0 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
                   onClick={(e) => {
                     handleDogBreedSubmit(e);
                   }}
@@ -117,13 +105,13 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
             </div>
             <div className="hidden lg:block mb-4">
               <h3 className="underline list-decimal text-sm">Dog Types</h3>
-              <ol>
+              <ol className="text-xs">
                 {currentData.home.dogTypes?.map((item, i) => (
-                  <li key={i} className="px-4 text-xs">
+                  <li key={i} className="px-4 ">
                     {`${i + 1})`} {item}
                     {"  "}
                     <button
-                      className="bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+                      className=" bg-red-600 px-1 py-0.5 md:ml-2 text-stone-50 hover:bg-red-800 active:bg-red-600"
                       onClick={(e) => handleDelete(e, i)}
                     >
                       Delete
@@ -136,13 +124,11 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         )}
       </div>
 
-      <div className="grid md:grid-cols-7 my-2">
-        <label># Solar Panels</label>
-        <input
-          className="ml-2 border-2 border-gray-600 px-1 py-0.5"
-          type="text"
+      <div className="grid md:grid-cols-4 my-2">
+        <TextInput
           value={currentData.home.solar}
-          onChange={(e) => handleHomeDataChange(e, "solar")}
+          label="# Solar Panels"
+          onChange={(e) => updateItem(e, "home", "solar")}
         />
       </div>
       <div className="grid md:grid-cols-7 my-2">
@@ -185,18 +171,19 @@ function HomeSection({ handleCurrentHomeData, currentData }) {
         <label className="pr-2">Fenced</label>
         <input
           type="checkbox"
+          className="ml-2"
           checked={currentData.home.fenced}
           onChange={(e) => handleCheckboxHome(e, "fenced")}
         />
       </div>
       <section className="grid md:grid-cols-2">
         <div>
-          <HomeClaimsSection handleCurrentData={handleCurrentHomeData} />
+          <HomeClaimsSection handleCurrentData={setCurrentData} />
         </div>
         <div className="hidden lg:block">
           <ClaimsResults
             currentData={currentData.home}
-            setCurrentData={handleCurrentHomeData}
+            setCurrentData={setCurrentData}
             type="home"
           />
         </div>

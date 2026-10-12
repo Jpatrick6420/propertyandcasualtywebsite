@@ -1,5 +1,5 @@
 import { useState } from "react";
-function NewVehicleSection({ handleCurrentData }) {
+function NewVehicleSection({ addNewItem }) {
   const initVehicleOptions = {
     year: "",
     make: "",
@@ -22,13 +22,7 @@ function NewVehicleSection({ handleCurrentData }) {
     e.preventDefault();
     if (!vehicleOptions.model || !vehicleOptions.year) return;
     const newVehicle = { ...vehicleOptions };
-    handleCurrentData((prev) => ({
-      ...prev,
-      auto: {
-        ...prev.auto,
-        vehicles: [...prev.auto.vehicles, newVehicle],
-      },
-    }));
+    addNewItem(e, "auto", "vehicles", newVehicle);
     setVehicleOptions(initVehicleOptions);
   };
 
