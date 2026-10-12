@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
-import VehiclesResults from "./VehiclesResults";
 import { calcAge, formatDate } from "../helpers/helpers";
 import VehicleResultsSection from "./VehicleResultsSection";
 import ClaimsSection from "./ClaimsSection";
