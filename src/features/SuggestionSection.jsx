@@ -2,7 +2,8 @@ import CarrierCard from "../components/CarrierCard";
 import carrierAppetite from "../data/carrierData";
 import { calcAge } from "../helper/helper";
 function SuggestionSection({ currentData }) {
-  const roofAge = calcAge(currentData.home.roof);
+  const roofAge =
+    calcAge(currentData.home.roof) || calcAge(currentData.home.yearBuilt);
 
   const newArray = carrierAppetite.filter((carrier) => {
     return carrier.homeowners.maxRoofRcv >= roofAge;
