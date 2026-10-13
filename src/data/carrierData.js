@@ -2,6 +2,8 @@ export const carrierAppetite = [
   {
     name: "United Insurance Group",
     homeowners: {
+      maxRoofAge: 100,
+      maxRoofRcv: 10,
       strong: [
         "Owner-occupied homes",
         "Newer homes",
@@ -29,7 +31,7 @@ export const carrierAppetite = [
         ],
       },
       product: "HO-3",
-      underwritingPhone: "(801) 226-2662",
+
       underwriting: {
         ineligiblePropertyTypes: [
           "Wood shake roofs",
@@ -324,6 +326,8 @@ export const carrierAppetite = [
   {
     name: "Travelers",
     homeowners: {
+      maxRoofAge: 25,
+      maxRoofRcv: 25,
       strong: [
         "High-value homes",
         "Older homes with updated systems",
@@ -495,6 +499,8 @@ export const carrierAppetite = [
   {
     name: "Liberty Mutual",
     homeowners: {
+      maxRoofAge: 20,
+      maxRoofRcv: 20,
       strong: [
         "High-value homes",
         "Older homes with updated systems",
@@ -522,15 +528,7 @@ export const carrierAppetite = [
         ],
         pre1976:
           "Homes built prior to 1976 containing fuses, knob & tube wiring, or aluminum wiring are not eligible.",
-        roof: {
-          maxAge: {
-            asphalt: 20,
-            metal: 20,
-            slate: 20,
-            tile: 20,
-          },
-          woodRoofEligible: false,
-        },
+
         claims: {
           moreThanOneHomeClaim: "Call UW to determine eligibility.",
         },
@@ -708,7 +706,6 @@ export const carrierAppetite = [
         "Course of construction",
       ],
       weak: ["Older roofs that remain eligible with scheduled roof settlement"],
-      underwritingPhone: "888-325-1190",
       underwriting: {
         ineligiblePropertyTypes: [
           "Manufactured/mobile homes",
@@ -717,6 +714,8 @@ export const carrierAppetite = [
         ],
         ineligibleRiskTypes: [],
         ineligibleHomeTypes: ["manufactured/mobile", "wood roofs"],
+        maxRoofAge: 20,
+        maxRoofRcv: 20,
         roof: {
           asphalt: 21,
           metalTileMaxAgeYears: 26,
@@ -824,6 +823,8 @@ export const carrierAppetite = [
         "Dogs without bite history",
         "Customers wanting guaranteed replacement cost",
       ],
+      maxRoofAge: 100,
+      maxRoofRcv: 100,
       weak: [],
       coverage: {
         guaranteedReplacementCostMax: 5000000,

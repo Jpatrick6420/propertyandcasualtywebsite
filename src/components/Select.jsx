@@ -1,4 +1,4 @@
-import { formatName } from "../helpers/helpers";
+import { formatName } from "../helper/helper";
 
 function Select({ onChange, options, value, label, columns = "2" }) {
   return (
