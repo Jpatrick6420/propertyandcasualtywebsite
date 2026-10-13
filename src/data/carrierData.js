@@ -699,6 +699,8 @@ export const carrierAppetite = [
   {
     name: "National General",
     homeowners: {
+      maxRoofAge: 20,
+      maxRoofRcv: 20,
       strong: [
         "Standard single-family homes",
         "Secondary homes when primary is also with National General",
@@ -714,8 +716,7 @@ export const carrierAppetite = [
         ],
         ineligibleRiskTypes: [],
         ineligibleHomeTypes: ["manufactured/mobile", "wood roofs"],
-        maxRoofAge: 20,
-        maxRoofRcv: 20,
+
         roof: {
           asphalt: 21,
           metalTileMaxAgeYears: 26,
