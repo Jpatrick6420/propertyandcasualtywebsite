@@ -17,8 +17,14 @@ function SuggestionSection({ currentData }) {
 
   return (
     <section className="px-4">
-      <h3>Carrier Appetite RCV</h3>
-
+      <p className={"text-[10px]"}>
+        Last updated:{" "}
+        {new Date("10/10/2026").toDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "short",
+        })}
+      </p>
       <h3 className="text-xl text-green-600 font-bold underline">
         Preferred Carriers-RCV Roof
       </h3>
