@@ -120,7 +120,7 @@ Misc Notes: ${currentData.home.notes || ""}`;
         />
 
         <p>What's important: {currentData.auto.whatIsImportant}</p>
-        <h3 className="font-bold text-xl pt-4">Vehicles </h3>
+
         <VehicleResultsSection currentData={currentData.auto} />
 
         <p>{currentData.currentCoverage}</p>

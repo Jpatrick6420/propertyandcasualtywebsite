@@ -34,9 +34,11 @@ function SuggestionSection({ currentData }) {
           return <CarrierCard carrier={carrier} key={i} />;
         })}
       </ol>
-      <h3 className="text-xl text-teal-600 font-bold underline">
-        Worth Checking
-      </h3>
+      {worthChecking.length > 0 && (
+        <h3 className="text-xl text-teal-600 font-bold underline">
+          Worth Checking
+        </h3>
+      )}
       <ol>
         {worthChecking.map((carrier, i) => {
           return <CarrierCard carrier={carrier} key={i} />;
