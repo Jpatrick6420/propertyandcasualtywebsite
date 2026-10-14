@@ -29,7 +29,7 @@ function NewDriverSection({ addNewItem }) {
   return (
     <section>
       <h3 className="font-bold text-xl mt-2">New Driver</h3>
-      <section className="bg-amber-200 px-2 py-4 grid md:grid-cols-2 text-sm">
+      <section className="bg-teal-200 rounded-md px-2 py-4 grid md:grid-cols-2 text-sm">
         <div className="mb-1 grid md:grid-cols-2 mr-2">
           <label className="mr-2 lg:text-sm">Enter Driver Name</label>
           <input
@@ -57,7 +57,7 @@ function NewDriverSection({ addNewItem }) {
             onChange={(e) => handleFieldChange(e, "occupation")}
           />
         </div>
-        {driverDetails.occupation == "student" && (
+        {driverDetails.occupation.toLowerCase() == "student" && (
           <div className="mb-1">
             <label className="mr-2">Good Student</label>
             <input

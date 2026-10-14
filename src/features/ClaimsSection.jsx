@@ -14,7 +14,7 @@ function ClaimsSection({ addNewItem, risk }) {
   return (
     <>
       <h3 className="font-bold text-xl">Claims</h3>
-      <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-sm grid grid-cols-2 gap-2 text-sm">
+      <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-md grid grid-cols-2 gap-2 text-sm">
         <div className=" mb-2 grid grid-cols-2">
           <label className="mr-2">Enter Claim Type</label>
           <input

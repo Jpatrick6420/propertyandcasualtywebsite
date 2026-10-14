@@ -92,7 +92,9 @@ function CallForm() {
   return (
     <>
       <form className="px-4 py-2 ">
-        <h3 className="text-3xl font-bold py-4 text-center">Intake Form</h3>
+        <h3 className="text-3xl font-bold py-4 text-center bg-gradient-to-bl from-red-600  to-yellow-400 bg-clip-text text-transparent">
+          Intake Form
+        </h3>
         <section className="grid  md:grid-cols-2">
           <div className="grid md:grid-cols-2 ">
             <div className="pni-section text-sm grid md:grid-col-2 ">
