@@ -122,7 +122,9 @@ function CallForm() {
                     "ged_pending",
                     "high_school",
                     "some_college",
-                    "college_degree",
+                    "associates",
+                    "bachelors_degree",
+                    "masters",
                     "docterate",
                   ]}
                   label="Level Of Education"
@@ -163,7 +165,9 @@ function CallForm() {
                   "ged_pending",
                   "high_school",
                   "some_college",
-                  "college_degree",
+                  "associates",
+                  "bachelors_degree",
+                  "masters",
                   "docterate",
                 ]}
                 label="Level Of Education"

@@ -15,7 +15,7 @@ function ClaimsSection({ addNewItem, risk }) {
     <>
       <h3 className="font-bold text-xl">Claims</h3>
       <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-md grid grid-cols-2 gap-2 text-sm">
-        <div className=" mb-2 grid grid-cols-2">
+        <div className=" mb-2 grid md:grid-cols-2">
           <label className="mr-2">Enter Claim Type</label>
           <input
             className="border-2 bg-stone-50 border-gray-600 "
@@ -24,7 +24,7 @@ function ClaimsSection({ addNewItem, risk }) {
             onChange={(e) => handleFieldChange(e, "type")}
           />
         </div>
-        <div>
+        <div className=" mb-2 grid md:grid-cols-2">
           <label className="mr-2">Enter Date</label>
           <input
             className="border-2 bg-stone-50 border-gray-600 "

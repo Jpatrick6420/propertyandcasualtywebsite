@@ -58,19 +58,23 @@ function NewVehicleSection({ addNewItem }) {
             onChange={(e) => handleFieldChange(e, "model")}
           />
         </div>
-        <div className="mb-1">
-          <label className="mr-2">Ride Share</label>
-          <input
-            type="checkbox"
-            value={vehicleOptions.rideShare}
-            onChange={(e) => handleCheckbox(e, "rideShare")}
-          />
-          <label className="mr-2 ml-6">Business Use</label>
-          <input
-            type="checkbox"
-            value={vehicleOptions.businessUse}
-            onChange={(e) => handleCheckbox(e, "businessUse")}
-          />
+        <div className="mb-1 text-xs md:text-sm grid md:grid-cols-2 gap-2">
+          <div className="">
+            <label className="pr-2">Ride Share</label>
+            <input
+              type="checkbox"
+              value={vehicleOptions.rideShare}
+              onChange={(e) => handleCheckbox(e, "rideShare")}
+            />
+          </div>
+          <div className="">
+            <label className="pr-2">Business Use</label>
+            <input
+              type="checkbox"
+              value={vehicleOptions.businessUse}
+              onChange={(e) => handleCheckbox(e, "businessUse")}
+            />
+          </div>
         </div>
 
         <div className="mb-1">
@@ -111,7 +115,7 @@ function NewVehicleSection({ addNewItem }) {
             <option value="1000+">1000+</option>
           </select>
         </div>
-        <div className="col-span-2 flex justify-center mb-1">
+        <div className="col-span-2 flex justify-center my-2">
           <button
             onClick={(e) => {
               handleSubmit(e);
