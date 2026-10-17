@@ -1,4 +1,4 @@
-import { formatDate } from "../helper/helper";
+import { formatDate, formatName } from "../helper/helper";
 
 function ClaimsResults({ currentData, setCurrentData, type }) {
   const handleDelete = (e, index) => {
@@ -14,7 +14,7 @@ function ClaimsResults({ currentData, setCurrentData, type }) {
   return (
     <>
       <h3 className="text-xl font-bold mt-4 md:mt-0 ml-2">Claims</h3>
-      <table>
+      <table className="index_css">
         <thead>
           <tr>
             <th></th>
@@ -25,13 +25,13 @@ function ClaimsResults({ currentData, setCurrentData, type }) {
         </thead>
         <tbody>
           {currentData.claims?.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} className="index_css">
               <td>{`${i + 1})`}</td>
-              <td>{item.type}</td>
+              <td>{formatName(item.type)}</td>
               <td>{formatDate(item.date)}</td>
               <td>
                 <button
-                  className="bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+                  className="index_css bg-red-600 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
                   onClick={(e) => handleDelete(e, i)}
                 >
                   Delete

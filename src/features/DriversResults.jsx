@@ -1,9 +1,8 @@
-import { formatDate } from "../helper/helper";
+import { formatDate, formatName } from "../helper/helper";
 
 function DriversResults({ currentData, setCurrentData }) {
   const handleDelete = (e, index) => {
     e.preventDefault();
-
     const additionalDrivers = currentData.additionalDrivers;
     const newArr = additionalDrivers.filter((item, i) => i != index);
     setCurrentData((prev) => ({
@@ -31,18 +30,19 @@ function DriversResults({ currentData, setCurrentData }) {
             currentData.additionalDrivers?.map((item, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
-                <td>{item.name} </td>
-                <td>{formatDate(item.dob)}</td>
-                <td>{item.occupation} </td>
+                <td>{formatName(item.name) || ""} </td>
+                <td>{formatDate(item.dob) || ""}</td>
+                <td>{formatName(item.occupation) || ""} </td>
                 <td>
-                  {item.occupation?.toLowerCase() == "student"
-                    ? item.goodStudent
+                  {item.occupation.toLowerCase() == "student" &&
+                  item.goodStudent == true
+                    ? "Y"
                     : ""}
                 </td>
-                <td>{item.military ? "Yes" : ""}</td>
+                <td>{item.military ? "Y" : ""}</td>
                 <td>
                   <button
-                    className="bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
+                    className="index_css bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
                     onClick={(e) => {
                       handleDelete(e, i);
                     }}

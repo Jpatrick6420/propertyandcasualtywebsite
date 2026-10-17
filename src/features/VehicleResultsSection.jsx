@@ -1,3 +1,5 @@
+import { formatName } from "../helper/helper";
+
 function VehicleResultsSection({ currentData, setCurrentData }) {
   const handleDelete = (e, index) => {
     e.preventDefault();
@@ -13,7 +15,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
   return (
     <div className="px-4 py-8 md:py-0">
       <h3 className="font-bold text-xl">Vehicles</h3>
-      <table>
+      <table className="index_css">
         <thead>
           <tr>
             <th></th>
@@ -29,11 +31,11 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
         </thead>
         <tbody>
           {currentData.vehicles?.map((item, idx) => (
-            <tr key={idx} className="mb-2">
+            <tr key={idx} className="mb-2 index_css">
               <td>{idx + 1}</td>
               <td>{item.year} </td>
-              <td>{item.make}</td>
-              <td>{item.model}</td>
+              <td>{formatName(item.make) || ""}</td>
+              <td>{formatName(item.model) || ""}</td>
               <td>{item.rideShare ? "Yes" : "No"}</td>
               <td>{item.businessUse ? "Yes  " : "No  "}</td>
               <td>{item.collisionDeductible.split("_").join(" ")}</td>
@@ -41,7 +43,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               <td>
                 <button
                   onClick={(e) => handleDelete(e, idx)}
-                  className="bg-red-600 ml-2 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+                  className="index_css bg-red-600 ml-2 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
                 >
                   Delete
                 </button>

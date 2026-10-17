@@ -77,7 +77,7 @@ function NewVehicleSection({ addNewItem }) {
           </div>
         </div>
 
-        <div className="mb-1">
+        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 px-4 lg:px-0">
           <label className="mr-2 text-sm">Collision Deductible</label>
 
           <select
@@ -96,9 +96,8 @@ function NewVehicleSection({ addNewItem }) {
             <option value="1000+">1000+</option>
           </select>
         </div>
-        <div className="mb-1">
+        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 ">
           <label className="mr-2">Comp Deductible</label>
-
           <select
             value={vehicleOptions.comprehensiveDeductible}
             onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}

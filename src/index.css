@@ -1,7 +1,8 @@
 button {
   cursor: pointer;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 11px;
+  padding: 2px 4px;
 
   &:hover {
     transform: scale(1.05);
@@ -11,6 +12,11 @@ button {
     transform: scale(1);
   }
 }
+table {
+  border-collapse: separate;
+  border-spacing: 0 2px;
+}
+
 label,
 select {
   font-size: 0.9rem;

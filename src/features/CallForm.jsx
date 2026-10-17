@@ -211,7 +211,7 @@ function CallForm() {
 
         <Select
           value={currentData.auto.currentCoverage}
-          label="currentCoverage"
+          label="Current Coverage"
           options={[
             "not_confirmed",
             "30/65/25",

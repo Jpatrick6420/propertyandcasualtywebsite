@@ -4,13 +4,13 @@ import DriversResults from "./DriversResults";
 import { calcAge, formatDate } from "../helper/helper";
 import VehicleResultsSection from "./VehicleResultsSection";
 import ClaimsResults from "./ClaimsResults";
-
+import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
   //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
   const handleCopy = async () => {
-    const textToCopy = `PNI: ${currentData.pni.name} | DOB: ${formatDate(currentData.pni.pniDob)} | Education: ${currentData.pni.pniEducation?.split("_").join(" ")} | Profession: ${currentData.pni.pniProfession}
-${currentData.sni.name ? `SNI: ${currentData.sni.name} | DOB: ${formatDate(currentData.sni.sniDob)} | Education: ${currentData.sni.sniEducation?.split("_").join(" ")} | Profession: ${currentData.sni.sniProfession}` : ""}
+    const textToCopy = `PNI: ${formatName(currentData.pni.name)} | DOB: ${formatDate(currentData.pni.pniDob)} | Education: ${formatName(currentData.pni.pniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.pni.pniProfession)}
+${currentData.sni.name ? `SNI: ${formatName(currentData.sni.name)} | DOB: ${formatDate(currentData.sni.sniDob)} | Education: ${formatName(currentData.sni.sniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.sni.sniProfession)}` : ""}
 
 AUTO
 
@@ -20,7 +20,7 @@ ${
     ? currentData.auto.additionalDrivers
         .map(
           (item, i) =>
-            `${i + 1}) Name: ${item.name}${item.dob ? ` | DOB: ${formatDate(item.dob)}` : ""}${item.occupation ? ` | Occupation: ${item.occupation}` : ""}${
+            `${i + 1}) Name: ${formatName(item.name)}${item.dob ? ` | DOB: ${formatDate(item.dob)}` : ""}${item.occupation ? ` | Occupation: ${formatName(item.occupation)}` : ""}${
               item.occupation?.toLowerCase() === "student"
                 ? ` | Good Student: ${item.goodStudent ? "Yes" : "No"}`
                 : ""
@@ -34,7 +34,10 @@ Auto Claims:
 ${
   currentData.auto.claims.length
     ? currentData.auto.claims
-        .map((item, i) => `${i + 1}) ${item.type} | ${formatDate(item.date)}`)
+        .map(
+          (item, i) =>
+            `${i + 1}) ${formatName(item.type)} | ${formatDate(item.date)}`,
+        )
         .join("\n")
     : "None"
 }
@@ -45,7 +48,7 @@ ${
     ? currentData.auto.vehicles
         .map(
           (item, i) =>
-            `${i + 1}) ${item.year} ${item.make} ${item.model}
+            `${i + 1}) ${item.year} ${formatName(item.make)} ${formatName(item.model)}
    Ride Share: ${item.rideShare ? "Yes" : "No"} | Business Use: ${item.businessUse ? "Yes" : "No"}
    Collision: ${item.collisionDeductible.split("_").join(" ")} | Comprehensive: ${item.comprehensiveDeductible.split("_").join(" ")}`,
         )
@@ -181,7 +184,7 @@ Misc Notes: ${currentData.home.notes || ""}`;
       </div>
       <div className="flex justify-center flex-col items-center">
         <button
-          className="bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5 text-stone-50 hover:cursor-pointer"
+          className="index_css bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5 text-stone-50 hover:cursor-pointer"
           onClick={handleCopy}
         >
           Copy
