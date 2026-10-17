@@ -77,7 +77,7 @@ function NewVehicleSection({ addNewItem }) {
           </div>
         </div>
 
-        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 px-4 lg:px-0">
+        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 pr-4 lg:px-0">
           <label className="mr-2 text-sm">Collision Deductible</label>
 
           <select
