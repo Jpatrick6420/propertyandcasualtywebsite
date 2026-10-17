@@ -19,6 +19,7 @@ function escapeRegExp(s) {
 }
 
 function calcAge(year) {
+  if (year == "" || year == null) return "";
   const thisYear = new Date().getFullYear();
   const numYear = Number(year);
 
@@ -31,7 +32,7 @@ function formatDate(date) {
     day: "numeric",
     year: "numeric",
   };
-  const newDate = new Date(date).toLocaleString("en-US", options);
+  const newDate = new Date(`${date}T00:00:00`).toLocaleString("en-US", options);
   return newDate;
 }
 const formatName = (name, separation = " ") => {
