@@ -7,6 +7,7 @@ function NewDriverSection({ addNewItem }) {
     goodStudent: false,
     education: "some_college",
     military: false,
+    excluded: false,
   };
   const [driverDetails, setDriverDetails] = useState(initDriverDetails);
 
@@ -77,6 +78,19 @@ function NewDriverSection({ addNewItem }) {
               setDriverDetails((prev) => ({
                 ...prev,
                 ["military"]: !driverDetails["military"],
+              }))
+            }
+          />
+        </div>
+        <div className="mb-1">
+          <label className="mr-2">Excluded</label>
+          <input
+            type="checkbox"
+            checked={driverDetails.excluded}
+            onChange={() =>
+              setDriverDetails((prev) => ({
+                ...prev,
+                ["excluded"]: !driverDetails["excluded"],
               }))
             }
           />

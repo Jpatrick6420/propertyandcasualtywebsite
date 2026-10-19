@@ -24,7 +24,7 @@ ${
               item.occupation?.toLowerCase() === "student"
                 ? ` | Good Student: ${item.goodStudent ? "Yes" : "No"}`
                 : ""
-            }${item.military ? " | Military: Yes" : ""}`,
+            }${item.military ? " | Military: Yes" : ""} ${item.excluded ? " | Excluded: Yes" : ""} `,
         )
         .join("\n")
     : "None"
@@ -56,7 +56,7 @@ ${
     : "None"
 }
 
-Current Coverage: ${currentData.auto.currentCoverage}
+Current Coverage: ${formatName(currentData.auto.currentCoverage, "_")}
 What's Important: ${currentData.auto.whatIsImportant}
 
 HOME FACTS

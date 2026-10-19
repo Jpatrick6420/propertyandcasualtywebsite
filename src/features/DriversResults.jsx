@@ -22,6 +22,7 @@ function DriversResults({ currentData, setCurrentData }) {
             <th>Occupation</th>
             <th>Good Student</th>
             <th>Military</th>
+            <th>Excluded</th>
             <th></th>
           </tr>
         </thead>
@@ -40,6 +41,8 @@ function DriversResults({ currentData, setCurrentData }) {
                     : ""}
                 </td>
                 <td>{item.military ? "Y" : ""}</td>
+                <td>{item.excluded ? "Y" : ""}</td>
+
                 <td>
                   <button
                     className="index_css bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
