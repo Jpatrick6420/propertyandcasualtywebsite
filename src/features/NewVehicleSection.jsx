@@ -77,6 +77,25 @@ function NewVehicleSection({ addNewItem }) {
           </div>
         </div>
 
+        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 ">
+          <label className="mr-2">Comp Deductible</label>
+          <select
+            value={vehicleOptions.comprehensiveDeductible}
+            onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}
+            className="border-2 border-gray-600 text-sm bg-stone-50"
+          >
+            <option value="not_asked">Not Asked</option>
+            <option value="no_comprehensive">No Comprehensive</option>
+            <option value="0">0</option>
+            <option value="100">100</option>
+            <option value="250">250</option>
+            <option value="500">500</option>
+            <option value="750">750</option>
+            <option value="1000">1000</option>
+            <option value="1000+">1000+</option>
+          </select>
+        </div>
+
         <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 pr-4 lg:px-0">
           <label className="mr-2 text-sm">Collision Deductible</label>
 
@@ -87,24 +106,6 @@ function NewVehicleSection({ addNewItem }) {
           >
             <option value="not_asked">Not Asked</option>
             <option value="no_collision">No Collision</option>
-            <option value="0">0</option>
-            <option value="100">100</option>
-            <option value="250">250</option>
-            <option value="500">500</option>
-            <option value="750">750</option>
-            <option value="1000">1000</option>
-            <option value="1000+">1000+</option>
-          </select>
-        </div>
-        <div className="mb-1 grid grid-cols-1 lg:grid-cols-2 ">
-          <label className="mr-2">Comp Deductible</label>
-          <select
-            value={vehicleOptions.comprehensiveDeductible}
-            onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}
-            className="border-2 border-gray-600 text-sm bg-stone-50"
-          >
-            <option value="not_asked">Not Asked</option>
-            <option value="no_comprehensive">No Comprehensive</option>
             <option value="0">0</option>
             <option value="100">100</option>
             <option value="250">250</option>
