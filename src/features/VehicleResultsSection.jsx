@@ -24,8 +24,8 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
             <th>Model</th>
             <th>Rideshare</th>
             <th>Business</th>
-            <th>Col Ded</th>
             <th>Comp Ded</th>
+            <th>Col Ded</th>
             <th></th>
           </tr>
         </thead>
@@ -38,8 +38,8 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               <td>{formatName(item.model) || ""}</td>
               <td>{item.rideShare ? "Yes" : "No"}</td>
               <td>{item.businessUse ? "Yes  " : "No  "}</td>
-              <td>{item.collisionDeductible.split("_").join(" ")}</td>
               <td>{item.comprehensiveDeductible.split("_").join(" ")}</td>
+              <td>{item.collisionDeductible.split("_").join(" ")}</td>
               <td>
                 <button
                   onClick={(e) => handleDelete(e, idx)}
