@@ -132,6 +132,12 @@ function HomeSection({
           checked={currentData.home.goodShape}
           onChange={() => handleCheckbox("home", "goodShape")}
         />
+        {/* <RadioInput
+          value={currentData.home.goodShape}
+          options={["yes", "not_asked", "no"]}
+          onChange={(e) => updateItem(e, "home", "goodShape")}
+          name="goodShape"
+        /> */}
       </div>
       <div className="grid md:grid-cols-8 my-2">
         <label>Business Use</label>
