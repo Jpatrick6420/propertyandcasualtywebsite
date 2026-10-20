@@ -36,8 +36,8 @@ function formatDate(date) {
   return newDate;
 }
 const formatName = (name, separation = " ") => {
-  if (name == "") return;
-  const splitName = name.split(separation);
+  if (!name || typeof name !== "string") return "";
+  const splitName = name.split(separation).filter(Boolean);
   const formattedName = splitName.map((word) => {
     const firstLetter = word[0].toUpperCase();
     const restOfWord = word.slice(1).toLowerCase();
