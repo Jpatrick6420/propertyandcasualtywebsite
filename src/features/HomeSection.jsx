@@ -2,12 +2,14 @@ import { useState } from "react";
 import ClaimsResults from "./ClaimsResults";
 import TextInput from "../components/TextInput";
 import ClaimsSection from "./ClaimsSection";
+import RadioInput from "../components/RadioInput";
+import { formatName } from "../helper/helper";
 function HomeSection({
   setCurrentData,
   currentData,
   updateItem,
   addNewItem,
-  handleCheckbox,
+  // handleCheckbox,
 }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
@@ -15,7 +17,7 @@ function HomeSection({
     e.preventDefault();
     if (!dogTypeEntry) return;
 
-    addNewItem(e, "home", "dogTypes", dogTypeEntry);
+    addNewItem(e, "home", "dogTypes", formatName(dogTypeEntry));
     setDogTypeEntry("");
   };
 
@@ -64,7 +66,7 @@ function HomeSection({
         />
       </div>
       <div>
-        <div className="grid md:grid-cols-8   mb-2 ">
+        {/* <div className="grid md:grid-cols-8   mb-2 ">
           <label className="text-sm">Dogs</label>
           <input
             className="ml-2"
@@ -72,9 +74,16 @@ function HomeSection({
             checked={currentData.home.dogs}
             onChange={() => handleCheckbox("home", "dogs")}
           />
-        </div>
+        </div> */}
+        <RadioInput
+          value={currentData.home.dogs}
+          options={["yes", "not_asked", "no"]}
+          onChange={(e) => updateItem(e, "home", "dogs")}
+          name="dogs"
+          label="Dogs"
+        />
 
-        {currentData.home.dogs && (
+        {currentData.home.dogs === "yes" && (
           <section>
             <div className="grid grid-cols-4">
               <TextInput
@@ -125,56 +134,89 @@ function HomeSection({
         />
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        <label>Good Shape</label>
+        {/* <label>Good Shape</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.goodShape}
           onChange={() => handleCheckbox("home", "goodShape")}
-        />
-        {/* <RadioInput
+        /> */}
+        <RadioInput
           value={currentData.home.goodShape}
           options={["yes", "not_asked", "no"]}
           onChange={(e) => updateItem(e, "home", "goodShape")}
           name="goodShape"
-        /> */}
-      </div>
-      <div className="grid md:grid-cols-8 my-2">
-        <label>Business Use</label>
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={currentData.home.businessUse}
-          onChange={() => handleCheckbox("home", "businessUse")}
+          label="Good Shape"
         />
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        <label>Swimming Pool</label>
+        <RadioInput
+          value={currentData.home.businessUse}
+          options={["yes", "not_asked", "no"]}
+          onChange={(e) => updateItem(e, "home", "businessUse")}
+          name="businessUse"
+          label="Business Use"
+        />
+
+        {/* <label>Business Use</label>
+        // <input
+        //   type="checkbox"
+        //   className="ml-2"
+        //   checked={currentData.home.businessUse}
+        //   onChange={() => handleCheckbox("home", "businessUse")}
+        // /> */}
+      </div>
+      <div className="grid md:grid-cols-8 my-2">
+        {/* <label>Swimming Pool</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.swimmingPool}
           onChange={() => handleCheckbox("home", "swimmingPool")}
+        /> */}
+        <RadioInput
+          value={currentData.home.swimmingPool}
+          options={["yes", "not_asked", "no"]}
+          onChange={(e) => updateItem(e, "home", "swimmingPool")}
+          name="swimmingPool"
+          label="Swimming Pool"
         />
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        <label className="pr-2">Trampoline</label>
+        {/* <label className="pr-2">Trampoline</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.trampoline}
           onChange={() => handleCheckbox("home", "trampoline")}
+        /> */}
+        <RadioInput
+          value={currentData.home.trampoline}
+          options={["yes", "not_asked", "no"]}
+          onChange={(e) => updateItem(e, "home", "trampoline")}
+          name="trampoline"
+          label="Trampoline"
         />
       </div>
-      <div className="grid md:grid-cols-8 my-2">
-        <label className="pr-2">Fenced</label>
+      {(currentData.home.swimmingPool === "yes" ||
+        currentData.home.trampoline == "yes") && (
+        <div className="grid md:grid-cols-8 my-2">
+          {/* <label className="pr-2">Fenced</label>
         <input
           type="checkbox"
           className="ml-2"
           checked={currentData.home.fenced}
           onChange={() => handleCheckbox("home", "fenced")}
-        />
-      </div>
+        /> */}
+          <RadioInput
+            value={currentData.home.fenced}
+            options={["yes", "not_asked", "no"]}
+            onChange={(e) => updateItem(e, "home", "fenced")}
+            name="fenced"
+            label="Fenced"
+          />
+        </div>
+      )}
       <section className="grid md:grid-cols-2">
         <div>
           {/* <HomeClaimsSection handleCurrentData={setCurrentData} /> */}

@@ -1,20 +1,25 @@
 import { formatName } from "../helper/helper";
 
-function RadioInput({ value, options, onChange, name }) {
+function RadioInput({ value, options, onChange, name, label }) {
   return (
-    <div>
+    <div className="my-2">
+      <h3 className="text-lg font-bold">{label}</h3>
+
       {options.map((option) => {
         return (
-          <>
-            <label>{formatName(option)}</label>
-            <input
-              key={option}
-              type="radio"
-              name={name}
-              id={option}
-              checked={value == option ? true : false}
-            />
-          </>
+          <div key={option} className="flex items-center">
+            <label className="text-[10px] flex items-center gap-2 ">
+              {formatName(option, "_")}
+              <input
+                type="radio"
+                className="text-[10px]"
+                name={name}
+                value={option}
+                checked={option == value}
+                onChange={onChange}
+              />
+            </label>
+          </div>
         );
       })}
     </div>

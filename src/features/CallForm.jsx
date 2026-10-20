@@ -40,15 +40,15 @@ function CallForm() {
       yearBuilt: "",
       plumbingUpdated: "",
       electricalUpdated: "",
-      dogs: false,
+      dogs: "not_asked",
       dogTypes: [],
       solar: "",
-      goodShape: true,
-      businessUse: false,
-      swimmingPool: false,
-      fenced: false,
+      goodShape: "not_asked",
+      businessUse: "not_asked",
+      swimmingPool: "not_asked",
+      fenced: "not_asked",
       claims: [],
-      trampoline: false,
+      trampoline: "not_asked",
       addresses: [],
       notes: "",
     },
@@ -67,7 +67,6 @@ function CallForm() {
     setCurrentData(initInfo);
   };
   const updateItem = (e, item, attribute) => {
-    e.preventDefault();
     setCurrentData((prev) => ({
       ...prev,
       [item]: { ...prev[item], [attribute]: e.target.value },

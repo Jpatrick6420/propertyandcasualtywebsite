@@ -76,16 +76,16 @@ ${
 Dog Types: ${
       currentData.home.dogs
         ? currentData.home.dogTypes
-            ?.map((dog, i) => `${i + 1}) ${dog}`)
+            ?.map((dog, i) => `${i + 1}) ${formatName(dog)}`)
             .join(", ")
         : "No"
     }
 Solar: ${currentData.home.solar || "No"}
-Good Shape: ${currentData.home.goodShape ? "Yes" : "No"}
-Business Use: ${currentData.home.businessUse ? "Yes" : "No"}
-Swimming Pool: ${currentData.home.swimmingPool ? "Yes" : "No"}
-Fenced: ${currentData.home.fenced ? "Yes" : "No"}
-Trampoline: ${currentData.home.trampoline ? "Yes" : "No"}
+Good Shape: ${formatName(currentData.home.goodShape, "_")}
+Business Use: ${formatName(currentData.home.goodShape, "_")}
+Swimming Pool: ${formatName(currentData.home.swimmingPool, "_")}
+Fenced: ${formatName(currentData.home.fenced, "_")}
+Trampoline: ${formatName(currentData.home.trampoline, "_")}
 
 Home Claims:
 ${
