@@ -8,6 +8,7 @@ import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
   //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
+  const currentYear = new Date().getFullYear();
   const handleCopy = async () => {
     const textToCopy = `PNI: ${formatName(currentData.pni.name)} | DOB: ${formatDate(currentData.pni.pniDob)} | Education: ${formatName(currentData.pni.pniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.pni.pniProfession)}
 ${currentData.sni.name ? `SNI: ${formatName(currentData.sni.name)} | DOB: ${formatDate(currentData.sni.sniDob)} | Education: ${formatName(currentData.sni.sniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.sni.sniProfession)}` : ""}
@@ -62,15 +63,15 @@ What's Important: ${currentData.auto.whatIsImportant}
 HOME FACTS
 
 Year Built: ${currentData.home.yearBuilt}
-Roof Age: ${currentData.home.roof} ${calcAge(currentData.home.roof)}
+Roof Age: ${currentData.home.roof} ${currentData.home.roof < 100 ? currentData.home.roof - currentYear : calcAge(currentData.home.roof)}
 ${
   currentData.home.plumbingUpdated
-    ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${calcAge(currentData.home.plumbingUpdated)}`
+    ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${currentData.home.plumbingUpdated < 100 ? currentData.home.plumbingUpdated - currentYear : calcAge(currentData.home.plumbingUpdated)}`
     : ""
 }
 ${
   currentData.home.electricalUpdated
-    ? `Electrical Updated: ${currentData.home.electricalUpdated} ${calcAge(currentData.home.electricalUpdated)}`
+    ? `Electrical Updated: ${currentData.home.electricalUpdated} ${currentData.home.electricalUpdated < 100 ? currentData.home.electricalUpdated - currentYear : calcAge(currentData.home.electricalUpdated)}`
     : ""
 }
 Dog Types: ${
