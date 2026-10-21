@@ -1,4 +1,4 @@
-import { formatDate } from "../helper/helper";
+import { formatDate, formatName } from "../helper/helper";
 
 function PniResults({ pni, sni }) {
   return (
@@ -16,18 +16,18 @@ function PniResults({ pni, sni }) {
         <tbody>
           <tr>
             <td>PNI</td>
-            <td>{pni.name}</td>
+            <td>{formatName(pni.name)}</td>
             <td>{formatDate(pni.pniDob)}</td>
-            <td> {pni.pniEducation?.split("_").join(" ")}</td>
-            <td>{pni.pniProfession}</td>
+            <td> {formatName(pni.pniEducation?.split("_").join(" "))}</td>
+            <td>{formatName(pni.pniProfession)}</td>
           </tr>
           {sni.name && (
             <tr>
               <td>SNI</td>
-              <td>{sni.name}</td>
+              <td>{formatName(sni.name)}</td>
               <td>{formatDate(sni.sniDob)}</td>
-              <td> {sni.sniEducation?.split("_").join(" ")}</td>
-              <td>{sni.sniProfession}</td>
+              <td> {formatName(sni.sniEducation?.split("_").join(" "))}</td>
+              <td>{formatName(sni.sniProfession)}</td>
             </tr>
           )}
         </tbody>

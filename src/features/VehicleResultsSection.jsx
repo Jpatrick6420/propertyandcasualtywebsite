@@ -38,8 +38,12 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               <td>{formatName(item.model) || ""}</td>
               <td>{item.rideShare ? "Yes" : "No"}</td>
               <td>{item.businessUse ? "Yes  " : "No  "}</td>
-              <td>{item.comprehensiveDeductible.split("_").join(" ")}</td>
-              <td>{item.collisionDeductible.split("_").join(" ")}</td>
+              <td>
+                {formatName(item.comprehensiveDeductible.split("_").join(" "))}
+              </td>
+              <td>
+                {formatName(item.collisionDeductible.split("_").join(" "))}
+              </td>
               <td>
                 <button
                   onClick={(e) => handleDelete(e, idx)}

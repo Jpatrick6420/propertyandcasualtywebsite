@@ -50,7 +50,7 @@ ${
           (item, i) =>
             `${i + 1}) ${item.year} ${formatName(item.make)} ${formatName(item.model)}
    Ride Share: ${item.rideShare ? "Yes" : "No"} | Business Use: ${item.businessUse ? "Yes" : "No"}
-   Collision: ${item.collisionDeductible.split("_").join(" ")} | Comprehensive: ${item.comprehensiveDeductible.split("_").join(" ")}`,
+   Collision: ${formatName(item.collisionDeductible.split("_").join(" "))} | Comprehensive: ${formatName(item.comprehensiveDeductible.split("_").join(" "))}`,
         )
         .join("\n")
     : "None"
@@ -91,7 +91,10 @@ Home Claims:
 ${
   currentData.home.claims.length
     ? currentData.home.claims
-        .map((item, i) => `${i + 1}) ${item.type} | ${formatDate(item.date)}`)
+        .map(
+          (item, i) =>
+            `${i + 1}) ${formatName(item.type)} | ${formatDate(item.date)}`,
+        )
         .join("\n")
     : "None"
 }

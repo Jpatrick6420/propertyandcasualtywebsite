@@ -73,7 +73,6 @@ function CallForm() {
     }));
   };
   const addNewItem = (e, item, attribute, newItem = "") => {
-    e.preventDefault();
     setCurrentData((prev) => ({
       ...prev,
       [item]: {
