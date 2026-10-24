@@ -67,9 +67,10 @@ function CallForm() {
     setCurrentData(initInfo);
   };
   const updateItem = (e, item, attribute) => {
+    const newItem = e.target.value;
     setCurrentData((prev) => ({
       ...prev,
-      [item]: { ...prev[item], [attribute]: e.target.value },
+      [item]: { ...prev[item], [attribute]: newItem },
     }));
   };
   const addNewItem = (e, item, attribute, newItem = "") => {
