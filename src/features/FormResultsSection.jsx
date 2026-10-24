@@ -10,7 +10,6 @@ function FormResultsSection({ currentData, setCurrentData }) {
   const [isCopied, setIsCopied] = useState(false);
   const currentYear = new Date().getFullYear();
   const handleCopy = async () => {
-    console.log(currentData);
     const textToCopy = `PNI: ${formatName(currentData.pni.name)} | DOB: ${formatDate(currentData.pni.pniDob)} | Education: ${formatName(currentData.pni.pniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.pni.pniProfession)}
 ${currentData.sni.name ? `SNI: ${formatName(currentData.sni.name)} | DOB: ${formatDate(currentData.sni.sniDob)} | Education: ${formatName(currentData.sni.sniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.sni.sniProfession)}` : ""}
 

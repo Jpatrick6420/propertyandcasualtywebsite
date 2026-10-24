@@ -32,7 +32,6 @@ function HomeSection({
     }));
   };
   const handleNotesChange = (e) => {
-    e.preventDefault();
     updateItem(e, "home", "notes");
   };
   return (
