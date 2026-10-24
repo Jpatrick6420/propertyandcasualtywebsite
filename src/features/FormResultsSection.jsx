@@ -6,7 +6,6 @@ import VehicleResultsSection from "./VehicleResultsSection";
 import ClaimsResults from "./ClaimsResults";
 import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
-  //   const currentYear = new Date().getFullYear;
   const [isCopied, setIsCopied] = useState(false);
   const currentYear = new Date().getFullYear();
   const handleCopy = async () => {
@@ -74,13 +73,18 @@ ${
     ? `Electrical Updated: ${currentData.home.electricalUpdated} ${currentData.home.electricalUpdated < 100 ? currentData.home.electricalUpdated - currentYear : calcAge(currentData.home.electricalUpdated)}`
     : ""
 }
-Dog Types: ${
-      currentData.home.dogs
-        ? currentData.home.dogTypes
-            ?.map((dog, i) => `${i + 1}) ${formatName(dog)}`)
-            .join(", ")
-        : "No"
-    }
+Dogs: ${formatName(currentData.home.dogs, "_")}
+${
+  currentData.home.dogs === "yes"
+    ? `Dog Types: ${
+        currentData.home.dogs
+          ? currentData.home.dogTypes
+              ?.map((dog, i) => `${i + 1}) ${formatName(dog)}`)
+              .join(", ")
+          : "No"
+      }`
+    : ""
+}
 Solar: ${currentData.home.solar || "No"}
 Good Shape: ${formatName(currentData.home.goodShape, "_")}
 Business Use: ${formatName(currentData.home.businessUse, "_")}
