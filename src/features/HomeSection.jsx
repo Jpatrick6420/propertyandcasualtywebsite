@@ -14,6 +14,7 @@ function HomeSection({
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
   const handleDogBreedSubmit = (e) => {
+    e.preventDefault();
     if (!dogTypeEntry) return;
 
     addNewItem(e, "home", "dogTypes", formatName(dogTypeEntry));
