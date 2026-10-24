@@ -63,7 +63,7 @@ function NewVehicleSection({ addNewItem }) {
             <label className="pr-2">Ride Share</label>
             <input
               type="checkbox"
-              value={vehicleOptions.rideShare}
+              checked={vehicleOptions.rideShare}
               onChange={(e) => handleCheckbox(e, "rideShare")}
             />
           </div>
@@ -71,7 +71,7 @@ function NewVehicleSection({ addNewItem }) {
             <label className="pr-2">Business Use</label>
             <input
               type="checkbox"
-              value={vehicleOptions.businessUse}
+              checked={vehicleOptions.businessUse}
               onChange={(e) => handleCheckbox(e, "businessUse")}
             />
           </div>
