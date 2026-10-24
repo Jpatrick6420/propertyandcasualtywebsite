@@ -101,6 +101,7 @@ function NewDriverSection({ addNewItem }) {
             onClick={(e) => {
               handleSubmit(e);
             }}
+            type="button"
           >
             Submit
           </button>

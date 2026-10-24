@@ -117,6 +117,7 @@ function NewVehicleSection({ addNewItem }) {
         </div>
         <div className="col-span-2 flex justify-center my-2">
           <button
+            type="button"
             onClick={(e) => {
               handleSubmit(e);
             }}

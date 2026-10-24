@@ -48,6 +48,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
                 <button
                   onClick={(e) => handleDelete(e, idx)}
                   className="index_css bg-red-600 ml-2 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
+                  type="button"
                 >
                   Delete
                 </button>

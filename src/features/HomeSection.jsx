@@ -4,13 +4,7 @@ import TextInput from "../components/TextInput";
 import ClaimsSection from "./ClaimsSection";
 import RadioInput from "../components/RadioInput";
 import { formatName } from "../helper/helper";
-function HomeSection({
-  setCurrentData,
-  currentData,
-  updateItem,
-  addNewItem,
-  // handleCheckbox,
-}) {
+function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
   const handleDogBreedSubmit = (e) => {
@@ -63,15 +57,6 @@ function HomeSection({
         />
       </div>
       <div>
-        {/* <div className="grid md:grid-cols-8   mb-2 ">
-          <label className="text-sm">Dogs</label>
-          <input
-            className="ml-2"
-            type="checkbox"
-            checked={currentData.home.dogs}
-            onChange={() => handleCheckbox("home", "dogs")}
-          />
-        </div> */}
         <RadioInput
           value={currentData.home.dogs}
           options={["yes", "not_asked", "no"]}
@@ -112,6 +97,7 @@ function HomeSection({
                     <button
                       className=" bg-red-600 px-1 py-0.5 md:ml-2 text-stone-50 hover:bg-red-800 active:bg-red-600"
                       onClick={(e) => handleDelete(e, i)}
+                      type="button"
                     >
                       Delete
                     </button>
@@ -131,13 +117,6 @@ function HomeSection({
         />
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        {/* <label>Good Shape</label>
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={currentData.home.goodShape}
-          onChange={() => handleCheckbox("home", "goodShape")}
-        /> */}
         <RadioInput
           value={currentData.home.goodShape}
           options={["yes", "not_asked", "no"]}
@@ -154,23 +133,8 @@ function HomeSection({
           name="businessUse"
           label="Business Use"
         />
-
-        {/* <label>Business Use</label>
-        // <input
-        //   type="checkbox"
-        //   className="ml-2"
-        //   checked={currentData.home.businessUse}
-        //   onChange={() => handleCheckbox("home", "businessUse")}
-        // /> */}
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        {/* <label>Swimming Pool</label>
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={currentData.home.swimmingPool}
-          onChange={() => handleCheckbox("home", "swimmingPool")}
-        /> */}
         <RadioInput
           value={currentData.home.swimmingPool}
           options={["yes", "not_asked", "no"]}
@@ -180,13 +144,6 @@ function HomeSection({
         />
       </div>
       <div className="grid md:grid-cols-8 my-2">
-        {/* <label className="pr-2">Trampoline</label>
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={currentData.home.trampoline}
-          onChange={() => handleCheckbox("home", "trampoline")}
-        /> */}
         <RadioInput
           value={currentData.home.trampoline}
           options={["yes", "not_asked", "no"]}
@@ -198,13 +155,6 @@ function HomeSection({
       {(currentData.home.swimmingPool === "yes" ||
         currentData.home.trampoline == "yes") && (
         <div className="grid md:grid-cols-8 my-2">
-          {/* <label className="pr-2">Fenced</label>
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={currentData.home.fenced}
-          onChange={() => handleCheckbox("home", "fenced")}
-        /> */}
           <RadioInput
             value={currentData.home.fenced}
             options={["yes", "not_asked", "no"]}
@@ -216,7 +166,6 @@ function HomeSection({
       )}
       <section className="grid md:grid-cols-2">
         <div>
-          {/* <HomeClaimsSection handleCurrentData={setCurrentData} /> */}
           <ClaimsSection addNewItem={addNewItem} risk="home" />
         </div>
         <div className="hidden lg:block">
