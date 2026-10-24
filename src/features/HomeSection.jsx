@@ -14,7 +14,6 @@ function HomeSection({
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
   const handleDogBreedSubmit = (e) => {
-    e.preventDefault();
     if (!dogTypeEntry) return;
 
     addNewItem(e, "home", "dogTypes", formatName(dogTypeEntry));
@@ -22,8 +21,6 @@ function HomeSection({
   };
 
   const handleDelete = (e, index) => {
-    e.preventDefault();
-
     const dogTypes = currentData.home.dogTypes;
     const newArr = dogTypes.filter((item, i) => i != index);
     setCurrentData((prev) => ({

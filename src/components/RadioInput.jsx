@@ -9,15 +9,15 @@ function RadioInput({ value, options, onChange, name, label }) {
         return (
           <div key={option} className="flex items-center">
             <label className="text-[10px] flex items-center gap-2 ">
-              {formatName(option, "_")}
+              {/* {formatName(option, "_")} */}
               <input
                 type="radio"
-                className="text-[10px]"
                 name={name}
                 value={option}
-                checked={option == value}
+                checked={option === value}
                 onChange={onChange}
               />
+              <span className="text-xs">{formatName(option, "_")}</span>
             </label>
           </div>
         );

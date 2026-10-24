@@ -108,7 +108,7 @@ function CallForm() {
                   <input
                     className="ml-2 border-2 border-gray-600 mb-1"
                     type="date"
-                    value={currentData.pniDob}
+                    value={currentData.pni.pniDob}
                     onChange={(e) => updateItem(e, "pni", "pniDob")}
                   />
                 </div>
@@ -219,7 +219,6 @@ function CallForm() {
             "50/100/100",
             "100/300/50",
             "100/300/100",
-            "250/500/50",
             "250/500/50",
             "250/500/100",
             "250/500/250",
