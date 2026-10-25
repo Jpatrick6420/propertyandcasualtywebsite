@@ -7,7 +7,7 @@ import ClaimsResults from "./ClaimsResults";
 import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
   const [isCopied, setIsCopied] = useState(false);
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   const makeSet = (arr) => {
     const mySet = new Set(arr);
@@ -46,7 +46,7 @@ function FormResultsSection({ currentData, setCurrentData }) {
       tipHeaders.push("Pool or Trampoline present without a fence");
       tipMessages.push("Openly is a great option");
     }
-    if (Number(calcAge(currentData.home.roof)) > 10) {
+    if (currentData.home.roof && Number(calcAge(currentData.home.roof)) > 10) {
       tipHeaders.push("Roof Year is Older than 10 years old");
       tipMessages.push("Don't check United unless no other options");
     }
@@ -115,15 +115,15 @@ What's Important: ${currentData.auto.whatIsImportant}
 HOME FACTS
 
 Year Built: ${currentData.home.yearBuilt}
-Roof Age: ${currentData.home.roof} ${currentData.home.roof < 100 ? currentData.home.roof - currentYear : calcAge(currentData.home.roof)}
+Roof Age: ${currentData.home.roof} ${currentData.home.roof < 100 ? currentData.home.roof : calcAge(currentData.home.roof)}
 ${
   currentData.home.plumbingUpdated
-    ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${currentData.home.plumbingUpdated < 100 ? currentData.home.plumbingUpdated - currentYear : calcAge(currentData.home.plumbingUpdated)}`
+    ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${currentData.home.plumbingUpdated < 100 ? currentData.home.plumbingUpdated : calcAge(currentData.home.plumbingUpdated)}`
     : ""
 }
 ${
   currentData.home.electricalUpdated
-    ? `Electrical Updated: ${currentData.home.electricalUpdated} ${currentData.home.electricalUpdated < 100 ? currentData.home.electricalUpdated - currentYear : calcAge(currentData.home.electricalUpdated)}`
+    ? `Electrical Updated: ${currentData.home.electricalUpdated} ${currentData.home.electricalUpdated < 100 ? currentData.home.electricalUpdated : calcAge(currentData.home.electricalUpdated)}`
     : ""
 }
 Dogs: ${formatName(currentData.home.dogs, "_")}
@@ -216,27 +216,14 @@ Misc Notes: ${currentData.home.notes || ""}`;
         ) : (
           <p>Solar: No</p>
         )}
-        {currentData.home.goodShape ? (
-          <p>Good Shape: Yes</p>
-        ) : (
-          <p>Good Shape: No</p>
-        )}
-        {currentData.home.businessUse ? (
-          <p>Business Use: Yes</p>
-        ) : (
-          <p>Business Use: No</p>
-        )}
-        {currentData.home.swimmingPool ? (
-          <p>Swimming Pool: Yes</p>
-        ) : (
-          <p>Swimming Pool: No</p>
-        )}
-        {currentData.home.fenced ? <p>Fenced: Yes</p> : <p>Fenced: No</p>}
-        {currentData.home.trampoline ? (
-          <p>Trampoline: Yes</p>
-        ) : (
-          <p>Tampoline: No</p>
-        )}
+        <p>Good Shape: {formatName(currentData.home.goodShape, "_")}</p>
+        <p>Business Use: {formatName(currentData.home.businessUse, "_")}</p>
+
+        <p>Swimming Pool: {formatName(currentData.home.swimmingPool, "_")}</p>
+
+        <p>Fenced: {formatName(currentData.home.fenced, "_")}</p>
+        <p>Trampoline: {formatName(currentData.home.trampoline, "_")}</p>
+
         <ClaimsResults
           currentData={currentData}
           setCurrentData={setCurrentData}
