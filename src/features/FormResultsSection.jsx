@@ -8,7 +8,60 @@ import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
   const [isCopied, setIsCopied] = useState(false);
   const currentYear = new Date().getFullYear();
+
+  const makeSet = (arr) => {
+    const mySet = new Set(arr);
+    return [...mySet];
+  };
+
+  const handleNotification = (type, header, message) => {
+    setCurrentData((prev) => ({
+      ...prev,
+      notification: {
+        ...prev.notification,
+        [type]: true,
+        [`${type}Notification`]: header,
+        [`${type}Message`]: message,
+      },
+    }));
+  };
+
   const handleCopy = async () => {
+    let errorHeaders = [];
+    let errorMessages = [];
+    let tipHeaders = [];
+    let tipMessages = [];
+
+    if (currentData.home.goodShape == "no") {
+      errorHeaders.push("Condition");
+      errorMessages.push(
+        "Verify that condition will be remedied within 30 days",
+      );
+    }
+    if (
+      (currentData.home.swimmingPool === "yes" ||
+        currentData.home.trampoline == "yes") &&
+      currentData.home.fenced === "no"
+    ) {
+      tipHeaders.push("Pool or Trampoline present without a fence");
+      tipMessages.push("Openly is a great option");
+    }
+    if (Number(calcAge(currentData.home.roof)) > 10) {
+      tipHeaders.push("Roof Year is Older than 10 years old");
+      tipMessages.push("Don't check United unless no other options");
+    }
+    const errorHeaderSet = makeSet(errorHeaders).join(" | ");
+    const errorMessagesSet = makeSet(errorMessages).join(" | ");
+    const tipHeaderSet = makeSet(tipHeaders).join(" | ");
+    const tipMessagesSet = makeSet(tipMessages).join(" | ");
+
+    if (errorHeaderSet.length > 0) {
+      handleNotification("isError", errorHeaderSet, errorMessagesSet);
+    }
+    if (tipHeaderSet.length > 0) {
+      handleNotification("isTip", tipHeaderSet, tipMessagesSet);
+    }
+
     const textToCopy = `PNI: ${formatName(currentData.pni.name)} | DOB: ${formatDate(currentData.pni.pniDob)} | Education: ${formatName(currentData.pni.pniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.pni.pniProfession)}
 ${currentData.sni.name ? `SNI: ${formatName(currentData.sni.name)} | DOB: ${formatDate(currentData.sni.sniDob)} | Education: ${formatName(currentData.sni.sniEducation?.split("_").join(" "))} | Profession: ${formatName(currentData.sni.sniProfession)}` : ""}
 
@@ -89,8 +142,8 @@ Solar: ${currentData.home.solar || "No"}
 Good Shape: ${formatName(currentData.home.goodShape, "_")}
 Business Use: ${formatName(currentData.home.businessUse, "_")}
 Swimming Pool: ${formatName(currentData.home.swimmingPool, "_")}
-Fenced: ${formatName(currentData.home.fenced, "_")}
 Trampoline: ${formatName(currentData.home.trampoline, "_")}
+Fenced: ${formatName(currentData.home.fenced, "_")}
 
 Home Claims:
 ${

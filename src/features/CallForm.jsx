@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewDriverSection from "./NewDriverSection";
 import NewVehicleSection from "./NewVehicleSection";
 
@@ -13,8 +13,21 @@ import ClaimsResults from "./ClaimsResults";
 import SuggestionSection from "./SuggestionSection";
 import Select from "../components/Select";
 import TextInput from "../components/TextInput";
+import NotificationModal from "./NotificationModal";
 function CallForm() {
   const initInfo = {
+    notification: {
+      isError: false,
+      isErrorNotification: "",
+      isErrorMessage: "",
+      isTip: false,
+      isTipNotification: "",
+      isTipMessage: "",
+      errorHeaders: [],
+      errorMessages: [],
+      tipHeaders: [],
+      isTipMessages: [],
+    },
     pni: {
       name: "",
       pniEducation: "not_asked",
@@ -63,6 +76,22 @@ function CallForm() {
 
   const [currentData, setCurrentData] = useState(initInfo);
 
+  useEffect(() => {
+    if (
+      currentData.notification.isError === false &&
+      currentData.notification.isTip === false
+    )
+      return;
+
+    const timeout = setTimeout(() => {
+      setCurrentData((prev) => ({
+        ...prev,
+        notification: { ...prev.notification, isError: false, isTip: false },
+      }));
+    }, 5500);
+    return () => clearTimeout(timeout);
+  }, [currentData.notification]);
+
   const resetForm = () => {
     setCurrentData(initInfo);
   };
@@ -73,7 +102,18 @@ function CallForm() {
       [item]: { ...prev[item], [attribute]: newItem },
     }));
   };
-  const addNewItem = (e, item, attribute, newItem = "") => {
+  const addNewItem = (e, item, attribute, newItem, set = false) => {
+    if (set === true) {
+      const newSet = new Set([...currentData[item][attribute], newItem]);
+      const newArr = [...newSet];
+      setCurrentData((prev) => ({
+        ...prev,
+        [item]: {
+          ...prev[item],
+          [attribute]: [newArr],
+        },
+      }));
+    }
     setCurrentData((prev) => ({
       ...prev,
       [item]: {
@@ -88,9 +128,24 @@ function CallForm() {
       [risk]: { ...prev[risk], [attribute]: !prev[risk][attribute] },
     }));
   };
+
   return (
     <>
       <form className="px-4 py-2 ">
+        {currentData.notification.isError && (
+          <NotificationModal
+            type="isError"
+            header={currentData.notification.isErrorNotification}
+            message={currentData.notification.isErrorMessage}
+          />
+        )}
+        {currentData.notification.isTip && (
+          <NotificationModal
+            type="isTip"
+            header={currentData.notification.isTipNotification}
+            message={currentData.notification.isTipMessage}
+          />
+        )}
         <h3 className="text-3xl font-bold py-4 text-center bg-gradient-to-bl from-red-600  to-yellow-400 bg-clip-text text-transparent">
           Intake Form
         </h3>
