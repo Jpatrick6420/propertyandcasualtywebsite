@@ -176,7 +176,9 @@ Misc Notes: ${currentData.home.notes || ""}`;
         <h3 className="font-bold text-xl my-2">Auto</h3>
         <DriversResults currentData={currentData.auto} />
 
-        <p>Current Coverage: {currentData.auto.currentCoverage}</p>
+        <p>
+          Current Coverage: {formatName(currentData.auto.currentCoverage, "_")}
+        </p>
         <ClaimsResults
           currentData={currentData}
           setCurrentData={setCurrentData}
