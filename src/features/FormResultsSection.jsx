@@ -194,14 +194,26 @@ Misc Notes: ${currentData.home.notes || ""}`;
       <div className="lg:hidden">
         <h3 className="font-bold text-xl my-2">Home Facts</h3>
         <p>Year Built: {currentData.home.yearBuilt}</p>
-        <p>Roof Age: {calcAge(currentData.home.roof)}</p>
+        <p>
+          Roof Age:{" "}
+          {currentData.home.roof != ""
+            ? calcAge(currentData.home.roof)
+            : currentData.home.yearBuilt}
+        </p>
         {currentData.home.plumbingUpdated && (
-          <p>Plumbing Updated: {calcAge(currentData.home.plumbingUpdated)}</p>
+          <p>
+            Plumbing Updated:{" "}
+            {currentData.home.plumbingUpdated != ""
+              ? calcAge(currentData.home.plumbingUpdated)
+              : currentData.home.yearBuilt}
+          </p>
         )}
         {currentData.home.electricalUpdated && (
           <p>
             Electrical Updated:{" "}
-            {calcAge(currentData.home.electricalUpdated)}{" "}
+            {currentData.home.electricalUpdated != ""
+              ? calcAge(currentData.home.electricalUpdated)
+              : currentData.home.yearBuilt}{" "}
           </p>
         )}
         <ol>
