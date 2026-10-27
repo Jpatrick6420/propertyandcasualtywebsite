@@ -1,5 +1,5 @@
 import { useState } from "react";
-function ClaimsSection({ addNewItem, risk }) {
+function ClaimsSection({ addNewItem, risk, children }) {
   const initClaim = { type: "", date: "" };
   const [currentClaim, setCurrentClaim] = useState(initClaim);
   const handleFieldChange = (e, field) => {
@@ -12,7 +12,7 @@ function ClaimsSection({ addNewItem, risk }) {
     setCurrentClaim(initClaim);
   };
   return (
-    <>
+    <section className="relative">
       <h3 className="font-bold text-xl">Claims</h3>
       <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-md grid grid-cols-2 gap-2 text-sm">
         <div className=" mb-2 grid md:grid-cols-2">
@@ -43,7 +43,8 @@ function ClaimsSection({ addNewItem, risk }) {
           </button>
         </div>
       </section>
-    </>
+      {children}
+    </section>
   );
 }
 

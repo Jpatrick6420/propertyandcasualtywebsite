@@ -55,6 +55,7 @@ function NewDriverSection({ addNewItem }) {
             type="text"
             value={driverDetails.occupation}
             onChange={(e) => handleFieldChange(e, "occupation")}
+            placeholder="ex:student, etc"
           />
         </div>
         {driverDetails.occupation.toLowerCase() == "student" && (

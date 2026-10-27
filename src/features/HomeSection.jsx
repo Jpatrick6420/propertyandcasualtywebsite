@@ -4,6 +4,8 @@ import TextInput from "../components/TextInput";
 import ClaimsSection from "./ClaimsSection";
 import RadioInput from "../components/RadioInput";
 import { formatName } from "../helper/helper";
+import ContextModal from "../components/ContextModal";
+import { calcAge } from "../helper/helper";
 function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
   const [dogTypeEntry, setDogTypeEntry] = useState("");
 
@@ -40,7 +42,12 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           label="Roof"
           value={currentData.home.roof}
           onChange={(e) => updateItem(e, "home", "roof")}
-        />
+        >
+          <ContextModal
+            message="Verify type of roof"
+            rule={calcAge(Number(currentData.home.roof)) > 19}
+          />
+        </TextInput>
       </div>
       <div className="grid md:grid-cols-4 my-2">
         <TextInput
@@ -76,7 +83,7 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
                 }}
               />
 
-              <div className="md:flex md:items-center">
+              <div className="md:flex md:items-center relative">
                 <button
                   className="bg-red-600 px-2 mb-4 md:mb-0 py-0.5 hover:bg-red-800 active:bg-red-600 text-stone-50"
                   onClick={(e) => {
@@ -114,7 +121,12 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           value={currentData.home.solar}
           label="# Solar Panels"
           onChange={(e) => updateItem(e, "home", "solar")}
-        />
+        >
+          <ContextModal
+            message="Leased or Owned?"
+            rule={currentData.home.solar != ""}
+          />
+        </TextInput>
       </div>
       <div className="grid md:grid-cols-8 my-2">
         <RadioInput
@@ -123,7 +135,12 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           onChange={(e) => updateItem(e, "home", "goodShape")}
           name="goodShape"
           label="Good Shape"
-        />
+        >
+          <ContextModal
+            message="fixed w/in 30 days?"
+            rule={currentData.home.goodShape == "no"}
+          />
+        </RadioInput>
       </div>
       <div className="grid md:grid-cols-8 my-2">
         <RadioInput
@@ -132,7 +149,12 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           onChange={(e) => updateItem(e, "home", "businessUse")}
           name="businessUse"
           label="Business Use"
-        />
+        >
+          <ContextModal
+            message="How many guests?"
+            rule={currentData.home.businessUse == "yes"}
+          />
+        </RadioInput>
       </div>
       <div className="grid md:grid-cols-8 my-2">
         <RadioInput

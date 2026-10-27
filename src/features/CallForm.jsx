@@ -14,6 +14,7 @@ import SuggestionSection from "./SuggestionSection";
 import Select from "../components/Select";
 import TextInput from "../components/TextInput";
 import NotificationModal from "./NotificationModal";
+import ContextModal from "../components/ContextModal";
 function CallForm() {
   const initInfo = {
     notification: {
@@ -297,7 +298,12 @@ function CallForm() {
               handleCurrentData={setCurrentData}
               addNewItem={addNewItem}
               risk="auto"
-            />
+            >
+              <ContextModal
+                message="Have you had any glass claims?"
+                rule={currentData.auto.claims.length > 0}
+              />
+            </ClaimsSection>
           </div>
           <div className="hidden lg:block px-4 py-8 md:py-0">
             <ClaimsResults

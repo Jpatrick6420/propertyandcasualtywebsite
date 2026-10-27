@@ -1,14 +1,15 @@
+import { Children } from "react";
 import { formatName } from "../helper/helper";
 
-function RadioInput({ value, options, onChange, name, label }) {
+function RadioInput({ value, options, onChange, name, label, children }) {
   return (
-    <div className="my-2">
+    <div className="my-2 relative">
       <h3 className="text-lg font-bold">{label}</h3>
 
       {options.map((option) => {
         return (
           <div key={option} className="flex items-center">
-            <label className="text-[10px] flex items-center gap-2 ">
+            <label className="text-[10px] flex items-center gap-2">
               {/* {formatName(option, "_")} */}
               <input
                 type="radio"
@@ -22,6 +23,7 @@ function RadioInput({ value, options, onChange, name, label }) {
           </div>
         );
       })}
+      {children}
     </div>
   );
 }

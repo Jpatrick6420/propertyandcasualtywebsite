@@ -1,6 +1,8 @@
+import ContextModal from "../components/ContextModal";
 import { formatName } from "../helper/helper";
 
 function VehicleResultsSection({ currentData, setCurrentData }) {
+  const currentYear = new Date().getFullYear();
   const handleDelete = (e, index) => {
     e.preventDefault();
 
@@ -13,7 +15,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
   };
 
   return (
-    <div className="px-4 py-8 md:py-0">
+    <div className="px-4 py-8 md:py-0 relative">
       <h3 className="font-bold text-xl">Vehicles</h3>
       <table className="index_css">
         <thead>
@@ -57,6 +59,12 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
           ))}
         </tbody>
       </table>
+      <ContextModal
+        message="Nat Gen is Lib only after 25 yrs"
+        rule={currentData.vehicles.some(
+          (vehicle) => Number(vehicle.year) <= currentYear - 25,
+        )}
+      />
     </div>
   );
 }
