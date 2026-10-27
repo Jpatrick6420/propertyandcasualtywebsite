@@ -1,10 +1,9 @@
 import { useState } from "react";
 import PniResults from "./PniResults";
 import DriversResults from "./DriversResults";
-import { calcAge, formatDate } from "../helper/helper";
+import { calcAge, calcYear, formatDate, formatName } from "../helper/helper";
 import VehicleResultsSection from "./VehicleResultsSection";
 import ClaimsResults from "./ClaimsResults";
-import { formatName } from "../helper/helper";
 function FormResultsSection({ currentData, setCurrentData }) {
   const [isCopied, setIsCopied] = useState(false);
   // const currentYear = new Date().getFullYear();
@@ -115,15 +114,15 @@ What's Important: ${currentData.auto.whatIsImportant}
 HOME FACTS
 
 Year Built: ${currentData.home.yearBuilt}
-Roof Age: ${currentData.home.roof} ${currentData.home.roof < 100 ? currentData.home.roof : calcAge(currentData.home.roof)}
+Roof Age: ${calcYear(currentData.home.roof)} ${calcAge(currentData.home.roof)}${currentData.home.roof != "" ? " Years old" : ""}
 ${
   currentData.home.plumbingUpdated
-    ? `Plumbing Updated: ${currentData.home.plumbingUpdated} ${currentData.home.plumbingUpdated < 100 ? currentData.home.plumbingUpdated : calcAge(currentData.home.plumbingUpdated)}`
+    ? `Plumbing Updated: ${calcYear(currentData.home.plumbingUpdated)} ${calcAge(currentData.home.plumbingUpdated)} ${currentData.home.plumbingUpdated != "" ? " Years old" : ""}`
     : ""
 }
 ${
   currentData.home.electricalUpdated
-    ? `Electrical Updated: ${currentData.home.electricalUpdated} ${currentData.home.electricalUpdated < 100 ? currentData.home.electricalUpdated : calcAge(currentData.home.electricalUpdated)}`
+    ? `Electrical Updated: ${calcYear(currentData.home.electricalUpdated)} ${calcAge(currentData.home.electricalUpdated)} ${currentData.home.electricalUpdated != "" ? " Years old" : ""}`
     : ""
 }
 Dogs: ${formatName(currentData.home.dogs, "_")}
@@ -212,8 +211,8 @@ Misc Notes: ${currentData.home.notes || ""}`;
           <p>
             Electrical Updated:{" "}
             {currentData.home.electricalUpdated != ""
-              ? calcAge(currentData.home.electricalUpdated)
-              : currentData.home.yearBuilt}{" "}
+              ? currentData.home.yearBuilt
+              : calcAge(currentData.home.electricalUpdated)}
           </p>
         )}
         <ol>

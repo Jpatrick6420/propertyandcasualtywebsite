@@ -25,6 +25,13 @@ function calcAge(year) {
 
   return numYear > 1000 ? thisYear - numYear : numYear;
 }
+function calcYear(year) {
+  if (year == "" || year == null) return "";
+  const thisYear = new Date().getFullYear();
+  const numYear = Number(year);
+
+  return numYear > 1000 ? numYear : numYear - thisYear;
+}
 
 function formatDate(date) {
   const options = {
@@ -45,6 +52,6 @@ const formatName = (name, separation = " ") => {
   });
   return formattedName.join(" ");
 };
-export { calcAge, formatDate, formatName };
+export { calcAge, formatDate, formatName, calcYear };
 
 export default extractText;
