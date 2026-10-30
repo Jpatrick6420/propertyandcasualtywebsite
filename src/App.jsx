@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Nav handler={setCurrentPage} />
-      <ZipCodeSection />
+      {/* <ZipCodeSection /> */}
       {/* {currentPage == "callscript" && (
         <CurrentInfoSection
           currentInfo={currentInfo}
@@ -29,6 +29,7 @@ function App() {
       {/* {currentPage == "callscript" && <CallForm />} */}
       {currentPage == "assessor" && <DataExtraction />}
       {currentPage == "2" && <CallForm />}
+      {currentPage == "comparison_tool" && <ZipCodeSection />}
     </>
   );
 }
