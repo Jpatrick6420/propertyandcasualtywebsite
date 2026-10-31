@@ -40,7 +40,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
   return (
     <>
       <h3 className="font-bold text-xl mt-2">Vehicles</h3>
-      <section className="grid grid-cols-2 bg-blue-200 px-2 py-4 rounded-lg text-sm">
+      <section className="grid grid-cols-2 bg-rose-300 px-2 py-4 rounded-lg text-sm">
         <div className="grid grid-cols-5">
           <label className="mr-2">Year</label>
           <input
@@ -93,7 +93,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
           <select
             value={vehicleOptions.comprehensiveDeductible}
             onChange={(e) => handleFieldChange(e, "comprehensiveDeductible")}
-            className="border-2 border-gray-600 text-sm bg-stone-50"
+            className="border-2 border-gray-600 text-sm bg-stone-50 mr-2"
           >
             <option value="not_asked">Not Asked</option>
             <option value="no_comprehensive">No Comprehensive</option>
@@ -113,7 +113,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
           <select
             value={vehicleOptions.collisionDeductible}
             onChange={(e) => handleFieldChange(e, "collisionDeductible")}
-            className="border-2 border-gray-600 text-sm bg-stone-50"
+            className="border-2 border-gray-600 text-sm bg-stone-50 "
           >
             <option value="not_asked">Not Asked</option>
             <option value="no_collision">No Collision</option>
@@ -132,7 +132,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
             onClick={(e) => {
               handleSubmit(e);
             }}
-            className="px-2 py-0.5 bg-blue-600 hover:bg-blue-800 text-stone-50"
+            className="px-2 py-0.5 bg-rose-600 hover:bg-rose-800 text-stone-50"
           >
             Submit
           </button>

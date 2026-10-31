@@ -14,7 +14,7 @@ function ClaimsSection({ addNewItem, risk, children }) {
   return (
     <section className="relative">
       <h3 className="font-bold text-xl">Claims</h3>
-      <section className="bg-red-200 px-2 py-0.5 pt-4 rounded-md grid grid-cols-2 gap-2 text-sm">
+      <section className="bg-orange-200 px-2 py-0.5 pt-4 rounded-md grid grid-cols-2 gap-2 text-sm">
         <div className=" mb-2 grid md:grid-cols-2">
           <label className="mr-2">Enter Claim Type</label>
           <input
@@ -35,7 +35,7 @@ function ClaimsSection({ addNewItem, risk, children }) {
         </div>
         <div className="flex justify-center my-2 col-span-2">
           <button
-            className="px-2 py-0.5 bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 rounded-md"
+            className="px-2 py-0.5 bg-orange-600 hover:bg-orange-800 active:bg-orange-600 text-stone-50 rounded-md"
             type="submit"
             onClick={(e) => handleSubmit(e)}
           >

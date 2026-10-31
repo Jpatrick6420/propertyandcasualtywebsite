@@ -151,10 +151,12 @@ function CallForm() {
             message={currentData.notification.isTipMessage}
           />
         )}
-        <div className="flex justify-center">
-          <h3 className="text-3xl font-bold py-4 text-center inline-block bg-gradient-to-r from-purple-600  to-orange-600 bg-clip-text text-transparent">
+        <div className="flex justify-center items-center gap-3">
+          <p className="text-3xl">🦃</p>
+          <h3 className="text-3xl font-bold py-4 text-center inline-block bg-gradient-to-r from-amber-400  to-orange-600 bg-clip-text text-transparent">
             Intake Form
           </h3>
+          <p className="text-3xl">🥧</p>
         </div>
         <section className="grid  md:grid-cols-2">
           <PniSection currentData={currentData} updateItem={updateItem} />
