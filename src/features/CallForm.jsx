@@ -16,67 +16,69 @@ import TextInput from "../components/TextInput";
 import NotificationModal from "./NotificationModal";
 import ContextModal from "../components/ContextModal";
 import PniSection from "./PniSection";
+import { createInitialClientState } from "../init_states/intake";
 function CallForm() {
-  const initInfo = {
-    notification: {
-      isError: false,
-      isErrorNotification: "",
-      isErrorMessage: "",
-      isTip: false,
-      isTipNotification: "",
-      isTipMessage: "",
-      errorHeaders: [],
-      errorMessages: [],
-      tipHeaders: [],
-      isTipMessages: [],
-    },
-    pni: {
-      name: "",
-      pniEducation: "not_asked",
-      pniProfession: "",
-      pniDob: "",
-    },
-    sni: {
-      name: "",
-      sniDob: "",
-      sniEducation: "not_asked",
-      sniProfession: "",
-    },
-    auto: {
-      additionalDrivers: [],
-      claims: [],
-      currentCoverage: "not_confirmed",
-      whatIsImportant: "",
-      vehicles: [],
-    },
-    home: {
-      //calculate replacement year or age
-      roof: "",
-      yearBuilt: "",
-      plumbingUpdated: "",
-      electricalUpdated: "",
-      dogs: "not_asked",
-      dogTypes: [],
-      solar: "",
-      goodShape: "not_asked",
-      businessUse: "not_asked",
-      swimmingPool: "not_asked",
-      fenced: "not_asked",
-      claims: [],
-      trampoline: "not_asked",
-      addresses: [],
-      notes: "",
-    },
-    otherRisks: {
-      umbrella: false,
-      otherAddresses: [],
-      motorHomes: [],
-      offRoad: [],
-      motorcycles: [],
-    },
-  };
+  // const initInfo = {
+  //   notification: {
+  //     isError: false,
+  //     isErrorNotification: "",
+  //     isErrorMessage: "",
+  //     isTip: false,
+  //     isTipNotification: "",
+  //     isTipMessage: "",
+  //     errorHeaders: [],
+  //     errorMessages: [],
+  //     tipHeaders: [],
+  //     isTipMessages: [],
+  //   },
+  //   pni: {
+  //     name: "",
+  //     pniEducation: "not_asked",
+  //     pniProfession: "",
+  //     pniDob: "",
+  //   },
+  //   sni: {
+  //     name: "",
+  //     sniDob: "",
+  //     sniEducation: "not_asked",
+  //     sniProfession: "",
+  //   },
+  //   auto: {
+  //     additionalDrivers: [],
+  //     claims: [],
+  //     currentCoverage: "not_confirmed",
+  //     whatIsImportant: "",
+  //     vehicles: [],
+  //   },
+  //   home: {
+  //     //calculate replacement year or age
+  //     roof: "",
+  //     yearBuilt: "",
+  //     plumbingUpdated: "",
+  //     electricalUpdated: "",
+  //     dogs: "not_asked",
+  //     dogTypes: [],
+  //     solar: "",
+  //     goodShape: "not_asked",
+  //     businessUse: "not_asked",
+  //     swimmingPool: "not_asked",
+  //     fenced: "not_asked",
+  //     claims: [],
+  //     trampoline: "not_asked",
+  //     addresses: [],
+  //     notes: "",
+  //   },
+  //   otherRisks: {
+  //     umbrella: false,
+  //     otherAddresses: [],
+  //     motorHomes: [],
+  //     offRoad: [],
+  //     motorcycles: [],
+  //   },
+  // };
 
-  const [currentData, setCurrentData] = useState(initInfo);
+  const [currentData, setCurrentData] = useState(createInitialClientState);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
     if (
@@ -95,7 +97,8 @@ function CallForm() {
   }, [currentData.notification]);
 
   const resetForm = () => {
-    setCurrentData(initInfo);
+    setCurrentData(createInitialClientState());
+    setResetKey((prev) => prev + 1);
   };
   const updateItem = (e, item, attribute) => {
     const newItem = e.target.value;
@@ -148,9 +151,11 @@ function CallForm() {
             message={currentData.notification.isTipMessage}
           />
         )}
-        <h3 className="text-3xl font-bold py-4 text-center bg-gradient-to-bl from-red-600  to-yellow-400 bg-clip-text text-transparent">
-          Intake Form
-        </h3>
+        <div className="flex justify-center">
+          <h3 className="text-3xl font-bold py-4 text-center inline-block bg-gradient-to-r from-purple-600  to-orange-600 bg-clip-text text-transparent">
+            Intake Form
+          </h3>
+        </div>
         <section className="grid  md:grid-cols-2">
           <PniSection currentData={currentData} updateItem={updateItem} />
 
@@ -172,7 +177,12 @@ function CallForm() {
         </section>
         <section className="grid md:grid-cols-2">
           <div>
-            <NewVehicleSection addNewItem={addNewItem} />
+            <NewVehicleSection
+              addNewItem={addNewItem}
+              currentData={currentData}
+              setCurrentData={setCurrentData}
+              key={resetKey}
+            />
           </div>
           <div className="hidden lg:block">
             <VehicleResultsSection

@@ -1,5 +1,5 @@
 import { useState } from "react";
-function NewVehicleSection({ addNewItem }) {
+function NewVehicleSection({ addNewItem, setCurrentData }) {
   const initVehicleOptions = {
     year: "",
     make: "",
@@ -15,15 +15,26 @@ function NewVehicleSection({ addNewItem }) {
     setVehicleOptions((prev) => ({ ...prev, [field]: e.target.value }));
   };
   const handleCheckbox = (e, field) => {
-    setVehicleOptions((prev) => ({ ...prev, [field]: !vehicleOptions[field] }));
+    setVehicleOptions((prev) => ({ ...prev, [field]: e.target.checked }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!vehicleOptions.model || !vehicleOptions.year) return;
     const newVehicle = { ...vehicleOptions };
+
     addNewItem(e, "auto", "vehicles", newVehicle);
-    setVehicleOptions(initVehicleOptions);
+
+    setCurrentData((prev) => ({
+      ...prev,
+      auto: { ...prev.auto, vehiclesEmpty: false },
+    }));
+
+    setVehicleOptions(() => ({
+      ...initVehicleOptions,
+      collisionDeductible: vehicleOptions.collisionDeductible,
+      comprehensiveDeductible: vehicleOptions.comprehensiveDeductible,
+    }));
   };
 
   return (

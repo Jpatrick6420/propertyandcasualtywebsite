@@ -9,7 +9,7 @@ import OtherCarriersInfo from "./features/OtherCarriersInfo.jsx";
 import CallForm from "./features/CallForm.jsx";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("2");
+  const [currentPage, setCurrentPage] = useState("intake_form");
   // const [currentInfo, setCurrentInfo] = useState({
   //   name: "",
   //   phoneNumber: "",
@@ -25,10 +25,10 @@ function App() {
           setCurrentInfo={setCurrentInfo}
         />
       )} */}
+      {currentPage == "intake_form" && <CallForm />}
       {currentPage == "hooks" && <OtherCarriersInfo />}
       {/* {currentPage == "callscript" && <CallForm />} */}
       {currentPage == "assessor" && <DataExtraction />}
-      {currentPage == "2" && <CallForm />}
       {currentPage == "comparison_tool" && <ZipCodeSection />}
     </>
   );
