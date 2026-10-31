@@ -6,7 +6,7 @@ function Select({ onChange, options, value, label, columns = "2" }) {
       <label>{label}</label>
       <select
         onChange={onChange}
-        className="border-2 border-gray-600 mb-1"
+        className="border-2 border-gray-600 mb-1 ml-2"
         value={value}
       >
         {options.map((option, i) => {
