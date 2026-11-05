@@ -1,7 +1,7 @@
 function Nav({ handler }) {
   return (
     <nav>
-      <ul className="flex gap-4 px-2 py-1 bg-black xl:justify-end mb-2">
+      <ul className="flex gap-4 px-2 py-1 bg-black lg:justify-end mb-2">
         <li
           className="text-amber-300 hover:text-orange-400 cursor-pointer hover:underline transition-all duration-250 ease-in"
           onClick={() => handler("intake_form")}

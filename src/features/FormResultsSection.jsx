@@ -37,6 +37,7 @@ function FormResultsSection({ currentData, setCurrentData }) {
         "Verify that condition will be remedied within 30 days",
       );
     }
+
     if (
       (currentData.home.swimmingPool === "yes" ||
         currentData.home.trampoline == "yes") &&
@@ -76,7 +77,7 @@ ${
               item.occupation?.toLowerCase() === "student"
                 ? ` | Good Student: ${item.goodStudent ? "Yes" : "No"}`
                 : ""
-            }${item.military ? " | Military: Yes" : ""} ${item.excluded ? " | Excluded: Yes" : ""} `,
+            }${item.military ? " | Military: Yes" : ""} ${item.excluded ? " | Excluded: Yes" : ""} ${item.driversLicenseNumber ? ` | DL#: ${item.driversLicenseNumber}` : ""} `,
         )
         .join("\n")
     : "None"
@@ -102,7 +103,8 @@ ${
           (item, i) =>
             `${i + 1}) ${item.year} ${formatName(item.make)} ${formatName(item.model)}
    Ride Share: ${item.rideShare ? "Yes" : "No"} | Business Use: ${item.businessUse ? "Yes" : "No"}
-   Collision: ${formatName(item.collisionDeductible.split("_").join(" "))} | Comprehensive: ${formatName(item.comprehensiveDeductible.split("_").join(" "))}`,
+   Collision: ${formatName(item.collisionDeductible.split("_").join(" "))} | Comprehensive: ${formatName(item.comprehensiveDeductible.split("_").join(" "))} 
+   ${item.vin ? `Vin: ${item.vin}` : ""}`,
         )
         .join("\n")
     : "None"
@@ -243,7 +245,7 @@ Misc Notes: ${currentData.home.notes || ""}`;
           type="home"
         />
       </div>
-      <div className="flex justify-center flex-col items-center">
+      <div className="flex justify-center flex-col items-center relative">
         <button
           className="index_css bg-green-600 hover:bg-green-800 active:bg-green-600 px-2 py-0.5 text-stone-50 hover:cursor-pointer"
           onClick={handleCopy}

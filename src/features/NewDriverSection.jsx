@@ -8,6 +8,7 @@ function NewDriverSection({ addNewItem }) {
     education: "some_college",
     military: false,
     excluded: false,
+    driversLicenseNumber: "",
   };
   const [driverDetails, setDriverDetails] = useState(initDriverDetails);
 
@@ -96,6 +97,20 @@ function NewDriverSection({ addNewItem }) {
             }
           />
         </div>
+        <details className="flex items-center gap-4">
+          <summary>DL #</summary>
+          <input
+            className="bg-stone-50 border-2 border-gray-900"
+            type="text"
+            value={driverDetails.driversLicenseNumber}
+            onChange={(e) =>
+              setDriverDetails((prev) => ({
+                ...prev,
+                driversLicenseNumber: e.target.value,
+              }))
+            }
+          />
+        </details>
         <div className="flex justify-center my-4 col-span-2">
           <button
             className="px-2 py-0.5 bg-amber-600 hover:bg-amber-800 active:bg-amber-600 text-stone-50"

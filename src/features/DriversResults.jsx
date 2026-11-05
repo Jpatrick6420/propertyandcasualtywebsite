@@ -20,6 +20,7 @@ function DriversResults({ currentData, setCurrentData }) {
             <th></th>
             <th>Name</th>
             <th>DOB</th>
+            <th>DL #</th>
             <th>Occupation</th>
             <th>Good Student</th>
             <th>Military</th>
@@ -34,6 +35,7 @@ function DriversResults({ currentData, setCurrentData }) {
                 <td>{i + 1}</td>
                 <td>{formatName(item.name) || ""} </td>
                 <td>{formatDate(item.dob) || ""}</td>
+                <td>{item.driversLicenseNumber}</td>
                 <td>{formatName(item.occupation) || ""} </td>
                 <td>
                   {item.occupation.toLowerCase() == "student" &&

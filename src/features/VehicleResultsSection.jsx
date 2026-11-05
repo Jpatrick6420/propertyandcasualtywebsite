@@ -24,6 +24,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
             <th>Year</th>
             <th>Make</th>
             <th>Model</th>
+            <th>Vin</th>
             <th>Rideshare</th>
             <th>Business</th>
             <th>Comp Ded</th>
@@ -38,6 +39,7 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               <td>{item.year} </td>
               <td>{formatName(item.make) || ""}</td>
               <td>{formatName(item.model) || ""}</td>
+              <td>{item.vin}</td>
               <td>{item.rideShare ? "Yes" : "No"}</td>
               <td>{item.businessUse ? "Yes  " : "No  "}</td>
               <td>

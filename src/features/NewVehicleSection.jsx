@@ -8,7 +8,9 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
     businessUse: false,
     collisionDeductible: "not_asked",
     comprehensiveDeductible: "not_asked",
+    vin: "",
   };
+
   const [vehicleOptions, setVehicleOptions] = useState(initVehicleOptions);
 
   const handleFieldChange = (e, field) => {
@@ -126,6 +128,20 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
             <option value="1000+">1000+</option>
           </select>
         </div>
+        <details className="lg:flex lg:items-center gap-6 ">
+          <summary htlFor="vin_input" className="col-span-2">
+            Vin
+          </summary>
+          <input
+            className="bg-stone-50 col-span-3 border-2 border-gray-900"
+            id="vin_input"
+            type="text"
+            value={vehicleOptions.vin}
+            onChange={(e) =>
+              setVehicleOptions((prev) => ({ ...prev, vin: e.target.value }))
+            }
+          />
+        </details>
         <div className="col-span-2 flex justify-center my-2">
           <button
             type="button"

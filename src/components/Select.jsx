@@ -2,7 +2,7 @@ import { formatName } from "../helper/helper";
 
 function Select({ onChange, options, value, label, columns = "2" }) {
   return (
-    <div className={`grid md:grid-cols-${columns} mr-2 `}>
+    <div className={`grid md:grid-cols-${columns} mr-2  `}>
       <label>{label}</label>
       <select
         onChange={onChange}

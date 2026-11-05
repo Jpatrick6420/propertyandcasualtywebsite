@@ -178,7 +178,7 @@ function CallForm() {
           </div>
         </section>
         <section className="grid md:grid-cols-2">
-          <div>
+          <div className="mb-2">
             <NewVehicleSection
               addNewItem={addNewItem}
               currentData={currentData}
