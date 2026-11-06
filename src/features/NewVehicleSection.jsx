@@ -51,6 +51,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
             min="1980"
             value={vehicleOptions.year}
             onChange={(e) => handleFieldChange(e, "year")}
+            placeholder="Req"
           />
         </div>
         <div className="grid grid-cols-5 mb-1 lg:text-sm">
@@ -69,6 +70,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
             type="text"
             value={vehicleOptions.model}
             onChange={(e) => handleFieldChange(e, "model")}
+            placeholder="Req"
           />
         </div>
         <div className="mb-1 text-xs md:text-sm grid md:grid-cols-2 gap-2">

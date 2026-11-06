@@ -221,6 +221,7 @@ function CallForm() {
           className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg mb-1"
           value={currentData.auto["whatIsImportant"]}
           onChange={(e) => updateItem(e, "auto", "whatIsImportant")}
+          placeholder="Coverages, service, transparency, etc..."
         ></textarea>
         <br />
         <label htmlFor="auto_notes_input" className="mt-4">
@@ -229,6 +230,7 @@ function CallForm() {
         <br></br>
         <textarea
           id="auto_notes_input"
+          placeholder="extra vins, unique vehicles and etc..."
           className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg mb-1"
           value={currentData.auto["autoNotes"]}
           onChange={(e) => updateItem(e, "auto", "autoNotes")}

@@ -206,13 +206,15 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
         </div>
       </section>
       <div>
-        <label>Notes</label>
+        <label htmlFor="home_notes_input">Home Notes</label>
         <br />
 
         <textarea
           className=" px-2 py-0.5 border-2 text-sm border-gray-600 min-w-[50%]"
           value={currentData.home.notes}
           onChange={(e) => handleNotesChange(e)}
+          id="home_notes_input"
+          placeholder="Floaters, service line, water backup, roof, etc..."
         ></textarea>
       </div>
     </section>
