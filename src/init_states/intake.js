@@ -31,6 +31,7 @@ export const createInitialClientState = () => {
       whatIsImportant: "",
       vehicles: [],
       vehiclesEmpty: true,
+      autoNotes: "",
     },
     home: {
       //calculate replacement year or age
@@ -38,6 +39,7 @@ export const createInitialClientState = () => {
       yearBuilt: "",
       plumbingUpdated: "",
       electricalUpdated: "",
+      heatingUpdated: "",
       dogs: "not_asked",
       dogTypes: [],
       solar: "",
@@ -63,3 +65,10 @@ export const createInitialIntakeState = () => ({
   iteration: 0,
   openIntakes: [],
 });
+
+export const colors = {
+  primaryColor: "stone",
+  newDriverColor: "stone",
+  newVehicleColor: "rose",
+  newClaimColor: "orange",
+};

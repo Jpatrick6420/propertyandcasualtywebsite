@@ -58,6 +58,13 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
       </div>
       <div className="grid md:grid-cols-4 my-2">
         <TextInput
+          label="Heating Updated"
+          value={currentData.home.heatingUpdated}
+          onChange={(e) => updateItem(e, "home", "heatingUpdated")}
+        />
+      </div>
+      <div className="grid md:grid-cols-4 my-2">
+        <TextInput
           label="Electrical Updated"
           value={currentData.home.electricalUpdated}
           onChange={(e) => updateItem(e, "home", "electricalUpdated")}

@@ -222,6 +222,17 @@ function CallForm() {
           value={currentData.auto["whatIsImportant"]}
           onChange={(e) => updateItem(e, "auto", "whatIsImportant")}
         ></textarea>
+        <br />
+        <label htmlFor="auto_notes_input" className="mt-4">
+          Auto Notes
+        </label>
+        <br></br>
+        <textarea
+          id="auto_notes_input"
+          className="border-gray-600 border-[1px] px-0.5 py-1 text-xs min-w-lg mb-1"
+          value={currentData.auto["autoNotes"]}
+          onChange={(e) => updateItem(e, "auto", "autoNotes")}
+        ></textarea>
         <section className="grid md:grid-cols-2">
           <div>
             <ClaimsSection

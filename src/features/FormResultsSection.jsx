@@ -113,6 +113,8 @@ ${
 Current Coverage: ${formatName(currentData.auto.currentCoverage, "_")}
 What's Important: ${currentData.auto.whatIsImportant}
 
+Auto Notes: ${currentData.auto.autoNotes}
+
 HOME FACTS
 
 Year Built: ${currentData.home.yearBuilt}
@@ -127,6 +129,11 @@ ${
     ? `Electrical Updated: ${calcYear(currentData.home.electricalUpdated)} ${calcAge(currentData.home.electricalUpdated)} ${currentData.home.electricalUpdated != "" ? " Years old" : ""}`
     : ""
 }
+${
+  currentData.home.heatingUpdated
+    ? `Heating Updated: ${calcYear(currentData.home.heatingUpdated)} ${calcAge(currentData.home.heatingUpdated)} ${currentData.home.heatingUpdated != "" ? " Years old" : ""}`
+    : ""
+}   
 Dogs: ${formatName(currentData.home.dogs, "_")}
 ${
   currentData.home.dogs === "yes"
