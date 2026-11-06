@@ -1,8 +1,8 @@
 button {
   cursor: pointer;
   border-radius: 5px;
-  font-size: 11px;
-  padding: 2px 4px;
+  font-size: 12px;
+  padding: 4px 12px;
 
   &:hover {
     transform: scale(1.05);
