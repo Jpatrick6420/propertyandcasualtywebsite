@@ -131,7 +131,7 @@ function NewVehicleSection({ addNewItem, setCurrentData }) {
           </select>
         </div>
         <details className="lg:flex lg:items-center gap-6 ">
-          <summary htlFor="vin_input" className="col-span-2">
+          <summary htmlFor="vin_input" className="col-span-2">
             Vin
           </summary>
           <input

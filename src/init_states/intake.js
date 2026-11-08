@@ -11,6 +11,12 @@ export const createInitialClientState = () => {
       errorMessages: [],
       tipHeaders: [],
       isTipMessages: [],
+      editInfo: [],
+      editModal: false,
+      editItem: "",
+      editValue: "",
+      index: undefined,
+      editAttribute: "",
     },
     pni: {
       name: "",

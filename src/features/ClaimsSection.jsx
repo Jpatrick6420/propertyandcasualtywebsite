@@ -19,8 +19,9 @@ function ClaimsSection({ addNewItem, risk, children }) {
           <label className="mr-2">Enter Claim Type</label>
           <input
             className="border-2 bg-stone-50 border-gray-600 "
-            type="list"
+            type="text"
             value={currentClaim.type}
+            onChange={(e) => handleFieldChange(e, "type")}
           />
         </div>
         <div className=" mb-2 grid md:grid-cols-2">

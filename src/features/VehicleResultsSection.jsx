@@ -13,6 +13,18 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
       auto: { ...prev.auto, vehicles: newArr },
     }));
   };
+  const handleClick = (item, attribute, i) => {
+    setCurrentData((prev) => ({
+      ...prev,
+      notification: {
+        ...prev["notification"],
+        editItem: item,
+        index: i,
+        editAttribute: attribute,
+        editModal: true,
+      },
+    }));
+  };
 
   return (
     <div className="px-4 py-8 md:py-0 relative">
@@ -34,7 +46,11 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
         </thead>
         <tbody>
           {currentData.vehicles?.map((item, idx) => (
-            <tr key={idx} className="mb-2 index_css">
+            <tr
+              key={idx}
+              className="mb-2 index_css"
+              onClick={() => handleClick("auto", "vehicles", idx)}
+            >
               <td>{idx + 1}</td>
               <td>{item.year} </td>
               <td>{formatName(item.make) || ""}</td>
@@ -50,7 +66,10 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               </td>
               <td>
                 <button
-                  onClick={(e) => handleDelete(e, idx)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(e, idx);
+                  }}
                   className="index_css bg-red-600 ml-2 px-1 py-0.5 text-stone-50 hover:bg-red-800 active:bg-red-600"
                   type="button"
                 >

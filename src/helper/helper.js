@@ -52,6 +52,22 @@ const formatName = (name, separation = " ") => {
   });
   return formattedName.join(" ");
 };
-export { calcAge, formatDate, formatName, calcYear };
+const handleEdit = (item, property, idx, value, setCurrentData) => {
+  const numIdx = Number(idx);
+  setCurrentData((prev) => {
+    const newArr = [...prev[item][property]];
+
+    newArr[numIdx] = value;
+
+    return {
+      ...prev,
+      [item]: {
+        ...prev[item],
+        [property]: newArr,
+      },
+    };
+  });
+};
+export { calcAge, formatDate, formatName, calcYear, handleEdit };
 
 export default extractText;

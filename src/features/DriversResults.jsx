@@ -8,7 +8,20 @@ function DriversResults({ currentData, setCurrentData }) {
     const newArr = additionalDrivers.filter((item, i) => i != index);
     setCurrentData((prev) => ({
       ...prev,
+      notification: { ...prev.notification, editModal: false },
       auto: { ...prev.auto, additionalDrivers: newArr },
+    }));
+  };
+  const handleClick = (item, attribute, i) => {
+    setCurrentData((prev) => ({
+      ...prev,
+      notification: {
+        ...prev["notification"],
+        editItem: item,
+        index: i,
+        editAttribute: attribute,
+        editModal: true,
+      },
     }));
   };
   return (
@@ -31,7 +44,12 @@ function DriversResults({ currentData, setCurrentData }) {
         <tbody>
           {currentData.additionalDrivers &&
             currentData.additionalDrivers?.map((item, i) => (
-              <tr key={i}>
+              <tr
+                key={i}
+                onClick={() => {
+                  handleClick("auto", "additionalDrivers", i);
+                }}
+              >
                 <td>{i + 1}</td>
                 <td>{formatName(item.name) || ""} </td>
                 <td>{formatDate(item.dob) || ""}</td>
@@ -50,6 +68,7 @@ function DriversResults({ currentData, setCurrentData }) {
                   <button
                     className="index_css bg-red-600 hover:bg-red-800 active:bg-red-600 text-stone-50 px-1 py-0.5"
                     onClick={(e) => {
+                      e.stopPropagation();
                       handleDelete(e, i);
                     }}
                   >

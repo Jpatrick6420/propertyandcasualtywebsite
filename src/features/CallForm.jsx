@@ -17,66 +17,8 @@ import NotificationModal from "./NotificationModal";
 import ContextModal from "../components/ContextModal";
 import PniSection from "./PniSection";
 import { createInitialClientState } from "../init_states/intake";
+import EditModal from "../components/EditModal";
 function CallForm() {
-  // const initInfo = {
-  //   notification: {
-  //     isError: false,
-  //     isErrorNotification: "",
-  //     isErrorMessage: "",
-  //     isTip: false,
-  //     isTipNotification: "",
-  //     isTipMessage: "",
-  //     errorHeaders: [],
-  //     errorMessages: [],
-  //     tipHeaders: [],
-  //     isTipMessages: [],
-  //   },
-  //   pni: {
-  //     name: "",
-  //     pniEducation: "not_asked",
-  //     pniProfession: "",
-  //     pniDob: "",
-  //   },
-  //   sni: {
-  //     name: "",
-  //     sniDob: "",
-  //     sniEducation: "not_asked",
-  //     sniProfession: "",
-  //   },
-  //   auto: {
-  //     additionalDrivers: [],
-  //     claims: [],
-  //     currentCoverage: "not_confirmed",
-  //     whatIsImportant: "",
-  //     vehicles: [],
-  //   },
-  //   home: {
-  //     //calculate replacement year or age
-  //     roof: "",
-  //     yearBuilt: "",
-  //     plumbingUpdated: "",
-  //     electricalUpdated: "",
-  //     dogs: "not_asked",
-  //     dogTypes: [],
-  //     solar: "",
-  //     goodShape: "not_asked",
-  //     businessUse: "not_asked",
-  //     swimmingPool: "not_asked",
-  //     fenced: "not_asked",
-  //     claims: [],
-  //     trampoline: "not_asked",
-  //     addresses: [],
-  //     notes: "",
-  //   },
-  //   otherRisks: {
-  //     umbrella: false,
-  //     otherAddresses: [],
-  //     motorHomes: [],
-  //     offRoad: [],
-  //     motorcycles: [],
-  //   },
-  // };
-
   const [currentData, setCurrentData] = useState(createInitialClientState);
   const [resetKey, setResetKey] = useState(0);
 
@@ -133,7 +75,6 @@ function CallForm() {
       [risk]: { ...prev[risk], [attribute]: !prev[risk][attribute] },
     }));
   };
-
   return (
     <>
       <form className="px-4 py-2 ">
@@ -149,6 +90,16 @@ function CallForm() {
             type="isTip"
             header={currentData.notification.isTipNotification}
             message={currentData.notification.isTipMessage}
+          />
+        )}
+        {currentData.notification.editModal && (
+          <EditModal
+            item={currentData.notification.editItem}
+            attribute={currentData.notification.editAttribute}
+            index={currentData.notification.index}
+            handler={setCurrentData}
+            currentData={currentData}
+            setCurrentData={setCurrentData}
           />
         )}
         <div className="flex justify-center items-center gap-3">
