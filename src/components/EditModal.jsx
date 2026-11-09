@@ -169,9 +169,9 @@ function EditModal({ item, attribute, index, currentData, setCurrentData }) {
   }
   if (item === "auto" && attribute == "vehicles") {
     return (
-      <section className="fixed top-7 translate-[40%] px-2 shadow-lg shadow-gray-900 z-10 bg-stone-50">
+      <section className="fixed top-7 translate-[25%] px-2 shadow-lg shadow-gray-900 z-10 bg-stone-50">
         <h3 className="font-bold text-xl mt-2">Vehicles</h3>
-        <section className="grid grid-cols-2 bg-rose-300 px-2 py-4 rounded-lg text-sm">
+        <section className="grid grid-cols-2 bg-stone-50 px-2 py-4 rounded-lg text-sm">
           <div className="grid grid-cols-5">
             <label className="mr-2">Year</label>
             <input
