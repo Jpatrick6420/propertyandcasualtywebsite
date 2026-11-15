@@ -151,7 +151,7 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           <ContextModal
             message="roof, walls, foundation, cracks in sidewalk and overhanging trees"
             rule={currentData.home.goodShape == "not_asked"}
-            right="[20rem]"
+            right="64"
           />
         </RadioInput>
       </div>

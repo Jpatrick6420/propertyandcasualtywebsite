@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { formatName } from "../helper/helper";
 import NewDriverSection from "./NewDriverSection";
 import NewVehicleSection from "./NewVehicleSection";
 
@@ -19,9 +20,26 @@ import PniSection from "./PniSection";
 import { createInitialClientState } from "../init_states/intake";
 import EditModal from "../components/EditModal";
 function CallForm() {
+  const [currentIntakes, setCurrentIntakes] = useState([]);
   const [currentData, setCurrentData] = useState(createInitialClientState);
-  const [resetKey, setResetKey] = useState(0);
 
+  const [resetKey, setResetKey] = useState(0);
+  const [intakeIdx, setIntakeIdx] = useState(null);
+  function addIntake() {
+    setCurrentIntakes((prev) => [...prev, currentData]);
+    setCurrentData(createInitialClientState);
+  }
+  function clearIntakes() {
+    setCurrentIntakes([]);
+    setCurrentData(createInitialClientState);
+  }
+  const saveIntake = () => {
+    if (intakeIdx === null) return;
+
+    setCurrentIntakes((prev) =>
+      prev.map((item, i) => (i === intakeIdx ? currentData : item)),
+    );
+  };
   useEffect(() => {
     if (
       currentData.notification.isError === false &&
@@ -76,7 +94,24 @@ function CallForm() {
     }));
   };
   return (
-    <>
+    <section>
+      {
+        <ul className="flex items-center text-xs gap-2 ml-2">
+          {currentIntakes.map((_, i) => (
+            <li
+              type="button"
+              className="bg-stone-300 px-2 py-0.5 rounded-md "
+              key={i}
+              onClick={() => {
+                setCurrentData(currentIntakes[i]);
+                setIntakeIdx(i);
+              }}
+            >
+              {`${i + 1})`} {formatName(currentIntakes[i]["pni"]["name"])}
+            </li>
+          ))}
+        </ul>
+      }
       <form className="px-4 py-2 ">
         {currentData.notification.isError && (
           <NotificationModal
@@ -227,18 +262,44 @@ function CallForm() {
           setCurrentData={setCurrentData}
         />
       </div>
-      <div className="flex justify-center">
-        <button
-          className="bg-red-600 hover:bg-red-800 active:bg-red-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
-          onClick={resetForm}
-        >
-          Reset Form
-        </button>
-      </div>
+      <section className="flex justify-center items-center gap-3">
+        <div>
+          <button
+            className="bg-blue-600 hover:bg-blue-800 active:bg-blue-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+            onClick={addIntake}
+          >
+            Add Intake
+          </button>
+        </div>
+        <div>
+          <button
+            className="bg-violet-600 hover:bg-violet-800 active:bg-violet-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+            onClick={saveIntake}
+          >
+            Save Intake
+          </button>
+        </div>
+        <div>
+          <button
+            className="bg-amber-600 hover:bg-amber-800 active:bg-amber-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+            onClick={clearIntakes}
+          >
+            Clear Intakes
+          </button>
+        </div>
+        <div>
+          <button
+            className="bg-red-600 hover:bg-red-800 active:bg-red-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+            onClick={resetForm}
+          >
+            Reset Form
+          </button>
+        </div>
+      </section>
       <div>
         <SuggestionSection currentData={currentData} />
       </div>
-    </>
+    </section>
   );
 }
 
