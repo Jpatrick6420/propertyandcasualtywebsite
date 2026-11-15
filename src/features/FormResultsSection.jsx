@@ -122,17 +122,17 @@ Roof Age: ${calcYear(currentData.home.roof)} ${calcAge(currentData.home.roof)}${
 ${
   currentData.home.plumbingUpdated
     ? `Plumbing Updated: ${calcYear(currentData.home.plumbingUpdated)} ${calcAge(currentData.home.plumbingUpdated)} ${currentData.home.plumbingUpdated != "" ? " Years old" : ""}`
-    : ""
+    : "Plumbing not updated"
 }
 ${
   currentData.home.electricalUpdated
     ? `Electrical Updated: ${calcYear(currentData.home.electricalUpdated)} ${calcAge(currentData.home.electricalUpdated)} ${currentData.home.electricalUpdated != "" ? " Years old" : ""}`
-    : ""
+    : "Electrical not updated"
 }
 ${
   currentData.home.heatingUpdated
     ? `Heating Updated: ${calcYear(currentData.home.heatingUpdated)} ${calcAge(currentData.home.heatingUpdated)} ${currentData.home.heatingUpdated != "" ? " Years old" : ""}`
-    : ""
+    : "Heating not updated"
 }   
 Dogs: ${formatName(currentData.home.dogs, "_")}
 ${
@@ -151,7 +151,7 @@ Good Shape: ${formatName(currentData.home.goodShape, "_")}
 Business Use: ${formatName(currentData.home.businessUse, "_")}
 Swimming Pool: ${formatName(currentData.home.swimmingPool, "_")}
 Trampoline: ${formatName(currentData.home.trampoline, "_")}
-Fenced: ${formatName(currentData.home.fenced, "_")}
+${currentData.home.trampoline === "yes" || currentData.home.swimmingPool === "yes" ? `Fenced: ${formatName(currentData.home.fenced, "_")}` : ""}
 
 Home Claims:
 ${

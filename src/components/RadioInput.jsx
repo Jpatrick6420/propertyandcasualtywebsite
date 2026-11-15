@@ -10,7 +10,6 @@ function RadioInput({ value, options, onChange, name, label, children }) {
         return (
           <div key={option} className="flex items-center">
             <label className="text-[10px] flex items-center gap-2">
-              {/* {formatName(option, "_")} */}
               <input
                 type="radio"
                 name={name}

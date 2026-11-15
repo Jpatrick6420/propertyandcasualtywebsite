@@ -165,7 +165,12 @@ function CallForm() {
           ]}
           onChange={(e) => updateItem(e, "auto", "currentCoverage")}
           columns="5"
-        />
+        >
+          <ContextModal
+            message="What made you choose that coverage"
+            rule={currentData.auto.currentCoverage != "not_confirmed"}
+          />
+        </Select>
         <label>What is Important?</label>
         <br></br>
         <textarea

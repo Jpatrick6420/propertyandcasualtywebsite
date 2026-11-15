@@ -1,8 +1,8 @@
 import { formatName } from "../helper/helper";
 
-function Select({ onChange, options, value, label, columns = "2" }) {
+function Select({ onChange, options, value, label, columns = "2", children }) {
   return (
-    <div className={`grid md:grid-cols-${columns} mr-2  `}>
+    <div className={`grid md:grid-cols-${columns} mr-2  relative`}>
       <label>{label}</label>
       <select
         onChange={onChange}
@@ -18,6 +18,7 @@ function Select({ onChange, options, value, label, columns = "2" }) {
           );
         })}
       </select>
+      {children}
     </div>
   );
 }

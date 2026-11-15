@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ContextModal from "../components/ContextModal";
+import { calcObjAge } from "../helper/helper";
 function NewDriverSection({ addNewItem }) {
   const initDriverDetails = {
     name: "",
@@ -40,7 +42,7 @@ function NewDriverSection({ addNewItem }) {
             onChange={(e) => handleFieldChange(e, "name")}
           />
         </div>
-        <div className="mb-1 grid md:grid-cols-2 mr-2">
+        <div className="mb-1 grid md:grid-cols-2 mr-2 relative">
           <label className="mr-2 lg:text-sm">Date of Birth</label>
           <input
             className="border-2 border-gray-600 bg-stone-50 lg:text-sm"
@@ -48,7 +50,15 @@ function NewDriverSection({ addNewItem }) {
             value={driverDetails.dob}
             onChange={(e) => handleFieldChange(e, "dob")}
           />
+          <div>
+            <ContextModal
+              message={calcObjAge(driverDetails.dob)}
+              rule={driverDetails.dob != ""}
+              bgcolor="teal"
+            />
+          </div>
         </div>
+
         <div className="mb-1 grid md:grid-cols-2 mr-2">
           <label className="mr-2 lg:text-sm">Occupation</label>
           <input

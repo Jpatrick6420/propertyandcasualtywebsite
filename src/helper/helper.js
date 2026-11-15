@@ -33,6 +33,12 @@ function calcYear(year) {
   return numYear > 1000 ? numYear : numYear - thisYear;
 }
 
+function calcObjAge(age) {
+  const currentYear = new Date().getFullYear();
+  const numAge = Number(age.split("-")[0]);
+  return currentYear - numAge;
+}
+
 function formatDate(date) {
   const options = {
     month: "numeric",
@@ -68,6 +74,6 @@ const handleEdit = (item, property, idx, value, setCurrentData) => {
     };
   });
 };
-export { calcAge, formatDate, formatName, calcYear, handleEdit };
+export { calcAge, calcObjAge, formatDate, formatName, calcYear, handleEdit };
 
 export default extractText;

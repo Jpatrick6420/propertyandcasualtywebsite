@@ -55,6 +55,7 @@ function EditModal({ item, attribute, index, currentData, setCurrentData }) {
     }
   };
   const handleSubmit = (e, item, attribute, idx, value) => {
+    e.preventDefault();
     handleEdit(item, attribute, idx, value, setCurrentData);
     setCurrentData((prev) => ({
       ...prev,

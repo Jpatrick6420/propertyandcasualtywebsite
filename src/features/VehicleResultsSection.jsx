@@ -1,5 +1,5 @@
 import ContextModal from "../components/ContextModal";
-import { formatName } from "../helper/helper";
+import { formatName, calcObjAge } from "../helper/helper";
 
 function VehicleResultsSection({ currentData, setCurrentData }) {
   const currentYear = new Date().getFullYear();
@@ -52,7 +52,9 @@ function VehicleResultsSection({ currentData, setCurrentData }) {
               onClick={() => handleClick("auto", "vehicles", idx)}
             >
               <td>{idx + 1}</td>
-              <td>{item.year} </td>
+              <td>
+                {item.year} {`(${calcObjAge(item.year)})`}
+              </td>
               <td>{formatName(item.make) || ""}</td>
               <td>{formatName(item.model) || ""}</td>
               <td>{item.vin}</td>

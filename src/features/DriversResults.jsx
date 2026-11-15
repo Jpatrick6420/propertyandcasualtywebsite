@@ -1,5 +1,5 @@
 import ContextModal from "../components/ContextModal";
-import { formatDate, formatName } from "../helper/helper";
+import { formatDate, formatName, calcObjAge } from "../helper/helper";
 
 function DriversResults({ currentData, setCurrentData }) {
   const handleDelete = (e, index) => {
@@ -24,6 +24,7 @@ function DriversResults({ currentData, setCurrentData }) {
       },
     }));
   };
+
   return (
     <div className="px-4 py-8 md:py-0 relative">
       <h3 className="text-xl font-bold mb-4 ">Additional Drivers</h3>
@@ -52,7 +53,10 @@ function DriversResults({ currentData, setCurrentData }) {
               >
                 <td>{i + 1}</td>
                 <td>{formatName(item.name) || ""} </td>
-                <td>{formatDate(item.dob) || ""}</td>
+                <td>
+                  {formatDate(item.dob) || ""}
+                  {`(${calcObjAge(item.dob)})`}{" "}
+                </td>
                 <td>{item.driversLicenseNumber}</td>
                 <td>{formatName(item.occupation) || ""} </td>
                 <td>
