@@ -42,6 +42,7 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           label="Roof"
           value={currentData.home.roof}
           onChange={(e) => updateItem(e, "home", "roof")}
+          placeholder={"Age or Year"}
         >
           <ContextModal
             message="Verify type of roof"
@@ -146,6 +147,11 @@ function HomeSection({ setCurrentData, currentData, updateItem, addNewItem }) {
           <ContextModal
             message="fixed w/in 30 days?"
             rule={currentData.home.goodShape == "no"}
+          />
+          <ContextModal
+            message="roof, walls, foundation, cracks in sidewalk and overhanging trees"
+            rule={currentData.home.goodShape == "not_asked"}
+            right="[20rem]"
           />
         </RadioInput>
       </div>

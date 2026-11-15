@@ -1,5 +1,5 @@
-function ContextModal({ message, rule, bgcolor = "red" }) {
-  let styles = `absolute text-[10px] -right-4 -bottom-2 bg-${bgcolor}-200 rounded-xl px-2 `;
+function ContextModal({ message, rule, bgcolor = "red", right = "2" }) {
+  let styles = `absolute text-[10px] -right-${right} -bottom-2 bg-${bgcolor}-200 rounded-xl px-2 `;
   if (rule === true) {
     styles += ` block`;
   } else {
