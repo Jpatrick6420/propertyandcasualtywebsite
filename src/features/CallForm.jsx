@@ -25,14 +25,7 @@ function CallForm() {
 
   const [resetKey, setResetKey] = useState(0);
   const [intakeIdx, setIntakeIdx] = useState(null);
-  function addIntake() {
-    setCurrentIntakes((prev) => [...prev, currentData]);
-    setCurrentData(createInitialClientState);
-  }
-  function clearIntakes() {
-    setCurrentIntakes([]);
-    setCurrentData(createInitialClientState);
-  }
+
   const saveIntake = () => {
     if (intakeIdx === null) return;
 
@@ -60,6 +53,14 @@ function CallForm() {
     setCurrentData(createInitialClientState());
     setResetKey((prev) => prev + 1);
   };
+  function addIntake() {
+    setCurrentIntakes((prev) => [...prev, currentData]);
+    resetForm();
+  }
+  function clearIntakes() {
+    setCurrentIntakes([]);
+    resetForm();
+  }
   const updateItem = (e, item, attribute) => {
     const newItem = e.target.value;
     setCurrentData((prev) => ({
@@ -110,6 +111,26 @@ function CallForm() {
               {`${i + 1})`} {formatName(currentIntakes[i]["pni"]["name"])}
             </li>
           ))}
+          {currentIntakes.length > 0 && (
+            <>
+              <li>
+                <button
+                  className="bg-blue-600 hover:bg-blue-800 active:bg-blue-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+                  onClick={addIntake}
+                >
+                  Add Intake
+                </button>
+              </li>
+              <li>
+                <button
+                  className="bg-violet-600 hover:bg-violet-800 active:bg-violet-600 py-0.5 px-2 text-stone-50 ml-2 text-xs"
+                  onClick={saveIntake}
+                >
+                  Save Intake
+                </button>
+              </li>
+            </>
+          )}
         </ul>
       }
       <form className="px-4 py-2 ">
